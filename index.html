@@ -3,14 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>星月Fox的小窝</title>
+    <title>星月Fox的主页</title>
     <!-- 网页图标，使用用户头像并确保是圆形的 -->
 
     <link
       rel="icon"
-      href="https://avatars.githubusercontent.com/u/166911432?v=4"
+      href="img/profile/profile_xingyue_fox.jpg"
       type="image/png"
     />
+    <!--原href="https://avatars.githubusercontent.com/u/166911432?v=4"-->
+    
     <!-- 使用SVG过滤器确保头像显示为圆形 -->
     <svg width="0" height="0" style="position: absolute">
       <filter id="roundAvatar">
@@ -168,7 +170,7 @@
           tdElements.forEach((el) => {
             if (!el.className.includes("border")) {
               el.className =
-                "border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300";
+                "border border-gray-300 dark:border-gray-700 dark:bg-black/40-4 py-2 text-gray-700 dark:text-gray-300";
             }
           });
         }
@@ -194,7 +196,7 @@
               },
               secondary: {
                 DEFAULT: "#2575fc",
-                dark: "60a5fa",
+                dark: "#60a5fa",
               },
               "primary-dark": "#2575fc",
               "secondary-dark": "#60a5fa",
@@ -227,7 +229,7 @@
           -webkit-text-fill-color: transparent;
         }
         .bg-gradient-custom {
-          background: linear-gradient(135deg, #035df8, #2575fc);
+          background: linear-gradient(135deg, #6d03f8, #035df8, #ff3cff, #ff6f2c);/*头像框下按钮颜色*/
         }
         .card-hover {
           transition: all 0.3s ease;
@@ -240,9 +242,9 @@
         }
         /* 云母效果和边框光效 */
         .glass-panel {
-          background: rgba(255, 255, 255, 0.75);
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
+          background: rgba(255, 255, 255, 0.6);
+          backdrop-filter: blur(25px);
+          -webkit-backdrop-filter: blur(25px);
           border: 1px solid rgba(255, 255, 255, 0.3);
           box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
           position: relative;
@@ -323,10 +325,10 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url("background.jpg");
+        background-image: url("img/background/background2606.jpg");
         background-size: cover;
         background-position: center;
-        filter: blur(8px);
+        filter: blur(2px);
         transform: scale(1.1); /* 略微放大以避免边缘出现空白 */
       }
 
@@ -337,13 +339,13 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #f3f4f680;
+        background-color: #ffffff30;
         opacity: 0.8;
       }
 
       /* 深色模式下的背景遮罩 */
       .dark .bg-overlay {
-        background-color: #121212;
+        background-color: #00000071;
       }
 
       /* 动画样式 */
@@ -352,10 +354,10 @@
       }
       @keyframes glow {
         from {
-          box-shadow: 0 0 5px #60a5fac4;
+          box-shadow: 0 0 5px rgba(188, 81, 255, 0.29);
         }
         to {
-          box-shadow: 0 0 20px #60a5fac4;
+          box-shadow: 0 0 20px #7648ff60;
         }
       }
       .animate-fade-in {
@@ -404,7 +406,7 @@
 
     <!-- 顶部导航栏 -->
     <nav
-      class="fixed w-full top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-sm"
+      class="fixed w-full top-0 z-50 bg-white/40 dark:bg-black/40 backdrop-blur-md shadow-sm"
     >
       <div
         class="container mx-auto px-4 py-3 flex justify-between items-center"
@@ -412,29 +414,30 @@
         <!-- 顶栏左上角显示头像和用户名 -->
         <div class="flex items-center space-x-3">
           <img
-            src="https://avatars.githubusercontent.com/u/166911432?v=4"
+            src="img/profile/profile_xingyue_fox.jpg"
             alt="星月Fox"
             class="w-8 h-8 rounded-full border-2 border-white dark:border-gray-700 shadow-sm"
           />
+          <!--原src="https://avatars.githubusercontent.com/u/166911432?v=4"-->
 
-          <span class="font-bold text-lg">星月Fox的小窝</span>
+          <span class="font-bold text-lg">星月Fox的主页</span>
         </div>
         <div class="flex items-center space-x-4">
           <!-- 极简模式开关 -->
           <button
             id="minimal-mode-toggle"
-            class="p-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors relative"
+            class="p-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-200/40 transition-colors relative"
           >
             <span class="sr-only">切换极简模式</span>
-            <i class="fa-solid fa-columns text-gray-700 dark:text-gray-200"> 沉浸</i>
+            <i class="fa-solid fa-columns text-gray-800 dark:text-gray-200"> 沉浸</i>
           </button>
 
           <!-- 深色模式切换 -->
           <button
             id="theme-toggle"
-            class="p-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors relative"
+            class="p-2 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-200/40 transition-colors relative"
           >
-            <i class="fa-solid fa-moon text-gray-700 dark:text-gray-200"> 深色主题</i>
+            <i class="fa-solid fa-moon text-gray-800 dark:text-gray-200"> 深色</i>
           
           </button>
           <!--<a
@@ -455,15 +458,17 @@
         <!-- 左侧个人信息 -->
         <div class="lg:col-span-1 animate-fade-in">
           <div
-            class="glass-panel bg-white/30 dark:bg-gray-800/30 rounded-2xl shadow-xl p-6 card-hover"
+            class="glass-panel bg-white/30 dark:bg-black/40 rounded-2xl shadow-xl p-6 card-hover"
           >
             <!-- 头像 -->
             <div class="flex justify-center mb-6">
               <img
-                src="https://avatars.githubusercontent.com/u/166911432?v=4"
+                src="img/profile/profile_xingyue_fox.jpg"
                 alt="星月Fox"
                 class="w-36 h-36 rounded-full border-4 border-white dark:border-gray-700 shadow-lg avatar-glow"
               />
+              <!--原src="https://avatars.githubusercontent.com/u/166911432?v=4"-->
+
             </div>
             <!-- 基本信息 -->
             <div class="text-center mb-6">
@@ -475,7 +480,7 @@
                 href="https://space.bilibili.com/3493117999188634"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-custom text-white font-medium hover:opacity-90 transition-opacity"
+                class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-custom text-white font-medium hover:opacity-90 transition-opacity"
               >
                 <i class="fa-brands fa-bilibili mr-2"></i>
                 访问我的 Bilibili
@@ -484,26 +489,26 @@
             <!-- 统计信息，原浅色面板gray100 dark面板gray700 -->
             <div class="grid grid-cols-2 gap-4">
               <div
-                class="bg-gray-100 dark:bg-gray-800 rounded-xl p-4 text-center"
+                class="bg-gray-100/70 dark:bg-black/40 rounded-xl p-4 text-center"
               >
                 <div
                   class="text-2xl font-bold text-primary dark:text-primary-dark mb-1"
                 >
                   <a href="https://music.163.com/" target="_blank">NetEasy</a>
                 </div>
-                <div class="text-sm text-gray-700 dark:text-gray-400">
+                <div class="text-sm text-gray-700 dark:text-gray-300">
                   来听会音乐?
                 </div>
               </div>
               <div
-                class="bg-gray-100 dark:bg-gray-800 rounded-xl p-4 text-center"
+                class="bg-gray-100/70 dark:bg-black/40 rounded-xl p-4 text-center"
               >
                 <div
-                  class="text-2xl font-bold text-secondary dark:text-secondary-dark mb-1"
+                  class="text-2xl font-bold text-primary dark:text-primary-dark mb-1"
                 >
                   <a href="mailto:xingyue_fox@outlook.com" target="_blank">Email</a>
                 </div>
-                <div class="text-sm text-gray-700 dark:text-gray-400">
+                <div class="text-sm text-gray-700 dark:text-gray-300">
                   联系我
                 </div>
               </div>
@@ -513,24 +518,24 @@
               <h3 class="text-lg font-semibold mb-3">技术栈</h3>
               <div class="flex flex-wrap gap-2">
                 <span
-                  class="px-3 py-1 rounded-full text-sm flex items-center text-white dark:text-white"
-                  style="background-color: #0e2e64"
+                  class="px-3 py-1 rounded-full text-sm flex items-center text-gray-800 dark:text-gray-200"
+                  style="background-color: #80808030"#0e2e64
                 >
                   <i class="fa-solid fa-code mr-1 tech-icon"></i>
                   HTML/CSS
                 </span>
 
                 <span
-                  class="px-3 py-1 rounded-full text-sm flex items-center text-white dark:text-white"
-                  style="background-color: #6a11cb"
+                  class="px-3 py-1 rounded-full text-sm flex items-center text-gray-800 dark:text-gray-200"
+                  style="background-color: #80808030"#6a11cb
                 >
                   <i class="fa-solid fa-code mr-1 tech-icon"></i>
                   Python
                 </span>
 
                 <span
-                  class="px-3 py-1 rounded-full text-sm flex items-center text-white dark:text-white"
-                  style="background-color: #2e6dff"
+                  class="px-3 py-1 rounded-full text-sm flex items-center text-gray-800 dark:text-gray-200"
+                  style="background-color: #80808030"#2e6dff
                 >
                   <i class="fa-solid fa-code mr-1 tech-icon"></i>
                   JavaScript
@@ -541,7 +546,7 @@
 
           <!-- 活动图表 -->
           <div
-            class="glass-panel bg-white/30 dark:bg-gray-800/30 rounded-2xl shadow-xl p-6 mt-6 card-hover animate-fade-in"
+            class="glass-panel bg-white/30 dark:bg-black/40 rounded-2xl shadow-xl p-6 mt-6 card-hover animate-fade-in"
             style="animation-delay: 0.2s"
           >
             <h3 class="text-lg font-semibold mb-3">星月Fox的概览</h3>
@@ -555,7 +560,7 @@
         <div class="lg:col-span-2">
           <!-- README 内容 -->
           <div
-            class="glass-panel bg-white/30 dark:bg-gray-800/30 rounded-2xl shadow-xl p-6 readme-content"
+            class="glass-panel bg-white/30 dark:bg-black/40 rounded-2xl shadow-xl p-6 readme-content"
           >
             <h2 class="text-2xl font-bold mb-4 flex items-center">
             星月Fox是谁？
@@ -573,7 +578,7 @@
           </div>
 
           <div
-            class="glass-panel bg-white/30 dark:bg-gray-800/30 rounded-2xl shadow-xl p-6 mt-6 readme-content"
+            class="glass-panel bg-white/30 dark:bg-black/40 rounded-2xl shadow-xl p-6 mt-6 readme-content"
           >
             <h2 class="text-2xl font-bold mb-4 flex items-center"></h2>
             <div class="max-w-none" id="readme-content">
@@ -582,7 +587,7 @@
               <ul>向我的Email<a href="mailto:xingyue_fox@outlook.com" target="_blank">发送邮件✉️</a>，最好直接写明链接，或者留下其他联系方式</ul>
               <h3 id="recently">🎮游戏台</h3>
               <ul>
-              游戏方面，我是一位12年资历的Minecraft玩家，同时现在也热衷《鸣潮》
+              游戏方面，我是一位13年资历的Minecraft玩家，同时现在也热衷《鸣潮》
             </ul>
             <ul></ul>
             <ul>如果你喜欢赛车，那你一定不要忘了地平线！😆</ul>
@@ -591,7 +596,7 @@
                 <!--超链接-->
                 <div class="flex flex-wrap gap-2">
                   <span
-                    class="px-10 py-3 bg-white dark:bg-gray-800 rounded-lg p-4 text-center"
+                    class="px-10 py-3 bg-gray-50/60 dark:bg-black/40 rounded-lg p-4 text-center"
                   >
                     <a href="https://Minecraft.net" target="_blank"
                       >Minecraft</a
@@ -599,19 +604,19 @@
                   </span>
 
                   <span
-                    class="px-14 py-3 bg-white dark:bg-gray-800 rounded-lg p-4 text-center"
+                    class="px-14 py-3 bg-gray-50/60 dark:bg-black/40 rounded-lg p-4 text-center"
                   >
                     <a href="https://mc.kurogames.com" target="_blank">鸣潮</a>
                   </span>
 
                   <span
-                    class="px-4 py-3 bg-white dark:bg-gray-800 rounded-lg p-4 text-center"
+                    class="px-4 py-3 bg-gray-50/60 dark:bg-black/40 rounded-lg p-4 text-center"
                   >
                     <a href="https://forza.net/" target="_blank">极限竞速：地平线</a>
                   </span>
 
                   <span
-                    class="px-11 py-3 bg-white dark:bg-gray-800 rounded-lg p-4 text-center"
+                    class="px-11 py-3 bg-gray-50/60 dark:bg-black/40 rounded-lg p-4 text-center"
                   >
                     <a href="https://bluearchive.jp" target="_blank"
                       >蔚蓝档案</a
@@ -672,15 +677,15 @@
 
 
                <h3 id="recently">🚧维护概览</h3>
-              <ul>最后维护于2026/05/10</ul>
-              <ul>[5月补充更新]此次更新包含对于5月更新的错误修复和改进</ul>
-              
+              <ul>最后维护于2026/06/07</ul>
+              <ul>[6月更新]此次为2026年第2号季度累积更新</ul>
+
             </div>
           </div>
 
           <!-- 友链预留位 -->
           <div
-            class="glass-panel bg-white/30 dark:bg-gray-800/30 rounded-2xl shadow-xl p-6 mt-6 card-hover animate-fade-in"
+            class="glass-panel bg-white/30 dark:bg-black/40 rounded-2xl shadow-xl p-6 mt-6 card-hover animate-fade-in"
             style="animation-delay: 0.4s"
           >            <h2 class="text-2xl font-bold mb-4 flex items-center">
               <i
@@ -695,7 +700,7 @@
                 href="https://drive.google.com/drive/folders/15v32ha1JSSh7SUVVIhJyqWlZYyvI0mOw"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block p-4 bg-gray-50 dark:bg-gray-800 rounded-xl repo-item hover:bg-gray-100 dark:hover:bg-gray-600"
+                class="block p-4 bg-gray-50/60 dark:bg-black/40 rounded-xl repo-item hover:bg-gray-100 dark:hover:bg-gray-300/10"
               >
                 <div class="flex justify-between items-start mb-2">
                   <h3
@@ -711,14 +716,14 @@
                   </span>
                 </div>
                 <p class="text-gray-800 dark:text-gray-200 text-sm mb-2">
-                  抱歉，我目前没时间弄内嵌式图片，所以这是一个由Google托管的页面
+                  网页内嵌式图片正在完善，目前此链接是一个由Google托管的页面
                 </p>
                 <div
                   class="flex justify-between items-center text-xs text-gray-500 dark:text-gray-400"
                 >
                   <span>Google Drive</span>
                   <span class="update-date" data-date="2026-02-24T19:21:04Z"
-                    >更新于 2026-05-04</span
+                    >更新于 2026-06-06</span
                   >
                 </div>
               </a>
@@ -728,7 +733,7 @@
                 href="https://drive.google.com/drive/folders/1GwBykGeMJ3pF_mcbdA9TX9RgzC_3dyzQ"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block p-4 bg-gray-50 dark:bg-gray-800 rounded-xl repo-item hover:bg-gray-100 dark:hover:bg-gray-600"
+                class="block p-4 bg-gray-50/60 dark:bg-black/40 rounded-xl repo-item hover:bg-gray-100 dark:hover:bg-gray-300/10"
               >
                 <div class="flex justify-between items-start mb-2">
                   <h3
@@ -751,7 +756,7 @@
                 >
                   <span>Google Drive</span>
                   <span class="update-date" data-date="2026-02-11T00:50:26Z"
-                    >更新于 2026-05-02</span
+                    >更新于 2026-06-06</span
                   >
                 </div>
               </a>
@@ -761,7 +766,7 @@
                 href=""
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block p-4 bg-gray-50 dark:bg-gray-800 rounded-xl repo-item hover:bg-gray-100 dark:hover:bg-gray-600"
+                class="block p-4 bg-gray-50/60 dark:bg-black/40 rounded-xl repo-item hover:bg-gray-100 dark:hover:bg-gray-300/10"
               >
                 <div class="flex justify-between items-start mb-2">
                   <h3
@@ -798,7 +803,7 @@
 
     <!-- 页脚 -->
     <footer
-      class="glass-panel bg-white/30 dark:bg-gray-800/30 shadow-inner py-6"
+      class="glass-panel bg-white/30 dark:bg-black/30 shadow-inner py-5"
     >
       <div
         class="container mx-auto px-4 text-center text-gray-600 dark:text-gray-400"
@@ -932,7 +937,7 @@
             // 恢复背景模糊效果
             if (bgImage) {
               bgImage.style.transition = "filter 0.5s ease";
-              bgImage.style.filter = "blur(8px)";
+              bgImage.style.filter = "blur(2px)";
             }
 
             // 移除极简模式按钮的激活样式

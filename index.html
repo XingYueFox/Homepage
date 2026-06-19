@@ -3,7 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="html_title">星月Fox的主页</title>
+    <title>星月Fox的主页</title>
+    
+    <!-- 立即执行防闪烁脚本：在 DOM 绘制前立即计算并应用 dark 属性，防止深色模式下初始化闪白 -->
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      })();
+    </script>
+
     <link
       rel="icon"
       href="img/profile/profile_xingyue_fox.jpg"
@@ -58,43 +72,43 @@
           h1Elements.forEach((el) => {
             if (!el.className.includes("font-bold")) {
               el.className =
-                "text-4xl font-bold mt-8 mb-4 text-gray-900 dark:text-white border-b pb-3 border-gray-300 dark:border-gray-700";
+                "text-4xl font-bold mt-8 mb-4 text-neutral-900 dark:text-white border-b pb-3 border-neutral-300 dark:border-neutral-700";
             }
           });
           h2Elements.forEach((el) => {
             if (!el.className.includes("font-bold")) {
               el.className =
-                "text-3xl font-bold mt-6 mb-3 text-gray-900 dark:text-white border-b pb-2 border-gray-300 dark:border-gray-700";
+                "text-3xl font-bold mt-6 mb-3 text-neutral-900 dark:text-white border-b pb-2 border-neutral-300 dark:border-neutral-700";
             }
           });
           h3Elements.forEach((el) => {
             if (!el.className.includes("font-bold")) {
               el.className =
-                "text-2xl font-bold mt-5 mb-2 text-gray-900 dark:text-white";
+                "text-2xl font-bold mt-5 mb-2 text-neutral-900 dark:text-white";
             }
           });
           h4Elements.forEach((el) => {
             if (!el.className.includes("font-bold")) {
               el.className =
-                "text-xl font-bold mt-4 mb-2 text-gray-900 dark:text-white";
+                "text-xl font-bold mt-4 mb-2 text-neutral-900 dark:text-white";
             }
           });
           pElements.forEach((el) => {
-            if (!el.className.includes("text-gray")) {
+            if (!el.className.includes("text-neutral")) {
               el.className =
-                "mb-4 text-gray-700 dark:text-gray-300 leading-relaxed text-base";
+                "mb-4 text-neutral-700 dark:text-neutral-300 leading-relaxed text-base";
             }
           });
           ulElements.forEach((el) => {
             if (!el.className.includes("list-disc")) {
               el.className =
-                "list-disc list-inside mb-4 ml-4 text-gray-700 dark:text-gray-300 space-y-1 text-base";
+                "list-disc list-inside mb-4 ml-4 text-neutral-700 dark:text-neutral-300 space-y-1 text-base";
             }
           });
           olElements.forEach((el) => {
             if (!el.className.includes("list-decimal")) {
               el.className =
-                "list-decimal list-inside mb-4 ml-4 text-gray-700 dark:text-gray-300 space-y-1 text-base";
+                "list-decimal list-inside mb-4 ml-4 text-neutral-700 dark:text-neutral-300 space-y-1 text-base";
             }
           });
           liElements.forEach((el) => {
@@ -105,16 +119,16 @@
           codeElements.forEach((el) => {
             if (
               el.parentElement.tagName !== "PRE" &&
-              !el.className.includes("bg-gray")
+              !el.className.includes("bg-neutral")
             ) {
               el.className =
-                "bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-red-600 dark:text-red-400 font-mono text-sm break-words";
+                "bg-neutral-200 dark:bg-neutral-700 px-2 py-1 rounded text-red-600 dark:text-red-400 font-mono text-sm break-words";
             }
           });
           preElements.forEach((el) => {
-            if (!el.className.includes("bg-gray-900")) {
+            if (!el.className.includes("bg-neutral-900")) {
               el.className =
-                "bg-gray-900 dark:bg-gray-950 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4 text-sm";
+                "bg-neutral-900 dark:bg-neutral-950 text-neutral-100 p-4 rounded-lg overflow-x-auto mb-4 text-sm";
             }
           });
           //链接文本颜色
@@ -132,19 +146,19 @@
           blockquoteElements.forEach((el) => {
             if (!el.className.includes("border-l")) {
               el.className =
-                "border-l-4 border-gray-400 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 pl-4 py-2 my-4 text-gray-700 dark:text-gray-300 italic";
+                "border-l-4 border-neutral-400 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-800 pl-4 py-2 my-4 text-neutral-700 dark:text-neutral-300 italic";
             }
           });
           hrElements.forEach((el) => {
             if (!el.className.includes("border")) {
               el.className =
-                "my-6 border-t border-gray-300 dark:border-gray-700";
+                "my-6 border-t border-neutral-300 dark:border-neutral-700";
             }
           });
           tableElements.forEach((el) => {
             if (!el.className.includes("min-w-full")) {
               el.className =
-                "min-w-full border-collapse border border-gray-300 dark:border-gray-700 my-4";
+                "min-w-full border-collapse border border-neutral-300 dark:border-neutral-700 my-4";
             }
           });
 
@@ -154,14 +168,14 @@
           thElements.forEach((el) => {
             if (!el.className.includes("bg")) {
               el.className =
-                "bg-gray-200 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-4 py-2 font-semibold text-gray-900 dark:text-white text-left";
+                "bg-neutral-200 dark:bg-neutral-700 border border-neutral-300 dark:border-neutral-600 px-4 py-2 font-semibold text-neutral-900 dark:text-white text-left";
             }
           });
 
           tdElements.forEach((el) => {
             if (!el.className.includes("border")) {
               el.className =
-                "border border-gray-300 dark:border-gray-700 dark:bg-black/40-4 py-2 text-gray-700 dark:text-gray-300";
+                "border border-neutral-300 dark:border-neutral-700 dark:bg-black/40-4 py-2 text-neutral-700 dark:text-neutral-300";
             }
           });
         }
@@ -282,12 +296,13 @@
       body {
         transition: background-color 0.4s ease, color 0.4s ease;
       }
-      /* 浅色无背景图时使用温和纯白，深色无图时使用极致纯黑 */
+      /* 浅色无背景图时使用纯白，深色无图时使用纯黑 */
       body {
         background-color: #ffffff;
       }
-      body.dark {
-        background-color: #000000;
+
+      .dark body {
+        background-color: #171717;
       }
 
       /* 背景图片容器 */
@@ -331,7 +346,7 @@
       }
 
       .dark .bg-overlay {
-        background-color: #000000d6;
+        background-color: #171717d6;
         opacity: 0.65; /* 配合纯黑背景，使背景图在黑夜下极其具有优雅沉浸感 */
       }
 
@@ -382,16 +397,29 @@
         transform: scale(0.96) translateY(-8px);
         opacity: 0;
         pointer-events: none;
-        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
       }
       #options-menu.show {
         transform: scale(1) translateY(0);
         opacity: 1;
         pointer-events: auto;
       }
+
+      /* 弹出式仿二级菜单核心样式 */
+      #lang-sub-panel {
+        transform: scale(0.95) translateX(6px);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+      }
+      #lang-sub-panel.show {
+        transform: scale(1) translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
     </style>
   </head>
-  <body class="text-gray-800 dark:text-gray-200 min-h-screen">
+  <body class="text-neutral-800 dark:text-neutral-200 min-h-screen">
     <div class="bg-container">
       <div id="main-bg-image" class="bg-image"></div>
       <div id="main-bg-overlay" class="bg-overlay"></div>
@@ -407,80 +435,100 @@
           <img
             src="img/profile/profile_xingyue_fox.jpg"
             alt="星月Fox"
-            class="w-8 h-8 rounded-full border-2 border-white dark:border-gray-700 shadow-sm"
+            class="w-8 h-8 rounded-full border-2 border-white dark:border-neutral-700 shadow-sm"
           />
-          <span class="font-bold text-lg tracking-wide" data-i18n="nav_title">星月Fox的主页</span>
+          <span class="font-bold text-lg tracking-wide">星月Fox的主页</span>
         </div>
         
         <div class="relative">
           <button
             id="menu-btn"
-            class="flex items-center space-x-1.5 p-2 px-3 rounded-xl bg-gray-200/40 dark:bg-gray-800/40 hover:bg-gray-200/70 dark:hover:bg-gray-700/50 transition-colors text-gray-800 dark:text-gray-200 shadow-sm border border-white/20"
+            class="flex items-center space-x-1.5 p-2 px-3 rounded-xl bg-white/60 dark:bg-neutral-900/50 hover:bg-neutral-200/20 dark:hover:bg-white/10 transition-colors text-neutral-800 dark:text-neutral-200 shadow-sm border border-white/20 dark:border-neutral-500/20 card-hover"
           >
             <i class="fa-solid fa-sliders text-xs opacity-80"></i>
-            <span class="text-sm font-semibold" data-i18n="menu_options">选项</span>
+            <span class="text-sm font-semibold">选项</span>
             <i class="fa-solid fa-chevron-down text-[10px] opacity-50 transition-transform duration-200" id="menu-arrow"></i>
           </button>
 
+          <!-- 选项菜单主体 -->
           <div
             id="options-menu"
-            class="absolute right-0 mt-2 w-52 rounded-2xl shadow-2xl p-1.5 bg-white/45 dark:bg-black/45 backdrop-blur-2xl border border-white/30 dark:border-white/10 z-50 text-sm flex overflow-hidden"
+            class="absolute right-0 mt-2 w-52 rounded-2xl shadow-2xl p-1.5 bg-neutral-100 dark:bg-neutral-900 backdrop-blur-2xl border border-white/30 dark:border-white/10 z-50 text-sm"
           >
-            <div class="w-[11.5rem] shrink-0 flex flex-col space-y-0.5">
+            <div class="flex flex-col space-y-0.5 relative">
               <button
                 id="minimal-mode-toggle"
-                class="w-full flex items-center justify-between p-2 px-2.5 rounded-xl hover:bg-gray-200/50 dark:hover:bg-gray-800/50 transition-colors text-left"
+                class="w-full flex items-center justify-between p-2 px-2.5 rounded-xl hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text-left"
               >
                 <span class="flex items-center space-x-2">
                   <i class="fa-solid fa-columns w-4 text-center opacity-70"></i>
-                  <span data-i18n="menu_immersive">沉浸模式</span>
+                  <span>隐藏面板</span>
                 </span>
-                <span id="immersive-status" class="text-[11px] bg-gray-300/50 dark:bg-gray-700/50 px-1.5 py-0.5 rounded text-gray-500 dark:text-gray-400" data-i18n="status_off">关闭</span>
+                <span id="immersive-status" class="text-[11px] bg-neutral-300/50 dark:bg-neutral-700/50 px-1.5 py-0.5 rounded text-neutral-500 dark:text-neutral-400">关闭</span>
               </button>
 
               <button
                 id="bg-visibility-toggle"
-                class="w-full flex items-center justify-between p-2 px-2.5 rounded-xl hover:bg-gray-200/50 dark:hover:bg-gray-800/50 transition-colors text-left"
+                class="w-full flex items-center justify-between p-2 px-2.5 rounded-xl hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text-left"
               >
                 <span class="flex items-center space-x-2">
                   <i class="fa-solid fa-image w-4 text-center opacity-70"></i>
-                  <span data-i18n="menu_bg">显示背景</span>
+                  <span>显示背景</span>
                 </span>
-                <span id="bg-status" class="text-[11px] bg-green-500/20 text-green-600 dark:text-green-400 px-1.5 py-0.5 rounded" data-i18n="status_on">开启</span>
+                <span id="bg-status" class="text-[11px] bg-green-500/20 text-green-600 dark:text-green-400 px-1.5 py-0.5 rounded">开启</span>
               </button>
 
               <button
                 id="theme-toggle"
-                class="w-full flex items-center justify-between p-2 px-2.5 rounded-xl hover:bg-gray-200/50 dark:hover:bg-gray-800/50 transition-colors text-left"
+                class="w-full flex items-center justify-between p-2 px-2.5 rounded-xl hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text-left"
               >
                 <span class="flex items-center space-x-2">
-                  <i class="fa-solid fa-moon w-4 text-center opacity-70"></i>
-                  <span data-i18n="menu_darkmode">深色模式</span>
+                  <i class="fa-solid fa-circle-half-stroke w-4 text-center opacity-70"></i>
+                  <span>深色模式</span>
                 </span>
-                <span id="dark-status" class="text-[11px] bg-gray-300/50 dark:bg-gray-700/50 px-1.5 py-0.5 rounded text-gray-500 dark:text-gray-400">Auto</span>
+                <span id="dark-status" class="text-[11px] bg-neutral-300/50 dark:bg-neutral-700/50 px-1.5 py-0.5 rounded text-neutral-500 dark:text-neutral-400">Auto</span>
               </button>
 
-              <div class="h-[1px] bg-gray-300/30 dark:bg-gray-700/40 my-1"></div>
+              <div class="h-[2px] bg-neutral-300/30 dark:bg-neutral-700/40 my-1"></div>
 
               <button
                 id="lang-expand-btn"
-                class="w-full flex items-center justify-between p-2 px-2.5 rounded-xl hover:bg-gray-200/50 dark:hover:bg-gray-800/50 transition-colors text-left"
+                class="w-full flex items-center justify-between p-2 px-2.5 rounded-xl hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text-left"
               >
                 <span class="flex items-center space-x-2">
                   <i class="fa-solid fa-language w-4 text-center opacity-70"></i>
-                  <span data-i18n="menu_lang">切换语言</span>
+                  <span>切换语言</span>
                 </span>
                 <div class="flex items-center space-x-1 text-xs text-primary dark:text-primary-dark font-medium">
                   <span id="menu-lang-indicator">中文</span>
-                  <i class="fa-solid fa-chevron-right text-[9px] opacity-60 transition-transform duration-300" id="lang-arrow"></i>
+                  <i class="fa-solid fa-chevron-left text-[9px] opacity-60 transition-transform duration-300" id="lang-arrow"></i>
                 </div>
               </button>
-            </div>
 
-            <div id="lang-sub-panel" class="w-32 border-l border-gray-300/20 dark:border-gray-700/30 ml-2 pl-2 flex flex-col space-y-0.5 opacity-0 pointer-events-none transition-opacity duration-200">
-              <button data-lang-set="zh" class="w-full text-left p-1.5 px-2 rounded-lg hover:bg-primary/10 hover:text-primary dark:hover:text-primary-dark transition-colors text-xs font-medium">简体中文</button>
-              <button data-lang-set="en" class="w-full text-left p-1.5 px-2 rounded-lg hover:bg-primary/10 hover:text-primary dark:hover:text-primary-dark transition-colors text-xs font-medium">English</button>
-              <button data-lang-set="ja" class="w-full text-left p-1.5 px-2 rounded-lg hover:bg-primary/10 hover:text-primary dark:hover:text-primary-dark transition-colors text-xs font-medium">日本語</button>
+              <div class="h-[2px] bg-neutral-300/30 dark:bg-neutral-700/40 my-1"></div>
+
+              <button
+                id="about-btn"
+                class="w-full flex items-center justify-between p-2 px-2.5 rounded-xl hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text-left text-neutral-800 dark:text-neutral-200"
+              >
+                <span class="flex items-center space-x-2">
+                  <i class="fa-solid fa-circle-info w-4 text-center opacity-70"></i>
+                  <span>关于</span>
+                </span>
+              </button>
+
+              <!-- 侧边浮动二级菜单-->
+              <div
+                id="lang-sub-panel"
+                class="absolute right-[103%] top-[108px] w-32 rounded-2xl shadow-2xl p-1.5 bg-neutral-100 dark:bg-neutral-900 backdrop-blur-2xl border border-white/30 dark:border-white/10 z-50 flex flex-col space-y-0.5"
+              >
+                <button data-lang-set="zh-cn" class="w-full text-left p-1.5 px-2 rounded-lg hover:bg-primary/10 hover:text-primary dark:hover:text-primary-dark transition-colors text- font-medium">简体中文</button>
+                <button data-lang-set="zh-hk" class="w-full text-left p-1.5 px-2 rounded-lg hover:bg-primary/10 hover:text-primary dark:hover:text-primary-dark transition-colors text- font-medium">繁体中文</button>
+                <button data-lang-set="zh-wy" class="w-full text-left p-1.5 px-2 rounded-lg hover:bg-primary/10 hover:text-primary dark:hover:text-primary-dark transition-colors text- font-medium">文言</button>
+                <button data-lang-set="ja" class="w-full text-left p-1.5 px-2 rounded-lg hover:bg-primary/10 hover:text-primary dark:hover:text-primary-dark transition-colors text- font-medium">日本语</button>
+                <button data-lang-set="en" class="w-full text-left p-1.5 px-2 rounded-lg hover:bg-primary/10 hover:text-primary dark:hover:text-primary-dark transition-colors text- font-medium">English</button>
+                <button data-lang-set="ru" class="w-full text-left p-1.5 px-2 rounded-lg hover:bg-primary/10 hover:text-primary dark:hover:text-primary-dark transition-colors text- font-medium">русский</button>
+              </div>
             </div>
           </div>
         </div>
@@ -491,44 +539,44 @@
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div class="lg:col-span-1 animate-fade-in">
           <div
-            class="glass-panel bg-white/30 dark:bg-black/40 rounded-2xl shadow-xl p-6 card-hover"
+            class="glass-panel bg-white/30 dark:bg-black/40 rounded-2xl shadow-xl p-6 "
           >
             <div class="flex justify-center mb-6">
               <img
                 src="img/profile/profile_xingyue_fox.jpg"
                 alt="星月Fox"
-                class="w-36 h-36 rounded-full border-4 border-white dark:border-gray-700 shadow-lg avatar-glow"
+                class="w-36 h-36 rounded-full border-4 border-white dark:border-neutral-700 shadow-lg avatar-glow"
               />
               </div>
             <div class="text-center mb-6">
-              <h1 class="text-2xl font-bold mb-2" data-i18n="profile_name">星月Fox</h1>
-              <p class="text-gray-600 dark:text-gray-400 mb-4 text-base" data-i18n="profile_bio">
+              <h1 class="text-2xl font-bold mb-2">星月Fox</h1>
+              <p class="text-neutral-600 dark:text-neutral-400 mb-4 text-base">
                 密码下周就能想起来
               </p>
               <a
                 href="https://github.com/xingyuefox"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-custom text-blue-200 font-medium hover:opacity-90 transition-opacity"
+                class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-custom text-blue-200 font-medium hover:opacity-80 transition-opacity"
               >
                 <i class="fa-brands fa-github mr-2"></i>
-                <span data-i18n="btn_github">访问我的 Github</span>
+                <span>访问我的 Github</span>
               </a>
             </div>
             <div class="grid grid-cols-2 gap-4">
-              <div class="bg-gray-100/50 dark:bg-black/30 border border-black/5 dark:border-white/5 rounded-xl p-4 text-center">
+              <div class="bg-neutral-100/50 dark:bg-black/30 border border-black/5 dark:border-white/5 rounded-xl p-4 card-hover text-center">
                 <div class="text-2xl font-bold text-primary dark:text-primary-dark mb-1">
                   <a href="https://limestart.cn/" target="_blank" class="hover:underline">limestart</a>
                 </div>
-                <div class="text-sm text-gray-600 dark:text-gray-400" data-i18n="card_1">
+                <div class="text-sm text-neutral-600 dark:text-neutral-400">
                   青柠起始页
                 </div>
               </div>
-              <div class="bg-gray-100/50 dark:bg-black/30 border border-black/5 dark:border-white/5 rounded-xl p-4 text-center">
+              <div class="bg-neutral-100/50 dark:bg-black/30 border border-black/5 dark:border-white/5 rounded-xl p-4 card-hover text-center">
                 <div class="text-2xl font-bold text-primary dark:text-primary-dark mb-1">
                   <a href="mailto:xingyue_fox@outlook.com" target="_blank" class="hover:underline">Email</a>
                 </div>
-                <div class="text-sm text-gray-600 dark:text-gray-400" data-i18n="card_2">
+                <div class="text-sm text-neutral-600 dark:text-neutral-400">
                   联系我
                 </div>
               </div>
@@ -550,7 +598,7 @@
           </div>
 
           <div
-            class="glass-panel bg-white/30 dark:bg-black/40 rounded-2xl shadow-xl p-6 mt-6 card-hover animate-fade-in"
+            class="glass-panel bg-white/30 dark:bg-black/40 rounded-2xl shadow-xl p-6 mt-6 animate-fade-in"
             style="animation-delay: 0.2s"
           >
             <h3 class="text-lg font-semibold mb-3">星月Fox的概览</h3>
@@ -562,108 +610,108 @@
 
         <div class="lg:col-span-2 flex flex-col gap-6">
           <div class="glass-panel rounded-2xl p-6 animate-fade-in" id="intro-panel" style="animation-delay: 0.1s">
-            <h2 class="text-2xl font-bold mb-4 flex items-center" data-i18n="about_title">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">
               星月Fox是谁？
             </h2>
-            <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-base" data-i18n="about_p1">
-              海内存知己，天涯若比邻。你好👋很高兴能在这里见到，我是星月Fox。17岁高中生，对有趣的世界和有趣的你感到好奇
+            <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed text-base">
+              海内存知己，天涯若比邻。你好👋很高兴能在这里见到，我是星月Fox，17岁高中生。
             </p>
-            <p class="mt-2 text-gray-700 dark:text-gray-300 leading-relaxed text-base" data-i18n="about_p2">
+            <p class="mt-2 text-neutral-700 dark:text-neutral-300 leading-relaxed text-base">
               技术极客，对于UI设计/前端感兴趣。擅长Windows系统运维。
             </p>
           </div>
 
           <div class="glass-panel rounded-2xl p-6 animate-fade-in" id="readme-panel" style="animation-delay: 0.3s">
             <div class="max-w-none text-base leading-relaxed" id="readme-content">
-              <h3 class="text-2xl font-bold mt-2 mb-3 text-gray-900 dark:text-white" id="recently" data-i18n="greet_title">🥰很高兴认识你</h3>
-              <p class="mb-2 text-gray-700 dark:text-gray-300" data-i18n="greet_link">交换友链？</p>
-              <p class="mb-4 text-gray-700 dark:text-gray-300">
-                <span data-i18n="greet_mail">向我的Email</span>
+              <h3 class="text-2xl font-bold mt-2 mb-3 text-neutral-900 dark:text-white" id="recently">🥰很高兴认识你</h3>
+              <p class="mb-2 text-neutral-700 dark:text-neutral-300">交换友链？</p>
+              <p class="mb-4 text-neutral-700 dark:text-neutral-300">
+                <span>向我的Email</span>
                 <a href="mailto:xingyue_fox@outlook.com" target="_blank" class="hover:underline font-semibold">发送邮件✉️</a>，
-                <span data-i18n="greet_detail">最好直接写明链接，或者留下其他联系方式</span>
+                <span>最好直接写明链接，或者留下其他联系方式</span>
               </p>
               
-              <h3 class="text-2xl font-bold mt-8 mb-3 text-gray-900 dark:text-white" data-i18n="proj_title">📖我的项目</h3>
-              <p class="text-gray-700 dark:text-gray-300" data-i18n="proj_1">HomePage部署:基于Flask的个人主页</p>
-              <p class="text-gray-700 dark:text-gray-300 mt-1">
-                <span data-i18n="proj_2">目前正在使用</span>
-                <a href="https://m3.material.io/" target="_blank" class="hover:underline">Material3 Expressive设计规范</a>
-                <span data-i18n="proj_2_1">改进此页面</span>
+              <h3 class="text-2xl font-bold mt-8 mb-3 text-neutral-900 dark:text-white">📖我的项目</h3>
+              <p class="text-neutral-700 dark:text-neutral-300">HomePage部署:基于Flask的个人主页</p>
+              <p class="text-neutral-700 dark:text-neutral-300 mt-1">
+                <span>目前正在使用</span>
+                <a href="https://fluent2.microsoft.design/" target="_blank" class="hover:underline">Fluent 2 Design设计规范</a>
+                <span>改进此页面</span>
               </p>
-              <div class="my-3 border-t border-gray-200/30 dark:border-gray-700/30"></div>
-              <p class="text-sm text-gray-500 italic" data-i18n="proj_explore">发现有趣的项目</p>
+              <div class="my-3 border-t border-neutral-200/30 dark:border-neutral-700/30"></div>
+              <p class="text-sm text-neutral-500 italic">发现有趣的项目</p>
 
+             
+              <h3 class="text-2xl font-bold mt-8 mb-3 text-neutral-900 dark:text-white">🛠️工具(Beta)</h3>
+              <p class="text-neutral-700 dark:text-neutral-300">即将上线！</p>
             
-              <h3 class="text-2xl font-bold mt-8 mb-3 text-gray-900 dark:text-white" data-i18n="game_title">🎮游戏台</h3>
-              <p class="mb-2 text-gray-700 dark:text-gray-300" data-i18n="game_p1">
-                游戏方面，非常推荐去试试下面这些！
+              <h3 class="text-2xl font-bold mt-8 mb-3 text-neutral-900 dark:text-white">🎮游戏台</h3>
+              <p class="mb-2 text-neutral-700 dark:text-neutral-300">
+                
               </p>
               
               <div class="grid grid-cols-2 md:grid-cols-4 gap-3 my-4">
-                <div class="bg-gray-100/40 dark:bg-black/20 border border-black/5 dark:border-white/5 rounded-xl p-3 text-center card-hover flex items-center justify-center">
-                  <a href="https://Minecraft.net" target="_blank" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary font-semibold text-sm">
+                <div class="bg-neutral-100/40 dark:bg-black/20 border border-black/5 dark:border-white/5 rounded-xl p-3 text-center card-hover flex items-center justify-center">
+                  <a href="https://Minecraft.net" target="_blank" class="flex items-center space-x-2 text-neutral-700 dark:text-neutral-300 hover:text-primary font-semibold text-sm">
                     <span class="inline-flex items-center justify-center w-6 h-6 overflow-hidden align-middle"><img src="img/icon/minecraft_logo.jpg" alt="img/icon/minecraft_logo.jpg" class="w-full h-full object-cover block"></span>
                     <span>Minecraft</span>
                   </a>
                 </div>
-                <div class="bg-gray-100/40 dark:bg-black/20 border border-black/5 dark:border-white/5 rounded-xl p-3 text-center card-hover flex items-center justify-center">
-                  <a href="https://mc.kurogames.com" target="_blank" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary font-semibold text-sm">
+                <div class="bg-neutral-100/40 dark:bg-black/20 border border-black/5 dark:border-white/5 rounded-xl p-3 text-center card-hover flex items-center justify-center">
+                  <a href="https://mc.kurogames.com" target="_blank" class="flex items-center space-x-2 text-neutral-700 dark:text-neutral-300 hover:text-primary font-semibold text-sm">
                     <span class="inline-flex items-center justify-center w-6 h-6 overflow-hidden align-middle"><img src="img/icon/wuthering_waves_logo.jpg" alt="img/icon/minecraft_logo.jpg" class="w-full h-full object-cover block"></span>
-                    <span data-i18n="game_mc">鸣潮</span>
+                    <span>鸣潮</span>
                   </a>
                 </div>
-                <div class="bg-gray-100/40 dark:bg-black/20 border border-black/5 dark:border-white/5 rounded-xl p-3 text-center card-hover flex items-center justify-center">
-                  <a href="https://forza.net/" target="_blank" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary font-semibold text-sm">
+                <div class="bg-neutral-100/40 dark:bg-black/20 border border-black/5 dark:border-white/5 rounded-xl p-3 text-center card-hover flex items-center justify-center">
+                  <a href="https://forza.net/" target="_blank" class="flex items-center space-x-2 text-neutral-700 dark:text-neutral-300 hover:text-primary font-semibold text-sm">
                     <span class="inline-flex items-center justify-center w-6 h-6 overflow-hidden align-middle"><img src="img/icon/forza_horizon_6_logo.jpg" alt="img/icon/minecraft_logo.jpg" class="w-full h-full object-cover block"></span>
-                    <span data-i18n="game_fh">地平线</span>
+                    <span>地平线</span>
                   </a>
                 </div>
-                <div class="bg-gray-100/40 dark:bg-black/20 border border-black/5 dark:border-white/5 rounded-xl p-3 text-center card-hover flex items-center justify-center">
-                  <a href="https://bluearchive.jp" target="_blank" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary font-semibold text-sm">
+                <div class="bg-neutral-100/40 dark:bg-black/20 border border-black/5 dark:border-white/5 rounded-xl p-3 text-center card-hover flex items-center justify-center">
+                  <a href="https://bluearchive.jp" target="_blank" class="flex items-center space-x-2 text-neutral-700 dark:text-neutral-300 hover:text-primary font-semibold text-sm">
                     <span class="inline-flex items-center justify-center w-6 h-6 overflow-hidden align-middle"><img src="img/icon/blue_archive_icon.jpg" alt="img/icon/minecraft_logo.jpg" class="w-full h-full object-cover block"></span>
-                    <span data-i18n="game_ba">蔚蓝档案</span>
+                    <span>蔚蓝档案</span>
                   </a>
                 </div>
               </div>
-             
-              <h3 class="text-2xl font-bold mt-8 mb-3 text-gray-900 dark:text-white" data-i18n="tool_title">🛠️工具(Beta)</h3>
-              <p class="text-gray-700 dark:text-gray-300" data-i18n="tool_p">Getting ready</p>
 
-              <h3 class="text-2xl font-bold mt-8 mb-3 text-gray-900 dark:text-white" data-i18n="social_title">🌐在互联网上的存在之地</h3>
+              <h3 class="text-2xl font-bold mt-8 mb-3 text-neutral-900 dark:text-white">🌐在互联网上的存在之地</h3>
               <ul class="list-disc list-inside space-y-2 font-semibold">
                 <li><a href="https://space.bilibili.com/3493117999188634" target="_blank" class="hover:underline">Bilibili</a></li>
                 <li><a href="https://github.com/XingYueFox" target="_blank" class="hover:underline">Github</a></li>
                 <li><a href="https://namemc.com/XingYue_Fox" target="_blank" class="hover:underline">NameMC</a></li>
                 <li><a href="https://t.me/xingyuefox" target="_blank" class="hover:underline">Telegram</a></li>
-                <li><a href="mailto:xingyue_fox@outlook.com" target="_blank" class="hover:underline" data-i18n="social_mail">联系我的邮箱></a></li>
+                <li><a href="mailto:xingyue_fox@outlook.com" target="_blank" class="hover:underline">联系我的邮箱></a></li>
               </ul>
 
-              <h3 class="text-2xl font-bold mt-8 mb-2 text-gray-900 dark:text-white" data-i18n="dev_title">🚧维护概览</h3>
-              <p class="text-gray-600 dark:text-gray-400"><span data-i18n="dev_last">最后维护于 </span>2026/06/14</p>
-              <p class="text-gray-600 dark:text-gray-400 mt-0.5" data-i18n="dev_version">[6月更新]此次为2026年第2号季度累积更新</p>
+              <h3 class="text-2xl font-bold mt-8 mb-2 text-neutral-900 dark:text-white">🚧维护概览</h3>
+              <p class="text-neutral-600 dark:text-neutral-400"><span>最后维护于 </span>2026/06/19</p>
+              <p class="text-neutral-600 dark:text-neutral-400 mt-0.5">[6月更新]此次为2026年第2号季度累积更新</p>
             </div>
           </div>
 
           <div class="glass-panel rounded-2xl p-6 animate-fade-in" id="news-panel" style="animation-delay: 0.5s">
             <h2 class="text-2xl font-bold mb-4 flex items-center">
               <i class="fa-solid fa-code text-primary dark:text-primary-dark mr-2"></i>
-              <span data-i18n="news_title">动态</span>
+              <span>动态</span>
             </h2>
             <div class="space-y-4">
               <a
                 href="https://drive.google.com/drive/folders/15v32ha1JSSh7SUVVIhJyqWlZYyvI0mOw"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block p-4 bg-gray-50/70 dark:bg-black/30 border border-black/5 dark:border-white/5 rounded-xl repo-item hover:bg-gray-100 dark:hover:bg-black/10"
+                class="block p-4 bg-neutral-50/70 dark:bg-black/30 border border-black/5 dark:border-white/5 rounded-xl repo-item hover:bg-neutral-100/40 dark:hover:bg-black/10"
               >
                 <div class="flex justify-between items-start mb-2">
-                  <h3 class="text-lg font-semibold text-primary dark:text-primary-dark" data-i18n="news1_h">在Minecraft中的照片</h3>
-                  <span class="text-xs text-gray-500 dark:text-gray-400 flex items-center">
+                  <h3 class="text-lg font-semibold text-primary dark:text-primary-dark">在Minecraft中的照片</h3>
+                  <span class="text-xs text-neutral-500 dark:text-neutral-400 flex items-center">
                     <i class="fa-solid fa-columns mr-1 opacity-70"></i><span>3min</span>
                   </span>
                 </div>
-                <p class="text-gray-600 dark:text-gray-300 text-sm mb-2" data-i18n="news1_p">网页内嵌式图片正在完善，目前此链接是一个由Google托管的页面</p>
-                <div class="flex justify-between items-center text-xs text-gray-400">
+                <p class="text-neutral-600 dark:text-neutral-300 text-sm mb-2">网页内嵌式图片正在完善，目前此链接是一个由Google托管的页面</p>
+                <div class="flex justify-between items-center text-xs text-neutral-400">
                   <span>Google Drive</span><span>2026-06-14</span>
                 </div>
               </a>
@@ -672,27 +720,27 @@
                 href="https://drive.google.com/drive/folders/1GwBykGeMJ3pF_mcbdA9TX9RgzC_3dyzQ"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block p-4 bg-gray-50/70 dark:bg-black/30 border border-black/5 dark:border-white/5 rounded-xl repo-item hover:bg-gray-100 dark:hover:bg-black/10"
+                class="block p-4 bg-neutral-50/70 dark:bg-black/30 border border-black/5 dark:border-white/5 rounded-xl repo-item hover:bg-neutral-100/40 dark:hover:bg-black/10"
               >
                 <div class="flex justify-between items-start mb-2">
-                  <h3 class="text-lg font-semibold text-primary dark:text-primary-dark" data-i18n="news2_h">鸣潮4K壁纸（含动态）</h3>
-                  <span class="text-xs text-gray-500 dark:text-gray-400 flex items-center">
+                  <h3 class="text-lg font-semibold text-primary dark:text-primary-dark">鸣潮4K壁纸（含动态）</h3>
+                  <span class="text-xs text-neutral-500 dark:text-neutral-400 flex items-center">
                     <i class="fa-solid fa-columns mr-1 opacity-70"></i><span>15min</span>
                   </span>
                 </div>
-                <p class="text-gray-600 dark:text-gray-300 text-sm mb-2" data-i18n="news2_p">由X用户@KiriyumeBun提供文件，包含剧情CG图，版本活动图及版本动态视频封面</p>
-                <div class="flex justify-between items-center text-xs text-gray-400">
+                <p class="text-neutral-600 dark:text-neutral-300 text-sm mb-2">由X用户@KiriyumeBun提供文件，包含剧情CG图，版本活动图及版本动态视频封面</p>
+                <div class="flex justify-between items-center text-xs text-neutral-400">
                   <span>Google Drive</span><span>2026-06-14</span>
                 </div>
               </a>
               
-              <div class="block p-4 bg-gray-50/50 dark:bg-black/30 border border-dashed border-gray-300 dark:border-gray-700 rounded-xl">
+              <div class="block p-4 bg-neutral-50/50 dark:bg-black/30 border border-dashed border-neutral-300 dark:border-neutral-700 rounded-xl">
                 <div class="flex justify-between items-start mb-1">
-                  <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300">无法访问？</h3>
-                  <span class="text-xs text-gray-400 flex items-center"><i class="fa-solid fa-star mr-1"></i>Null</span>
+                  <h3 class="text-sm font-semibold text-neutral-700 dark:text-neutral-300">无法访问？</h3>
+                  <span class="text-xs text-neutral-400 flex items-center"><i class="fa-solid fa-star mr-1"></i>Null</span>
                 </div>
-                <p class="text-gray-500 dark:text-gray-400 text-sm mb-2">请注意：以上页面由Google托管，但由于中国法律限制和长城防火墙，使用中国大陆流量无法访问谷歌服务器</p>
-                <div class="flex justify-between items-center text-xs text-gray-400">
+                <p class="text-neutral-500 dark:text-neutral-400 text-sm mb-2">请注意：以上页面由Google托管，但由于中国法律限制和长城防火墙，使用中国大陆流量无法访问谷歌服务器</p>
+                <div class="flex justify-between items-center text-xs text-neutral-400">
                   <span>港澳台不受限</span><span>---</span>
                 </div>
               </div>
@@ -702,96 +750,139 @@
       </div>
     </main>
 
-    <footer class="glass-panel bg-white/20 dark:bg-black/20 shadow-inner py-6 mt-10">
-      <div class="container mx-auto px-4 text-center text-sm text-gray-500">
+    <!-- “关于” 弹窗 -->
+    <div
+      id="about-modal"
+      class="fixed inset-0 z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300"
+    >
+      <div id="about-modal-overlay" class="absolute inset-0 bg-black/60 transition-opacity"></div>
+      <div
+        id="about-modal-content"
+        class="relative z-10 w-11/12 max-w-md p-6 rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-2xl transform scale-95 transition-transform duration-300"
+      >
+        <h3 class="text-xl font-bold mb-3 text-neutral-900 dark:text-white flex items-center">
+          <i class="text-primary dark:text-primary-dark mr-2"></i>
+          星月Fox的主页
+        </h3>
+        <span class="px-3 py-2 rounded-2xl text-sm flex items-center text-blue-800 dark:text-blue-300 bg-blue-500/10 border border-blue-500/10">
+        <i class="fa-solid fa-arrows-rotate"></i>最近更新：2026/06/19
+        </span>
+
+        <span class="px-3 py-2 rounded-2xl text-sm flex items-center text-neutral-800 dark:text-neutral-200 bg-neutral-500/10 border border-neutral-500/10">
+        版本：3.0.2200<br>代号：26.5[下半年更新第三次追加更新]<br>此版本修复了爆闪，导致严重发热的问题<br>改进了深色模式以及毛玻璃实现效果<br>新增按钮交互动画<br>重新设计选项菜单<br>由于涉及文化问题，语言功能暂时停用<br>修复部分性能bug
+        
+        </span><br>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-5 leading-relaxed">
+         由星月为您呈现<br>@2026 星月。
+        </p>
+         <div class="mt-3 space-x-4">
+          
+          <!-- 联系方式图标，仅在配置了有效URL时显示 -->
+           <a
+            href="https://space.bilibili.com/3493117999188634"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-primary dark:hover:text-primary-dark transition-colors"
+          >
+            <i class="fa-brands fa-bilibili"></i>
+          </a>
+
+          <a
+            href="https://github.com/XingYueFox"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-primary dark:hover:text-primary-dark transition-colors"
+          >
+            <i class="fa-brands fa-github"></i>
+          </a>
+
+          <a
+            href="https://t.me/xingyuefox"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-primary dark:hover:text-primary-dark transition-colors"
+          >
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+
+          <a
+            href="mailto:xingyue_fox@outlook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-primary dark:hover:text-primary-dark transition-colors"
+          >
+            <i class="fa-regular fa-envelope"></i>
+          </a>
+        </div>
+        <div class="flex justify-end">
+          <button
+            id="close-about-btn"
+            class="px-14 py-1.5 bg-gradient-custom text-blue-100 rounded-xl font-semibold hover:opacity-80 transition-opacity text-blue-200 shadow-md"
+          >
+            好
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer
+      class="glass-panel bg-white/20 dark:bg-black/20 shadow-inner py-6"
+    >
+      <div
+        class="container mx-auto px-4 text-center text-neutral-600 dark:text-neutral-400"
+      >
         <p>© 2026 星月Fox.</p>
+        <!--备份<p>© 2026 星月Fox. 由 Flask + Tailwind CSS 驱动。</p>-->
+        <div class="mt-3 space-x-4">
+          
+          <!-- 联系方式图标，仅在配置了有效URL时显示 -->
+           <a
+            href="https://space.bilibili.com/3493117999188634"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-primary dark:hover:text-primary-dark transition-colors"
+          >
+            <i class="fa-brands fa-bilibili"></i>
+          </a>
+
+          <a
+            href="https://github.com/XingYueFox"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-primary dark:hover:text-primary-dark transition-colors"
+          >
+            <i class="fa-brands fa-github"></i>
+          </a>
+
+          <a
+            href="https://t.me/xingyuefox"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-primary dark:hover:text-primary-dark transition-colors"
+          >
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+
+          <a
+            href="mailto:xingyue_fox@outlook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-primary dark:hover:text-primary-dark transition-colors"
+          >
+            <i class="fa-regular fa-envelope"></i>
+          </a>
+        </div>
       </div>
     </footer>
 
     <script>
-      // 1. 四国语言核心词典
-      const i18nDictionary = {
-        'zh': {
-          html_title: "星月Fox的主页", nav_title: "星月Fox的主页", menu_options: "选项",
-          menu_immersive: "沉浸模式", menu_bg: "显示背景", menu_darkmode: "深色模式", menu_lang: "切换语言",
-          status_on: "开启", status_off: "关闭", profile_name: "星月Fox", profile_bio: "密码下周就能想起来",
-          btn_github: "访问我的 Github", card_1: "青柠起始页", card_2: "联系我",
-          title_tech: "技术栈", title_chart: "星月Fox的概览", about_title: "星月Fox是谁？",
-          about_p1: "海内存知己，天涯若比邻。你好👋很高兴能在这里见到，我是星月Fox。17岁高中生，对有趣的世界和有趣的你感到好奇",
-          about_p2: "技术极客，对于UI设计/前端感兴趣。擅长Windows系统运维。",
-          greet_title: "🥰很高兴认识你", greet_link: "交换友链？", greet_mail: "向我的Email", greet_detail: "最好直接写明链接，或者留下其他联系方式",
-          game_title: "🎮游戏台", game_p1: "游戏方面，非常推荐去试试下面这些！😆",
-          game_mc: "鸣潮", game_fh: "地平线", game_ba: "蔚蓝档案", proj_title: "📖我的项目",
-          proj_1: "HomePage部署:基于Flask的个人主页", proj_2: "目前正在使用", proj_2_1: "改进此页面", proj_explore: "发现有趣的项目",
-          tool_title: "🛠️工具(Beta)", tool_p: "未开发", social_title: "🌐在互联网上的存在之地", social_mail: "联系我的邮箱>",
-          dev_title: "🚧维护概览", dev_last: "最后维护于 ", dev_version: "[6月更新]此次为2026年第2号季度累积更新",
-          news_title: "动态", news1_h: "在Minecraft中的照片", news1_p: "网页内嵌式图片正在完善，目前此链接是一个由Google托管的页面",
-          news2_h: "鸣潮4K壁纸（含动态）", news2_p: "由X用户@KiriyumeBun提供文件，包含剧情CG图，版本活动图及版本动态视频封面",
-          chart_labels: ["网站运维", "编程语言", "学业", "交友", "世界观测", "搞事情", "探究", "强迫症", "魔法"], chart_dataset: "能力水平"
-        },
-        'en': {
-          html_title: "XingYue_Fox's Hub", nav_title: "XingYue_Fox's Hub", menu_options: "Options",
-          menu_immersive: "Immersive", menu_bg: "Background", menu_darkmode: "Dark Mode", menu_lang: "Language",
-          status_on: "ON", status_off: "OFF", profile_name: "XingYue_Fox", profile_bio: "We get to decide how we should live.",
-          btn_github: "Visit My GitHub", card_1: "Start Page", card_2: "Contact Me",
-          title_tech: "Tech Stack", title_chart: "Overview", about_title: "Who is XingYue_Fox?",
-          about_p1: "A bosom friend afar brings a distant land near. Hello👋 Nice to meet you, I'm XingYue_Fox. A 17-year-old high schooler curious about this interesting world.",
-          about_p2: "Tech geek, passionate about UI design and Frontend. Proficient in Windows SysOps.",
-          greet_title: "🥰 Nice to meet you", greet_link: "Exchange links?", greet_mail: "Send mail to my ", greet_detail: "address. Better specify your URL or leave contact info.",
-          game_title: "🎮 Gaming Rig", game_p1: "When it comes to games, I highly recommend trying out these!😆", game_ba: "Blue Archive", proj_title: "📖 Projects",
-          proj_1: "HomePage Deployment: Personal Hub based on Flask", proj_2: "Currently using ", proj_2_1: " to improve this page", proj_explore: "Discover interesting projects",
-          tool_title: "🛠️ Tools (Beta)", tool_p: "Getting ready", social_title: "🌐 Find me on Web", social_mail: "Contact via Email >",
-          dev_title: "🚧 Status", dev_last: "Last maintained on ", dev_version: "[June Update] Q2 cumulative update of 2026.",
-          news_title: "Moments", news1_h: "Photos in Minecraft", news1_p: "In-page images polish in progress. Currently hosted on Google Drive.",
-          news2_h: "Wuthering Waves 4K Wallpapers", news2_p: "Files shared by X user @KiriyumeBun, containing CGs and live wallpapers.",
-          chart_labels: ["SysOps", "Coding", "Academics", "Social", "Observation", "Chaos", "Research", "OCD", "Magic"], chart_dataset: "Skill level"
-        },
-        'ja': {
-          html_title: "星月Foxのホームページ", nav_title: "星月Foxのページ", menu_options: "オプション",
-          menu_immersive: "集中モード", menu_bg: "背景表示", menu_darkmode: "ダークモード", menu_lang: "言語切替",
-          status_on: "オン", status_off: "オフ", profile_name: "星月Fox", profile_bio: "We get to decide how we should live.",
-          btn_github: "GitHubを見る", card_1: "スタートページ", card_2: "連絡をとる",
-          title_tech: "スキル", title_chart: "プロフィール概要", about_title: "星月Foxは誰？",
-          about_p1: "こんにちは👋 ここでお会いできて嬉しいです、星月Foxです。17歳の高校生で、面白い世界とあなたに興味を持っています。",
-          about_p2: "テックオタクで、UIデザインとフロントエンドに興味があります。Windowsのシステム運用管理が得意です。",
-          greet_title: "🥰 はじめまして", greet_link: "リンク交換？", greet_mail: "私のEmailへ", greet_detail: "メールを送ってください。URLや連絡先を直接明記していただけると助かります。",
-          game_title: "🎮 ゲーム", game_p1: "ゲームに関しては、ぜひ以下のものを試してみてほしい！😆",
-          game_mc: "鳴潮", game_fh: "ホライゾン", game_ba: "ブルアカ", proj_title: "📖 プロジェクト",
-          proj_1: "HomePage構築: Flaskベースの個人サイト", proj_2: "現在、", proj_2_1: " を使ってこのページを改善中です", proj_explore: "面白いプロジェクトを発見する",
-          tool_title: "🛠️ ツール (Beta)", tool_p: "", social_title: "🌐 ネットで見つけてね", social_mail: "メールで問い合わせる >",
-          dev_title: "🚧 メンテナンス状況", dev_last: "最終更新日: ", dev_version: "[June Update] Q2 cumulative update of 2026.",
-          news_title: "タイムライン", news1_h: "マインクラフトでの写真", news1_p: "インライン画像の最適化中。現在はGoogleドライブのリンクです。",
-          news2_h: "鳴潮4K壁紙（動的含む）", news2_p: "Xユーザー@KiriyumeBunから提供されたファイル（CG、イベント画像、動画カバーなど）",
-          chart_labels: ["インフラ運用", "プログラミング", "学業", "コミュニティ", "世界観測", "悪だくみ", "探究心", "こだわり", "魔法"], chart_dataset: "能力値"
-        }
-      };
-
       let currentChartInstance = null;
-
-      function applyLanguage(lang) {
-        const dict = i18nDictionary[lang];
-        if (!dict) return;
-
-        document.querySelectorAll("[data-i18n]").forEach(el => {
-          const key = el.getAttribute("data-i18n");
-          if (dict[key]) {
-            if (key === "html_title") { document.title = dict[key]; } 
-            else { el.textContent = dict[key]; }
-          }
-        });
-
-        const langShortName = { 'zh': '中文', 'en': 'EN', 'ja': '日本語' };
-        document.getElementById("menu-lang-indicator").textContent = langShortName[lang] || '中文';
-
-        updateChartLanguage(lang);
-        localStorage.setItem("preferred-lang", lang);
-        document.documentElement.setAttribute("lang", lang);
-      }
 
       document.addEventListener("DOMContentLoaded", function () {
         const htmlElement = document.documentElement;
         
-        // --- 选项控制：拉长式多语言二级菜单引擎 ---
+        // --- 选项控制：二级浮动上下文菜单引擎 ---
         const menuBtn = document.getElementById("menu-btn");
         const optionsMenu = document.getElementById("options-menu");
         const menuArrow = document.getElementById("menu-arrow");
@@ -814,11 +905,8 @@
           isLangExpanded = !isLangExpanded;
           
           if (isLangExpanded) {
-            optionsMenu.style.width = "20rem"; 
-            langArrow.style.transform = "rotate(90deg)";
-            setTimeout(() => {
-              langSubPanel.classList.remove("pointer-events-none", "opacity-0");
-            }, 150); 
+            langSubPanel.classList.add("show");
+            langArrow.style.transform = "rotate(-90deg)"; // 仿 Windows 右键子菜单提示效果，向左指引
           } else {
             resetLangPanel();
           }
@@ -826,20 +914,16 @@
 
         function resetLangPanel() {
           isLangExpanded = false;
-          langSubPanel.classList.add("pointer-events-none", "opacity-0");
-          optionsMenu.style.width = "13rem"; 
+          langSubPanel.classList.remove("show");
           langArrow.style.transform = "rotate(0deg)";
         }
 
         document.querySelectorAll("[data-lang-set]").forEach(btn => {
           btn.addEventListener("click", (e) => {
+            e.stopPropagation();
             const targetLang = btn.getAttribute("data-lang-set");
-            applyLanguage(targetLang);
-            
-            const isMinimal = sidebarPanel.classList.contains("hidden");
-            const isBgVisible = localStorage.getItem("bg-visible") !== "false";
-            document.getElementById("immersive-status").textContent = isMinimal ? i18nDictionary[targetLang].status_on : i18nDictionary[targetLang].status_off;
-            document.getElementById("bg-status").textContent = isBgVisible ? i18nDictionary[targetLang].status_on : i18nDictionary[targetLang].status_off;
+            const langShortName = { 'zh': '中文', 'en': 'EN', 'ja': '日本語' };
+            document.getElementById("menu-lang-indicator").textContent = langShortName[targetLang] || '中文';
             
             resetLangPanel();
             optionsMenu.classList.remove("show");
@@ -853,6 +937,37 @@
           resetLangPanel();
         });
         optionsMenu.addEventListener("click", (e) => e.stopPropagation());
+
+
+        // --- 关于弹窗模态框控制逻辑 ---
+        const aboutBtn = document.getElementById("about-btn");
+        const aboutModal = document.getElementById("about-modal");
+        const aboutModalOverlay = document.getElementById("about-modal-overlay");
+        const aboutModalContent = document.getElementById("about-modal-content");
+        const closeAboutBtn = document.getElementById("close-about-btn");
+
+        aboutBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          
+          // 关闭已打开的选项主菜单，让视口重新归于纯净
+          optionsMenu.classList.remove("show");
+          menuArrow.style.transform = "rotate(0deg)";
+          resetLangPanel();
+
+          // 呼出“关于”弹窗
+          aboutModal.classList.remove("opacity-0", "pointer-events-none");
+          aboutModalContent.classList.remove("scale-95");
+          aboutModalContent.classList.add("scale-100");
+        });
+
+        function hideAboutModal() {
+          aboutModal.classList.add("opacity-0", "pointer-events-none");
+          aboutModalContent.classList.remove("scale-100");
+          aboutModalContent.classList.add("scale-95");
+        }
+
+        closeAboutBtn.addEventListener("click", hideAboutModal);
+        aboutModalOverlay.addEventListener("click", hideAboutModal);
 
 
         // --- 选项一：深色模式核心控制 ---
@@ -898,7 +1013,6 @@
 
         minimalModeToggle.addEventListener("click", () => {
           isMinimalMode = !isMinimalMode;
-          const currentLang = localStorage.getItem("preferred-lang") || 'zh';
 
           if (isMinimalMode) {
             // 进入极简：所有板块平滑渐隐并带有微幅下坠位移，禁止触控交互
@@ -915,7 +1029,7 @@
               bgImage.style.filter = "blur(0px)";
             }
 
-            immersiveStatus.textContent = i18nDictionary[currentLang].status_on;
+            immersiveStatus.textContent = "开启";
             immersiveStatus.className = "text-[11px] bg-green-500/20 text-green-600 dark:text-green-400 px-1.5 py-0.5 rounded";
           } else {
             // 退出极简：所有板块浮现还原，恢复卡片可交互状态
@@ -932,8 +1046,8 @@
               bgImage.style.filter = "blur(2px)";
             }
 
-            immersiveStatus.textContent = i18nDictionary[currentLang].status_off;
-            immersiveStatus.className = "text-[11px] bg-gray-300/50 dark:bg-gray-700/50 px-1.5 py-0.5 rounded text-gray-500 dark:text-gray-400";
+            immersiveStatus.textContent = "关闭";
+            immersiveStatus.className = "text-[11px] bg-neutral-300/50 dark:bg-neutral-700/50 px-1.5 py-0.5 rounded text-neutral-500 dark:text-neutral-400";
           }
         });
 
@@ -946,17 +1060,16 @@
         let isBgVisible = localStorage.getItem("bg-visible") !== "false";
         
         function applyBgVisibility() {
-          const currentLang = localStorage.getItem("preferred-lang") || 'zh';
           if (isBgVisible) {
             bgImage.style.opacity = "1";
             bgOverlay.style.opacity = htmlElement.classList.contains("dark") ? "0" : "0"; 
-            bgStatus.textContent = i18nDictionary[currentLang].status_on;
+            bgStatus.textContent = "开启";
             bgStatus.className = "text-[11px] bg-green-500/20 text-green-600 dark:text-green-400 px-1.5 py-0.5 rounded";
           } else {
             bgImage.style.opacity = "0";
             bgOverlay.style.opacity = "1"; // 开启不透明遮罩，直接透出 body 的纯白或极致黑色
-            bgStatus.textContent = i18nDictionary[currentLang].status_off;
-            bgStatus.className = "text-[11px] bg-gray-300/50 dark:bg-gray-700/50 px-1.5 py-0.5 rounded text-gray-500 dark:text-gray-400";
+            bgStatus.textContent = "关闭";
+            bgStatus.className = "text-[11px] bg-neutral-300/50 dark:bg-neutral-700/50 px-1.5 py-0.5 rounded text-neutral-500 dark:text-neutral-400";
           }
         }
         applyBgVisibility();
@@ -972,15 +1085,14 @@
         const ctx = document.getElementById("activityChart");
         if (ctx) {
           const isDark = htmlElement.classList.contains("dark");
-          const initLang = localStorage.getItem("preferred-lang") || 'zh';
 
           currentChartInstance = new Chart(ctx, {
             type: "line",
             data: {
-              labels: i18nDictionary[initLang].chart_labels,
+              labels: ["网站运维", "编程语言", "学业", "交友", "世界观测", "搞事情", "探究", "强迫症", "魔法"],
               datasets: [
                 {
-                  label: i18nDictionary[initLang].chart_dataset,
+                  label: "能力水平",
                   data: [36, 30, 24, 10, 72, 50, 74, 90, 100],
                   borderColor: "#2575fc",
                   backgroundColor: "rgba(96, 165, 250, 0.25)",
@@ -1000,18 +1112,7 @@
             },
           });
         }
-
-        // 页面初始语种加载
-        const defaultLang = localStorage.getItem("preferred-lang") || (navigator.language.startsWith('en') ? 'en' : 'zh');
-        applyLanguage(defaultLang);
       });
-
-      function updateChartLanguage(lang) {
-        if (!currentChartInstance) return;
-        currentChartInstance.data.labels = i18nDictionary[lang].chart_labels;
-        currentChartInstance.data.datasets[0].label = i18nDictionary[lang].chart_dataset;
-        currentChartInstance.update();
-      }
 
       function applyChartTheme(chart, isDark) {
         const gridColor = isDark ? "rgba(255, 255, 255, 0.12)" : "rgba(0, 0, 0, 0.06)";

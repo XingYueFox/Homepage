@@ -5,15 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>星月Fox的主页</title>
     
-    <!-- 立即执行防闪烁脚本：在 DOM 绘制前立即计算并应用 dark 属性，防止深色模式下初始化闪白 -->
+    <!-- 防闪烁脚本：防止深色模式下初始化闪白 -->
     <script>
       (function() {
         const savedTheme = localStorage.getItem("theme");
         const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+        if (savedTheme === "dark" || (savedTheme !== "light" && prefersDark)) {
           document.documentElement.classList.add("dark");
         } else {
           document.documentElement.classList.remove("dark");
+        }
+        // 防止透明度效果初始化闪烁
+        const savedTransparency = localStorage.getItem("transparency-enabled");
+        if (savedTransparency === "false") {
+          document.documentElement.classList.add("no-transparency");
+        } else {
+          document.documentElement.classList.remove("no-transparency");
         }
       })();
     </script>
@@ -128,19 +135,23 @@
           preElements.forEach((el) => {
             if (!el.className.includes("bg-neutral-900")) {
               el.className =
-                "bg-neutral-900 dark:bg-neutral-950 text-neutral-100 p-4 rounded-lg overflow-x-auto mb-4 text-sm";
+                "bg-neutral-900 dark:bg-neutral-950 text-neutral-100 p-4 rounded-xl overflow-x-auto mb-4 text-sm";
             }
           });
           //链接文本颜色
           aElements.forEach((el) => {
+            // 如果是游戏板块内的链接，跳过 Markdown 样式覆写
+            if (el.closest('.game-card')) return;
             if (!el.className.includes("text-blue")) {
               el.className =
                 "text-blue-950 dark:text-blue-100 hover:underline font-semibold";
             }
           });
           imgElements.forEach((el) => {
+            // 如果是游戏板块内的图片，跳过 Markdown 样式覆写
+            if (el.closest('.game-card')) return;
             if (!el.className.includes("max-w-full")) {
-              el.className = "max-w-full h-auto rounded-lg my-4 shadow-lg";
+              el.className = "max-w-full h-auto rounded-xl my-4 shadow-lg";
             }
           });
           blockquoteElements.forEach((el) => {
@@ -205,7 +216,8 @@
               "secondary-dark": "#60a5fa",
             },
             fontFamily: {
-              sans: ["Inter", "system-ui", "sans-serif"],
+              // 西文 Fluent UI 字体序列
+              sans: ["Segoe UI Variable", "Segoe UI", "Inter", "system-ui", "sans-serif"],
             },
             animation: {
               float: "float 3s ease-in-out infinite",
@@ -289,6 +301,33 @@
           0%,
           100% { opacity: 0.3; }
           50% { opacity: 1; }
+        }
+
+        /* Fluent 涟漪动画 */
+        .md-ripple-container {
+          position: relative !important;
+          overflow: hidden !important;
+        }
+        .md-ripple-effect {
+          position: absolute;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.05) 45%, transparent 70%);
+          transform: scale(0);
+          animation: md-ripple-anim 3s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+          pointer-events: none;
+        }
+        .dark .md-ripple-effect {
+          background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.05) 45%, transparent 70%);
+        }
+        @keyframes md-ripple-anim {
+          0% {
+            transform: scale(0);
+            opacity: 1;
+          }
+          100% {
+            transform: scale(4.5);
+            opacity: 0;
+          }
         }
       }
     </style>
@@ -417,6 +456,91 @@
         opacity: 1;
         pointer-events: auto;
       }
+
+      /* 自定义开关样式 - 跟随原配色风格 */
+      .switch-toggle {
+        position: relative;
+        display: inline-block;
+        width: 44px;
+        height: 22px;
+      }
+      .switch-toggle input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .switch-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: background-color .3s cubic-bezier(0.16, 1, 0.3, 1);
+        border-radius: 9999px;
+      }
+      .dark .switch-slider {
+        background-color: #444;
+      }
+      .switch-slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: transform .3s cubic-bezier(0.16, 1, 0.3, 1), background-color .3s cubic-bezier(0.16, 1, 0.3, 1);
+        border-radius: 50%;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      }
+      input:checked + .switch-slider {
+        background: linear-gradient(135deg, #035df8, #2575fc); /* 使用主页图标按钮渐变色 */
+      }
+      input:checked + .switch-slider:before {
+        transform: translateX(22px);
+      }
+
+      /* 禁用透明效果时的覆盖样式 */
+      .no-transparency .glass-panel {
+        background: rgb(255, 255, 255) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border-color: rgba(0, 0, 0, 0.15) !important;
+      }
+      .no-transparency.dark .glass-panel,
+      .dark .no-transparency .glass-panel {
+        background: rgb(23, 23, 23) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+      }
+      .no-transparency nav {
+        background: rgb(255, 255, 255) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      .no-transparency.dark nav,
+      .dark .no-transparency nav {
+        background: rgb(23, 23, 23) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      .no-transparency #options-menu {
+        background: rgb(245, 245, 245) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      .no-transparency.dark #options-menu,
+      .dark .no-transparency #options-menu {
+        background: rgb(23, 23, 23) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      .no-transparency .bg-image {
+        filter: none !important; /* 禁用高斯模糊以提升性能 */
+      }
     </style>
   </head>
   <body class="text-neutral-800 dark:text-neutral-200 min-h-screen">
@@ -425,6 +549,7 @@
       <div id="main-bg-overlay" class="bg-overlay"></div>
     </div>
 
+    <!-- 导航栏面板 -->
     <nav
       class="fixed w-full top-0 z-50 bg-white/40 dark:bg-black/40 backdrop-blur-md shadow-sm"
     >
@@ -443,92 +568,39 @@
         <div class="relative">
           <button
             id="menu-btn"
-            class="flex items-center space-x-1.5 p-2 px-3 rounded-xl bg-white/60 dark:bg-neutral-900/50 hover:bg-neutral-200/20 dark:hover:bg-white/10 transition-colors text-neutral-800 dark:text-neutral-200 shadow-sm border border-white/20 dark:border-neutral-500/20 "
+            class="md-ripple-container md-ripple-dark flex items-center space-x-1.5 p-2 px-3 rounded-[8px] bg-white/60 dark:bg-neutral-900/50 hover:bg-neutral-200/20 dark:hover:bg-white/10 transition-colors text-neutral-800 dark:text-neutral-200 shadow-sm border border-white/20 dark:border-neutral-500/20 "
           >
             <i class="fa-solid fa-sliders text-xs opacity-80"></i>
             <span class="text-sm font-semibold">选项</span>
             <i class="fa-solid fa-chevron-down text-[10px] opacity-50 transition-transform duration-200" id="menu-arrow"></i>
           </button>
 
-          <!-- 选项菜单主体 -->
           <div
             id="options-menu"
-            class="absolute right-0 mt-2 w-52 rounded-2xl shadow-2xl p-1.5 bg-neutral-100 dark:bg-neutral-900 backdrop-blur-2xl border border-white/30 dark:border-white/10 z-50 text-sm"
+            class="absolute right-0 mt-2 w-52 rounded-xl shadow-2xl p-1.5 bg-neutral-100 dark:bg-neutral-900 backdrop-blur-2xl border border-white/30 dark:border-white/10 z-50 text-sm"
           >
             <div class="flex flex-col space-y-0.5 relative">
-              <button
-                id="minimal-mode-toggle"
-                class="w-full flex items-center justify-between p-2 px-2.5 rounded-xl hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text-left"
-              >
-                <span class="flex items-center space-x-2">
-                  <i class="fa-solid fa-columns w-4 text-center opacity-70"></i>
-                  <span>隐藏面板</span>
-                </span>
-                <span id="immersive-status" class="text-[11px] bg-neutral-300/50 dark:bg-neutral-700/50 px-1.5 py-0.5 rounded text-neutral-500 dark:text-neutral-400">关闭</span>
-              </button>
+              <!-- 设置框呼出入口 -->
 
               <button
-                id="bg-visibility-toggle"
-                class="w-full flex items-center justify-between p-2 px-2.5 rounded-xl hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text-left"
+                id="settings-modal-btn"
+                class="md-ripple-container md-ripple-dark w-full flex items-center space-x-2 p-2 px-2.5 rounded-[8px] hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text-left"
               >
-                <span class="flex items-center space-x-2">
-                  <i class="fa-solid fa-image w-4 text-center opacity-70"></i>
-                  <span>显示背景</span>
-                </span>
-                <span id="bg-status" class="text-[11px] bg-green-500/20 text-green-600 dark:text-green-400 px-1.5 py-0.5 rounded">开启</span>
-              </button>
-
-              <button
-                id="theme-toggle"
-                class="w-full flex items-center justify-between p-2 px-2.5 rounded-xl hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text-left"
-              >
-                <span class="flex items-center space-x-2">
-                  <i class="fa-solid fa-circle-half-stroke w-4 text-center opacity-70"></i>
-                  <span>深色模式</span>
-                </span>
-                <span id="dark-status" class="text-[11px] bg-neutral-300/50 dark:bg-neutral-700/50 px-1.5 py-0.5 rounded text-neutral-500 dark:text-neutral-400">Auto</span>
-              </button>
-
-              <div class="h-[2px] bg-neutral-300/30 dark:bg-neutral-700/40 my-1"></div>
-
-              <button
-                id="lang-expand-btn"
-                class="w-full flex items-center justify-between p-2 px-2.5 rounded-xl hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text-left"
-              >
-                <span class="flex items-center space-x-2">
-                  <i class="fa-solid fa-language w-4 text-center opacity-70"></i>
-                  <span>切换语言</span>
-                </span>
-                <div class="flex items-center space-x-1 text-xs text-primary dark:text-primary-dark font-medium">
-                  <span id="menu-lang-indicator">中文</span>
-                  <i class="fa-solid fa-chevron-left text-[9px] opacity-60 transition-transform duration-300" id="lang-arrow"></i>
-                </div>
+                <i class="fa-solid fa-gear w-4 text-center opacity-70"></i>
+                <span>设置</span>
               </button>
 
               <div class="h-[2px] bg-neutral-300/30 dark:bg-neutral-700/40 my-1"></div>
 
               <button
                 id="about-btn"
-                class="w-full flex items-center justify-between p-2 px-2.5 rounded-xl hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text-left text-neutral-800 dark:text-neutral-200"
+                class="md-ripple-container md-ripple-dark w-full flex items-center justify-between p-2 px-2.5 rounded-[8px] hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text-left text-neutral-800 dark:text-neutral-200"
               >
                 <span class="flex items-center space-x-2">
                   <i class="fa-solid fa-circle-info w-4 text-center opacity-70"></i>
                   <span>关于</span>
                 </span>
               </button>
-
-              <!-- 侧边浮动二级菜单-->
-              <div
-                id="lang-sub-panel"
-                class="absolute right-[103%] top-[108px] w-32 rounded-2xl shadow-2xl p-1.5 bg-neutral-100 dark:bg-neutral-900 backdrop-blur-2xl border border-white/30 dark:border-white/10 z-50 flex flex-col space-y-0.5"
-              >
-                <button data-lang-set="zh-CN" class="w-full text-left p-1.5 px-2 rounded-lg hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text- font-medium">简体中文</button>
-                <button data-lang-set="zh-Hant" class="w-full text-left p-1.5 px-2 rounded-lg hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text- font-medium">繁體中文</button>
-                <button data-lang-set="lzh" class="w-full text-left p-1.5 px-2 rounded-lg hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text- font-medium">文言</button>
-                <button data-lang-set="ja" class="w-full text-left p-1.5 px-2 rounded-lg hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text- font-medium">日本语</button>
-                <button data-lang-set="en" class="w-full text-left p-1.5 px-2 rounded-lg hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text- font-medium">English</button>
-                <button data-lang-set="ru" class="w-full text-left p-1.5 px-2 rounded-lg hover:bg-neutral-300/60 dark:hover:bg-white/15 transition-colors text- font-medium">русский</button>
-              </div>
             </div>
           </div>
         </div>
@@ -538,8 +610,9 @@
     <main class="container mx-auto px-4 pt-24 pb-16">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div class="lg:col-span-1 animate-fade-in">
+          <!-- 左侧主面板 -->
           <div
-            class="glass-panel bg-white/30 dark:bg-black/40 rounded-2xl shadow-xl p-6 "
+            class="glass-panel bg-white/30 dark:bg-black/40 rounded-xl shadow-xl p-6 "
           >
             <div class="flex justify-center mb-6">
               <img
@@ -557,14 +630,15 @@
                 href="https://github.com/xingyuefox"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center px-4 py-2 rounded-xl bg-gradient-custom text-white dark:bg-blue300 font-medium hover:opacity-80 transition-opacity"
+                class="md-ripple-container inline-flex items-center px-4 py-2 rounded-[8px] bg-gradient-custom text-white dark:bg-blue300 font-medium hover:opacity-90 transition-opacity"
               >
                 <i class="fa-brands fa-github mr-2"></i>
                 <span>访问我的 Github</span>
               </a>
             </div>
+            <!-- 主要板块 -->
             <div class="grid grid-cols-2 gap-4">
-              <div class="bg-neutral-100/50 dark:bg-black/30 border border-black/5 dark:border-white/5 rounded-xl p-4 card-hover text-center">
+              <div class="md-ripple-container md-ripple-dark bg-neutral-100/50 dark:bg-black/30 border border-black/5 dark:border-white/5 rounded-xl p-4 text-center">
                 <div class="text-2xl font-bold text-primary dark:text-primary-dark mb-1">
                   <a href="https://limestart.cn/" target="_blank" class="hover:underline">limestart</a>
                 </div>
@@ -572,7 +646,7 @@
                   青柠起始页
                 </div>
               </div>
-              <div class="bg-neutral-100/50 dark:bg-black/30 border border-black/5 dark:border-white/5 rounded-xl p-4 card-hover text-center">
+              <div class="md-ripple-container md-ripple-dark bg-neutral-100/50 dark:bg-black/30 border border-black/5 dark:border-white/5 rounded-xl p-4 text-center">
                 <div class="text-2xl font-bold text-primary dark:text-primary-dark mb-1">
                   <a href="mailto:xingyue_fox@outlook.com" target="_blank" class="hover:underline">Email</a>
                 </div>
@@ -584,13 +658,14 @@
             <div class="mt-6">
               <h3 class="text-lg font-semibold mb-3">技术栈</h3>
               <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 rounded-full text-sm flex items-center text-blue-800 dark:text-blue-300 bg-blue-500/10 border border-blue-500/10">
+                <!-- 技术标签 -->
+                <span class="px-3 py-1 rounded-[8px] text-sm flex items-center text-blue-800 dark:text-blue-300 bg-blue-500/10 border border-blue-500/10">
                   <i class="fa-solid fa-code mr-1 tech-icon"></i>HTML/CSS
                 </span>
-                <span class="px-3 py-1 rounded-full text-sm flex items-center text-violet-700 dark:text-violet-300 bg-violet-500/10 border border-violet-500/10">
+                <span class="px-3 py-1 rounded-[8px] text-sm flex items-center text-violet-700 dark:text-violet-300 bg-violet-500/10 border border-violet-500/10">
                   <i class="fa-solid fa-code mr-1 tech-icon"></i>Python
                 </span>
-                <span class="px-3 py-1 rounded-full text-sm flex items-center text-sky-600 dark:text-sky-300 bg-sky-500/10 border border-sky-500/10">
+                <span class="px-3 py-1 rounded-[8px] text-sm flex items-center text-sky-600 dark:text-sky-300 bg-sky-500/10 border border-sky-500/10">
                   <i class="fa-solid fa-code mr-1 tech-icon"></i>JavaScript
                 </span>
               </div>
@@ -598,7 +673,7 @@
           </div>
 
           <div
-            class="glass-panel bg-white/30 dark:bg-black/40 rounded-2xl shadow-xl p-6 mt-6 animate-fade-in"
+            class="glass-panel bg-white/30 dark:bg-black/40 rounded-xl shadow-xl p-6 mt-6 animate-fade-in"
             style="animation-delay: 0.2s"
           >
             <h3 class="text-lg font-semibold mb-3">星月Fox的概览</h3>
@@ -609,7 +684,7 @@
         </div>
 
         <div class="lg:col-span-2 flex flex-col gap-6">
-          <div class="glass-panel rounded-2xl p-6 animate-fade-in" id="intro-panel" style="animation-delay: 0.1s">
+          <div class="glass-panel rounded-xl p-6 animate-fade-in" id="intro-panel" style="animation-delay: 0.1s">
             <h2 class="text-2xl font-bold mb-4 flex items-center">
               星月Fox是谁？
             </h2>
@@ -617,18 +692,18 @@
               海内存知己，天涯若比邻。你好👋很高兴能在这里见到，我是星月Fox，17岁高中生。
             </p>
             <p class="mt-2 text-neutral-700 dark:text-neutral-300 leading-relaxed text-base">
-              技术极客，对于UI设计/前端感兴趣。擅长Windows系统运维。
+              技术极客，对于UI设计/前端感兴趣。擅长Windows系统的各种乱玩（
             </p>
           </div>
 
-          <div class="glass-panel rounded-2xl p-6 animate-fade-in" id="readme-panel" style="animation-delay: 0.3s">
+          <div class="glass-panel rounded-xl p-6 animate-fade-in" id="readme-panel" style="animation-delay: 0.3s">
             <div class="max-w-none text-base leading-relaxed" id="readme-content">
               <h3 class="text-2xl font-bold mt-2 mb-3 text-neutral-900 dark:text-white" id="recently">🥰很高兴认识你</h3>
               <p class="mb-2 text-neutral-700 dark:text-neutral-300">交换友链？</p>
               <p class="mb-4 text-neutral-700 dark:text-neutral-300">
                 <span>向我</span>
                 <a href="mailto:xingyue_fox@outlook.com" target="_blank" class="hover:underline font-semibold">发送邮件✉️</a>，
-                <span>最好直接写明链接，或者留下其他联系方式</span>
+                <span>或者使用其他联系方式？请见页尾</span>
               </p>
               
               <h3 class="text-2xl font-bold mt-8 mb-3 text-neutral-900 dark:text-white">📖我的项目</h3>
@@ -639,38 +714,78 @@
                 <span>改进此页面</span>
               </p>
 
-             
-              <h3 class="text-2xl font-bold mt-8 mb-3 text-neutral-900 dark:text-white">🛠️工具(Beta)</h3>
-              <p class="text-neutral-700 dark:text-neutral-300">即将上线！</p>
-            
               <h3 class="text-2xl font-bold mt-8 mb-3 text-neutral-900 dark:text-white">🎮游戏标签</h3>
               <p class="mb-2 text-neutral-700 dark:text-neutral-300">
                 
               </p>
               
-              <div class="grid grid-cols-2 md:grid-cols-4 gap-3 my-4">
-                <div class="bg-neutral-100/40 dark:bg-black/20 border border-black/5 dark:border-white/5 rounded-xl p-3 text-center card-hover flex items-center justify-center">
-                  <a href="https://Minecraft.net" target="_blank" class="flex items-center space-x-2 text-neutral-700 dark:text-neutral-300 hover:text-primary font-semibold text-sm">
-                    <span class="inline-flex items-center justify-center w-6 h-6 overflow-hidden align-middle"><img src="img/icon/minecraft_logo.jpg" alt="img/icon/minecraft_logo.jpg" class="w-full h-full object-cover block"></span>
-                    <span>Minecraft</span>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-4">
+                <!-- Minecraft 卡片 -->
+                <div class="game-card md-ripple-container md-ripple-dark relative group overflow-hidden rounded-xl h-32 w-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/40 dark:hover:shadow-emerald-400/10">
+                  <div class="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden bg-neutral-200 dark:bg-neutral-800">
+                    <img src="img/games/minecraft_bg.jpg" alt="Minecraft" class="absolute w-full h-full object-cover m-0 p-0 block transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none';">
+                  </div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-black/40 to-transparent pointer-events-none"></div>
+                  <!-- 避开 Markdown 解析器的 CSS 覆写干扰 -->
+                  <a href="https://Minecraft.net" target="_blank" class="absolute left-0 right-0 bottom-0 top-0 p-3 flex flex-col justify-end text-white hover:text-white hover:no-underline z-10">
+                    <div class="flex items-center space-x-2">
+                      <span class="inline-flex items-center justify-center w-5 h-5 overflow-hidden rounded-md flex-shrink-0 bg-black/30">
+                        <img src="img/icon/minecraft_logo.jpg" alt="Minecraft Icon" class="w-full h-full object-cover m-0 p-0 block" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'white\'><path d=\'M3 3h18v18H3z\'/></svg>'">
+                      </span>
+                      <span class="font-bold text-sm tracking-wide text-white drop-shadow-md">Minecraft</span>
+                    </div>
                   </a>
                 </div>
-                <div class="bg-neutral-100/40 dark:bg-black/20 border border-black/5 dark:border-white/5 rounded-xl p-3 text-center card-hover flex items-center justify-center">
-                  <a href="https://mc.kurogames.com" target="_blank" class="flex items-center space-x-2 text-neutral-700 dark:text-neutral-300 hover:text-primary font-semibold text-sm">
-                    <span class="inline-flex items-center justify-center w-6 h-6 overflow-hidden align-middle"><img src="img/icon/wuthering_waves_logo.jpg" alt="img/icon/minecraft_logo.jpg" class="w-full h-full object-cover block"></span>
-                    <span>鸣潮</span>
+
+                <!-- 赛博朋克2077 卡片 -->
+                <div class="game-card md-ripple-container md-ripple-dark relative group overflow-hidden rounded-xl h-32 w-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-yellow-500/40 dark:hover:shadow-yellow-400/10">
+                  <div class="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden bg-neutral-200 dark:bg-neutral-800">
+                    <img src="img/games/cyberpunk_2077_bg.jpg" alt="赛博朋克2077" class="absolute w-full h-full object-cover m-0 p-0 block transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none';">
+                  </div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-yellow-950/90 via-black/40 to-transparent pointer-events-none"></div>
+
+                  <a href="https://mc.kurogames.com" target="_blank" class="absolute left-0 right-0 bottom-0 top-0 p-3 flex flex-col justify-end text-white hover:text-white hover:no-underline z-10">
+                    <div class="flex items-center space-x-2">
+                      <span class="inline-flex items-center justify-center w-5 h-5 overflow-hidden rounded-md flex-shrink-0 bg-black/30">
+                        <img src="img/icon/cyberpunk_2077_icon.jpg" alt="赛博朋克2077 Icon" class="w-full h-full object-cover m-0 p-0 block" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'white\'><path d=\'M3 3h18v18H3z\'/></svg>'">
+                      </span>
+                      <span class="font-bold text-sm tracking-wide text-white drop-shadow-md">赛博朋克2077</span>
+                    </div>
                   </a>
                 </div>
-                <div class="bg-neutral-100/40 dark:bg-black/20 border border-black/5 dark:border-white/5 rounded-xl p-3 text-center card-hover flex items-center justify-center">
-                  <a href="https://forza.net/" target="_blank" class="flex items-center space-x-2 text-neutral-700 dark:text-neutral-300 hover:text-primary font-semibold text-sm">
-                    <span class="inline-flex items-center justify-center w-6 h-6 overflow-hidden align-middle"><img src="img/icon/forza_horizon_6_logo.jpg" alt="img/icon/minecraft_logo.jpg" class="w-full h-full object-cover block"></span>
-                    <span>地平线</span>
+
+                <!-- 地平线 卡片 -->
+                <div class="game-card md-ripple-container md-ripple-dark relative group overflow-hidden rounded-xl h-32 w-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-pink-500/40 dark:hover:shadow-pink-700/20">
+                  <!-- 背景图片层：使用绝对定位铺满容器并完美水平垂直居中，不加margin -->
+                  <div class="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden bg-neutral-200 dark:bg-neutral-800">
+                    <img src="img/games/forza_horizon_6_bg.jpg" alt="地平线" class="absolute w-full h-full object-cover m-0 p-0 block transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none';">
+                  </div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-pink-950/90 via-black/40 to-transparent pointer-events-none"></div>
+
+                  <a href="https://forza.net/" target="_blank" class="absolute left-0 right-0 bottom-0 top-0 p-3 flex flex-col justify-end text-white hover:text-white hover:no-underline z-10">
+                    <div class="flex items-center space-x-2">
+                      <span class="inline-flex items-center justify-center w-5 h-5 overflow-hidden rounded-md flex-shrink-0 bg-black/30">
+                        <img src="img/icon/forza_horizon_6_logo.jpg" alt="地平线 Icon" class="w-full h-full object-cover m-0 p-0 block" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'white\'><path d=\'M3 3h18v18H3z\'/></svg>'">
+                      </span>
+                      <span class="font-bold text-sm tracking-wide text-white drop-shadow-md">地平线</span>
+                    </div>
                   </a>
                 </div>
-                <div class="bg-neutral-100/40 dark:bg-black/20 border border-black/5 dark:border-white/5 rounded-xl p-3 text-center card-hover flex items-center justify-center">
-                  <a href="https://bluearchive.jp" target="_blank" class="flex items-center space-x-2 text-neutral-700 dark:text-neutral-300 hover:text-primary font-semibold text-sm">
-                    <span class="inline-flex items-center justify-center w-6 h-6 overflow-hidden align-middle"><img src="img/icon/blue_archive_icon.jpg" alt="img/icon/minecraft_logo.jpg" class="w-full h-full object-cover block"></span>
-                    <span>蔚蓝档案</span>
+
+                <!-- 鸣潮 卡片 -->
+                <div class="game-card md-ripple-container md-ripple-dark relative group overflow-hidden rounded-xl h-32 w-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-sky-500/40 dark:hover:shadow-sky-400/10">
+                  <div class="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden bg-neutral-200 dark:bg-neutral-800">
+                    <img src="img/games/wuthering_waves_bg.jpg" alt="鸣潮" class="absolute w-full h-full object-cover m-0 p-0 block transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none';">
+                  </div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-sky-950/90 via-black/40 to-transparent pointer-events-none"></div>
+
+                  <a href="https://bluearchive.jp" target="_blank" class="absolute left-0 right-0 bottom-0 top-0 p-3 flex flex-col justify-end text-white hover:text-white hover:no-underline z-10">
+                    <div class="flex items-center space-x-2">
+                      <span class="inline-flex items-center justify-center w-5 h-5 overflow-hidden rounded-md flex-shrink-0 bg-black/30">
+                        <img src="img/icon/wuthering_waves_logo.jpg" alt="鸣潮 Icon" class="w-full h-full object-cover m-0 p-0 block" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'white\'><path d=\'M3 3h18v18H3z\'/></svg>'">
+                      </span>
+                      <span class="font-bold text-sm tracking-wide text-white drop-shadow-md">鸣潮</span>
+                    </div>
                   </a>
                 </div>
               </div>
@@ -685,12 +800,12 @@
               </ul>
 
               <h3 class="text-2xl font-bold mt-8 mb-2 text-neutral-900 dark:text-white">🚧维护概览</h3>
-              <p class="text-neutral-600 dark:text-neutral-400">最后维护于 2026/07/05</p>
+              <p class="text-neutral-600 dark:text-neutral-400">最后维护于 2026/07/11</p>
               <p class="text-neutral-600 dark:text-neutral-400 mt-0.5">[7月更新]此次更新修复了已知问题</p>
             </div>
           </div>
 
-          <div class="glass-panel rounded-2xl p-6 animate-fade-in" id="news-panel" style="animation-delay: 0.5s">
+          <div class="glass-panel rounded-xl p-6 animate-fade-in" id="news-panel" style="animation-delay: 0.5s">
             <h2 class="text-2xl font-bold mb-4 flex items-center">
               <i class="fa-solid fa-code text-primary dark:text-primary-dark mr-2"></i>
               <span>动态</span>
@@ -700,10 +815,10 @@
                 href="https://drive.google.com/drive/folders/15v32ha1JSSh7SUVVIhJyqWlZYyvI0mOw"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block p-4 bg-neutral-50/70 dark:bg-black/30 border border-black/5 dark:border-white/5 rounded-xl repo-item hover:bg-neutral-100/40 dark:hover:bg-black/10"
+                class="md-ripple-container md-ripple-dark block p-4 bg-neutral-50/70 dark:bg-black/30 border border-black/5 dark:border-white/5 rounded-xl repo-item hover:bg-neutral-100/40 dark:hover:bg-black/10"
               >
                 <div class="flex justify-between items-start mb-2">
-                  <h3 class="text-lg font-semibold text-primary dark:text-primary-dark">在Minecraft中的照片</h3>
+                  <h3 class="text-lg font-semibold text-primary dark:text-primary-dark">星月在Minecraft中</h3>
                   <span class="text-xs text-neutral-500 dark:text-neutral-400 flex items-center">
                     <i class="fa-solid fa-columns mr-1 opacity-70"></i><span>3分钟</span>
                   </span>
@@ -718,35 +833,139 @@
                 href="https://drive.google.com/drive/folders/1GwBykGeMJ3pF_mcbdA9TX9RgzC_3dyzQ"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block p-4 bg-neutral-50/70 dark:bg-black/30 border border-black/5 dark:border-white/5 rounded-xl repo-item hover:bg-neutral-100/40 dark:hover:bg-black/10"
+                class="md-ripple-container md-ripple-dark block p-4 bg-neutral-50/70 dark:bg-black/30 border border-black/5 dark:border-white/5 rounded-xl repo-item hover:bg-neutral-100/40 dark:hover:bg-black/10"
               >
                 <div class="flex justify-between items-start mb-2">
-                  <h3 class="text-lg font-semibold text-primary dark:text-primary-dark">鸣潮4K壁纸（含动态）</h3>
+                  <h3 class="text-lg font-semibold text-primary dark:text-primary-dark">鸣潮壁纸（含动态）</h3>
                   <span class="text-xs text-neutral-500 dark:text-neutral-400 flex items-center">
                     <i class="fa-solid fa-columns mr-1 opacity-70"></i><span>15分钟</span>
                   </span>
                 </div>
                 <p class="text-neutral-600 dark:text-neutral-300 text-sm mb-2">由X用户@KiriyumeBun提供文件，包含剧情CG图，版本活动图及版本动态视频封面</p>
                 <div class="flex justify-between items-center text-xs text-neutral-400">
-                  <span>Google Drive</span><span>2026-06-14</span>
+                  <span>Google Drive</span><span>2026-07-10</span>
                 </div>
               </a>
-              
-              <div class="block p-4 bg-neutral-50/50 dark:bg-black/30 border border-dashed border-neutral-300 dark:border-neutral-700 rounded-xl">
-                <div class="flex justify-between items-start mb-1">
-                  <h3 class="text-sm font-semibold text-neutral-700 dark:text-neutral-300">无法访问？</h3>
-                  <span class="text-xs text-neutral-400 flex items-center"><i class="fa-solid fa-star mr-1"></i>Null</span>
+           
+              <a
+                href="https://bluearchive.cafe"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="md-ripple-container md-ripple-dark block p-4 bg-neutral-50/70 dark:bg-black/30 border border-black/5 dark:border-white/5 rounded-xl repo-item hover:bg-neutral-100/40 dark:hover:bg-black/10"
+              >
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-lg font-semibold text-primary dark:text-primary-dark">？这是啥来着</h3>
+                  <span class="text-xs text-neutral-500 dark:text-neutral-400 flex items-center">
+                    <i class="fa-solid fa-columns mr-1 opacity-70"></i><span>阅读时间未知</span>
+                  </span>
                 </div>
-                <p class="text-neutral-500 dark:text-neutral-400 text-sm mb-2">请注意：以上页面由Google托管，但由于中国法律限制和长城防火墙，使用中国大陆流量无法访问谷歌服务器</p>
+                <p class="text-neutral-600 dark:text-neutral-300 text-sm mb-2">先放个咖啡厅（</p>
                 <div class="flex justify-between items-center text-xs text-neutral-400">
-                  <span>港澳台不受限</span><span>---</span>
+                  <span>BlueArchive Cafe</span><span>2026-06-24</span>
                 </div>
+              </a>
+
               </div>
             </div>
           </div>
         </div>
       </div>
     </main>
+
+    <!-- 设置窗口 -->
+    <div
+      id="settings-modal"
+      class="fixed inset-0 z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300"
+    >
+      <div id="settings-modal-overlay" class="absolute inset-0 bg-black/60 transition-opacity"></div>
+      <div
+        id="settings-modal-content"
+        class="relative z-10 w-11/12 max-w-md p-6 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-2xl transform scale-95 transition-transform duration-300"
+      >
+        <h3 class="text-xl font-bold mb-5 text-neutral-900 dark:text-white flex items-center">
+          <i class="fa-solid fa-gear text-primary dark:text-primary-dark mr-2"></i>
+          设置选项
+        </h3>
+
+        <!-- 设置列表 -->
+        <div class="space-y-5 text-sm mb-6">
+          <!-- 隐藏面板 -->
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-semibold text-neutral-900 dark:text-white">隐藏主面板</div>
+              <div class="text-xs text-neutral-500 dark:text-neutral-400">关闭页面上所有面板</div>
+            </div>
+            <label class="switch-toggle">
+              <input type="checkbox" id="settings-minimal-toggle" />
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
+          <!-- 显示背景 -->
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-semibold text-neutral-900 dark:text-white">显示背景图</div>
+              <div class="text-xs text-neutral-500 dark:text-neutral-400">启用或停用主页背景图</div>
+            </div>
+            <label class="switch-toggle">
+              <input type="checkbox" id="settings-bg-toggle" checked />
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
+          <!-- 透明效果 -->
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-semibold text-neutral-900 dark:text-white">透明效果</div>
+              <div class="text-xs text-neutral-500 dark:text-neutral-400">使面板拥有透明效果，如遇卡顿请关闭此项</div>
+            </div>
+            <label class="switch-toggle">
+              <input type="checkbox" id="settings-transparency-toggle" checked />
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
+          <!-- 深色模式 -->
+          <div>
+            <div class="font-semibold text-neutral-900 dark:text-white mb-2">深色模式</div>
+            <div class="relative grid grid-cols-3 gap-2 bg-neutral-200/50 dark:bg-black/30 p-1 rounded-lg">
+              <!-- 滑动动画背景滑块 -->
+              <div
+                id="theme-active-indicator"
+                class="absolute top-1 bottom-1 rounded-md bg-white dark:bg-neutral-800 shadow-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none"
+              ></div>
+              <button
+                id="theme-light-btn"
+                class="relative z-10 py-1.5 px-3 rounded-md text-xs font-semibold text-neutral-700 dark:text-neutral-300 transition-colors"
+              >
+                浅色
+              </button>
+              <button
+                id="theme-dark-btn"
+                class="relative z-10 py-1.5 px-3 rounded-md text-xs font-semibold text-neutral-700 dark:text-neutral-300 transition-colors"
+              >
+                深色
+              </button>
+              <button
+                id="theme-auto-btn"
+                class="relative z-10 py-1.5 px-3 rounded-md text-xs font-semibold text-neutral-700 dark:text-neutral-300 transition-colors"
+              >
+                跟随系统
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-end">
+          <button
+            id="close-settings-btn"
+            class="md-ripple-container px-10 py-1.5 bg-gradient-custom text-white rounded-[8px] font-medium hover:opacity-90 transition-opacity text-blue-200 shadow-md"
+          >
+            完成
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- “关于” 弹窗 -->
     <div
@@ -756,18 +975,18 @@
       <div id="about-modal-overlay" class="absolute inset-0 bg-black/60 transition-opacity"></div>
       <div
         id="about-modal-content"
-        class="relative z-10 w-11/12 max-w-md p-6 rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-2xl transform scale-95 transition-transform duration-300"
+        class="relative z-10 w-11/12 max-w-md p-6 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-2xl transform scale-95 transition-transform duration-300"
       >
         <h3 class="text-xl font-bold mb-3 text-neutral-900 dark:text-white flex items-center">
           <i class="text-primary dark:text-primary-dark mr-2"></i>
           星月Fox的主页
         </h3>
-        <span class="px-3 py-2 rounded-lg text-sm flex items-center text-blue-800 dark:text-blue-300 bg-blue-500/10 border border-blue-500/10">
-        <i class="fa-solid fa-arrows-rotate"></i>最近更新：2026/07/04
+        <span class="px-3 py-2 rounded-[8px] text-sm flex items-center text-blue-800 dark:text-blue-300 bg-blue-500/10 border border-blue-500/10">
+        <i class="fa-solid fa-arrows-rotate"></i>最近更新：2026/07/11
         </span><br>
 
-        <span class="px-3 py-2 rounded-lg text-sm flex items-center text-neutral-800 dark:text-neutral-200 bg-neutral-500/10 border border-neutral-500/10">
-        版本：26.0.3200<br>代号：26.5<br>此版本修复了老旧设备上的性能问题<br>由于涉及文化问题，语言功能暂时停用
+        <span class="px-3 py-2 rounded-[8px] text-sm flex items-center text-neutral-800 dark:text-neutral-200 bg-neutral-500/10 border border-neutral-500/10">
+        版本：26.0.4700<br>代号：26.6<br>此版本采用了更加激进的交互动画<br>重新整合设置面板<br>深色模式现在可以跟随设备变更<br>重新设计游戏库板块<br>现在你可以选择关闭透明效果来缓解卡顿！
         
         </span><br>
         <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-5 leading-relaxed">
@@ -783,6 +1002,15 @@
             class="hover:text-primary dark:hover:text-primary-dark transition-colors"
           >
             <i class="fa-brands fa-bilibili"></i>
+          </a>
+
+          <a
+            href="https://steamcommunity.com/profiles/76561198761960812/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-primary dark:hover:text-primary-dark transition-colors"
+          >
+            <i class="fa-brands fa-steam"></i>
           </a>
 
           <a
@@ -812,10 +1040,11 @@
             <i class="fa-regular fa-envelope"></i>
           </a>
         </div>
-        <div class="flex justify-end">
+        <div class="flex justify-end mt-4">
+          <!-- 弹窗确认按钮对齐规范 -->
           <button
             id="close-about-btn"
-            class="px-14 py-1.5 bg-gradient-custom text-white rounded-lg font-semibold hover:opacity-80 transition-opacity text-blue-200 shadow-md"
+            class="md-ripple-container px-10 py-1.5 bg-gradient-custom text-white rounded-[8px] font-semibold hover:opacity-90 transition-opacity text-blue-200 shadow-md"
           >
             好
           </button>
@@ -842,6 +1071,15 @@
             class="hover:text-primary dark:hover:text-primary-dark transition-colors"
           >
             <i class="fa-brands fa-bilibili"></i>
+          </a>
+
+          <a
+            href="https://steamcommunity.com/profiles/76561198761960812/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-primary dark:hover:text-primary-dark transition-colors"
+          >
+            <i class="fa-brands fa-steam"></i>
           </a>
 
           <a
@@ -880,59 +1118,20 @@
       document.addEventListener("DOMContentLoaded", function () {
         const htmlElement = document.documentElement;
         
-        // --- 选项控制：二级浮动上下文菜单引擎 ---
+        // --- 选项控制菜单 ---
         const menuBtn = document.getElementById("menu-btn");
         const optionsMenu = document.getElementById("options-menu");
         const menuArrow = document.getElementById("menu-arrow");
-        const langExpandBtn = document.getElementById("lang-expand-btn");
-        const langSubPanel = document.getElementById("lang-sub-panel");
-        const langArrow = document.getElementById("lang-arrow");
-
-        let isLangExpanded = false;
 
         menuBtn.addEventListener("click", (e) => {
           e.stopPropagation();
           const isExpanded = optionsMenu.classList.toggle("show");
           menuArrow.style.transform = isExpanded ? "rotate(180deg)" : "rotate(0deg)";
-          
-          if (!isExpanded) { resetLangPanel(); }
-        });
-
-        langExpandBtn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          isLangExpanded = !isLangExpanded;
-          
-          if (isLangExpanded) {
-            langSubPanel.classList.add("show");
-            langArrow.style.transform = "rotate(-90deg)"; // 仿 Windows 右键子菜单提示效果，向左指引
-          } else {
-            resetLangPanel();
-          }
-        });
-
-        function resetLangPanel() {
-          isLangExpanded = false;
-          langSubPanel.classList.remove("show");
-          langArrow.style.transform = "rotate(0deg)";
-        }
-
-        document.querySelectorAll("[data-lang-set]").forEach(btn => {
-          btn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            const targetLang = btn.getAttribute("data-lang-set");
-            const langShortName = { 'zh-CN': '中文','zh-Hant': '中文', 'lzh': '中文'};
-            document.getElementById("menu-lang-indicator").textContent = langShortName[targetLang] || '中文';
-            
-            resetLangPanel();
-            optionsMenu.classList.remove("show");
-            menuArrow.style.transform = "rotate(0deg)";
-          });
         });
 
         document.addEventListener("click", () => {
           optionsMenu.classList.remove("show");
           menuArrow.style.transform = "rotate(0deg)";
-          resetLangPanel();
         });
         optionsMenu.addEventListener("click", (e) => e.stopPropagation());
 
@@ -947,12 +1146,11 @@
         aboutBtn.addEventListener("click", (e) => {
           e.stopPropagation();
           
-          // 关闭已打开的选项主菜单，让视口重新归于纯净
+          // 关闭已打开的选项主菜单
           optionsMenu.classList.remove("show");
           menuArrow.style.transform = "rotate(0deg)";
-          resetLangPanel();
 
-          // 呼出“关于”弹窗
+          // 呼出关于弹窗
           aboutModal.classList.remove("opacity-0", "pointer-events-none");
           aboutModalContent.classList.remove("scale-95");
           aboutModalContent.classList.add("scale-100");
@@ -968,52 +1166,147 @@
         aboutModalOverlay.addEventListener("click", hideAboutModal);
 
 
-        // --- 选项一：深色模式控制 ---
-        const themeToggle = document.getElementById("theme-toggle");
-        const darkStatus = document.getElementById("dark-status");
-        
-        function updateDarkThemeStatus() {
-          const isDark = htmlElement.classList.contains("dark");
-          darkStatus.textContent = isDark ? "Dark" : "Light";
-          darkStatus.className = isDark 
-            ? "text-[11px] bg-blue-400/20 text-blue-500 px-1.5 py-0.5 rounded"
-            : "text-[11px] bg-amber-500/20 text-amber-600 px-1.5 py-0.5 rounded";
+        // --- 设置弹窗模态框控制逻辑 ---
+        const settingsModalBtn = document.getElementById("settings-modal-btn");
+        const settingsModal = document.getElementById("settings-modal");
+        const settingsModalOverlay = document.getElementById("settings-modal-overlay");
+        const settingsModalContent = document.getElementById("settings-modal-content");
+        const closeSettingsBtn = document.getElementById("close-settings-btn");
+
+        settingsModalBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          
+          // 关闭选项下拉菜单
+          optionsMenu.classList.remove("show");
+          menuArrow.style.transform = "rotate(0deg)";
+
+          // 呼出设置弹窗
+          settingsModal.classList.remove("opacity-0", "pointer-events-none");
+          settingsModalContent.classList.remove("scale-95");
+          settingsModalContent.classList.add("scale-100");
+
+          // 修复初次加载时滑块指示器位置计算
+          setTimeout(() => {
+            const activeTheme = localStorage.getItem("theme") || "auto";
+            updateThemeIndicator(activeTheme);
+          }, 50);
+        });
+
+        function hideSettingsModal() {
+          settingsModal.classList.add("opacity-0", "pointer-events-none");
+          settingsModalContent.classList.remove("scale-100");
+          settingsModalContent.classList.add("scale-95");
         }
 
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme) {
-          htmlElement.classList.toggle("dark", savedTheme === "dark");
-        } else {
-          htmlElement.classList.toggle("dark", window.matchMedia("(prefers-color-scheme: dark)").matches);
-        }
-        updateDarkThemeStatus();
+        closeSettingsBtn.addEventListener("click", hideSettingsModal);
+        settingsModalOverlay.addEventListener("click", hideSettingsModal);
 
-        themeToggle.addEventListener("click", () => {
-          htmlElement.classList.toggle("dark");
-          localStorage.setItem("theme", htmlElement.classList.contains("dark") ? "dark" : "light");
-          updateDarkThemeStatus();
+
+        // --- 设置1.深色模式控制---
+        const lightBtn = document.getElementById("theme-light-btn");
+        const darkBtn = document.getElementById("theme-dark-btn");
+        const autoBtn = document.getElementById("theme-auto-btn");
+        const themeIndicator = document.getElementById("theme-active-indicator");
+
+        function updateThemeIndicator(mode) {
+          let activeBtn;
+          if (mode === "light") {
+            activeBtn = lightBtn;
+          } else if (mode === "dark") {
+            activeBtn = darkBtn;
+          } else {
+            activeBtn = autoBtn;
+          }
+
+          if (activeBtn && themeIndicator) {
+            themeIndicator.style.left = `${activeBtn.offsetLeft}px`;
+            themeIndicator.style.width = `${activeBtn.offsetWidth}px`;
+          }
+        }
+
+        function applyThemeMode(mode) {
+          // 清理之前的选中态文本高亮
+          [lightBtn, darkBtn, autoBtn].forEach(btn => {
+            btn.className = "relative z-10 py-1.5 px-3 rounded-md text-xs font-semibold text-neutral-700 dark:text-neutral-400 transition-colors duration-300";
+          });
+
+          const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          let activeBtn;
+
+          if (mode === "light") {
+            htmlElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+            activeBtn = lightBtn;
+          } else if (mode === "dark") {
+            htmlElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+            activeBtn = darkBtn;
+          } else {
+            // 跟随设备
+            if (prefersDark) {
+              htmlElement.classList.add("dark");
+            } else {
+              htmlElement.classList.remove("dark");
+            }
+            localStorage.setItem("theme", "auto");
+            activeBtn = autoBtn;
+          }
+
+          // 设置当前选中按钮的文字高亮，滑移动画由 Indicator 承担
+          activeBtn.className = "relative z-10 py-1.5 px-3 rounded-md text-xs font-semibold text-neutral-900 dark:text-white transition-colors duration-300";
+
+          // 更新滑动指示器的位置与宽度
+          updateThemeIndicator(mode);
+
+          // 解决窗口大小调整导致指示器错位的问题
+          window.addEventListener("resize", () => updateThemeIndicator(mode), { passive: true });
+
+          // 更新图表配色
           if (currentChartInstance) {
             applyChartTheme(currentChartInstance, htmlElement.classList.contains("dark"));
+          }
+        }
+
+        // 初始化模式加载
+        const savedTheme = localStorage.getItem("theme") || "auto";
+        applyThemeMode(savedTheme);
+
+        // 绑定深色模式切换点击事件
+        lightBtn.addEventListener("click", () => applyThemeMode("light"));
+        darkBtn.addEventListener("click", () => applyThemeMode("dark"));
+        autoBtn.addEventListener("click", () => applyThemeMode("auto"));
+
+        // 监听设备主题的硬变化
+        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+          if (localStorage.getItem("theme") === "auto") {
+            if (e.matches) {
+              htmlElement.classList.add("dark");
+            } else {
+              htmlElement.classList.remove("dark");
+            }
+            if (currentChartInstance) {
+              applyChartTheme(currentChartInstance, htmlElement.classList.contains("dark"));
+            }
           }
         });
 
 
-        // --- 选项二：沉浸模式核心控制---
-        const minimalModeToggle = document.getElementById("minimal-mode-toggle");
-        const immersiveStatus = document.getElementById("immersive-status");
+        // --- 2.关闭面板 ---
+        const settingsMinimalToggle = document.getElementById("settings-minimal-toggle");
         const bgImage = document.getElementById("main-bg-image");
 
-        // 完美匹配你最初给出的全屏模糊淡出方案的选择器
+        // 淡出动画
         const contentSections = document.querySelectorAll(
           "div.lg\\:col-span-1, div.lg\\:col-span-2 > div",
         );
         let isMinimalMode = false;
 
-        minimalModeToggle.addEventListener("click", () => {
-          isMinimalMode = !isMinimalMode;
+        function applyMinimalMode(enable) {
+          isMinimalMode = enable;
+          settingsMinimalToggle.checked = enable;
 
-          if (isMinimalMode) {
-            // 进入极简：所有板块平滑渐隐并带有微幅下坠位移，禁止触控交互
+          if (enable) {
+            // 关闭面板时，关闭触控交互
             contentSections.forEach((section) => {
               section.style.transition = "opacity 0.5s ease, transform 0.5s ease";
               section.style.opacity = "0";
@@ -1021,16 +1314,13 @@
               section.style.pointerEvents = "none";
             });
 
-            // 移除壁纸的高级高斯模糊 (完全变清晰)
+            // 移除壁纸的模糊效果
             if (bgImage) {
               bgImage.style.transition = "filter 0.5s ease";
               bgImage.style.filter = "blur(0px)";
             }
-
-            immersiveStatus.textContent = "开启";
-            immersiveStatus.className = "text-[11px] bg-green-500/20 text-green-600 dark:text-green-400 px-1.5 py-0.5 rounded";
           } else {
-            // 退出极简：所有板块浮现还原，恢复卡片可交互状态
+            // 重新打开面板
             contentSections.forEach((section) => {
               section.style.transition = "opacity 0.5s ease, transform 0.5s ease";
               section.style.opacity = "1";
@@ -1038,44 +1328,66 @@
               section.style.pointerEvents = "auto";
             });
 
-            // 恢复高级壁纸毛玻璃模糊状态
+            // 恢复壁纸模糊效果
             if (bgImage) {
               bgImage.style.transition = "filter 0.5s ease";
-              bgImage.style.filter = "blur(2px)";
+              bgImage.style.filter = isTransparencyEnabled ? "blur(2px)" : "blur(0px)";
             }
-
-            immersiveStatus.textContent = "关闭";
-            immersiveStatus.className = "text-[11px] bg-neutral-300/50 dark:bg-neutral-700/50 px-1.5 py-0.5 rounded text-neutral-500 dark:text-neutral-400";
           }
+        }
+
+        settingsMinimalToggle.addEventListener("change", (e) => {
+          applyMinimalMode(e.target.checked);
         });
 
 
-        // --- 选项三：关闭背景控制---
-        const bgVisibilityToggle = document.getElementById("bg-visibility-toggle");
-        const bgStatus = document.getElementById("bg-status");
+        // --- 3.关闭背景 ---
+        const settingsBgToggle = document.getElementById("settings-bg-toggle");
         const bgOverlay = document.getElementById("main-bg-overlay");
         
         let isBgVisible = localStorage.getItem("bg-visible") !== "false";
         
         function applyBgVisibility() {
+          settingsBgToggle.checked = isBgVisible;
           if (isBgVisible) {
             bgImage.style.opacity = "1";
             bgOverlay.style.opacity = htmlElement.classList.contains("dark") ? "0" : "0"; 
-            bgStatus.textContent = "开启";
-            bgStatus.className = "text-[11px] bg-green-500/20 text-green-600 dark:text-green-400 px-1.5 py-0.5 rounded";
           } else {
             bgImage.style.opacity = "0";
-            bgOverlay.style.opacity = "1"; // 开启不透明遮罩，直接透出 body 的纯白或极致黑色
-            bgStatus.textContent = "关闭";
-            bgStatus.className = "text-[11px] bg-neutral-300/50 dark:bg-neutral-700/50 px-1.5 py-0.5 rounded text-neutral-500 dark:text-neutral-400";
+            bgOverlay.style.opacity = "1"; // 开启不透明遮罩
           }
         }
         applyBgVisibility();
 
-        bgVisibilityToggle.addEventListener("click", () => {
-          isBgVisible = !isBgVisible;
+        settingsBgToggle.addEventListener("change", (e) => {
+          isBgVisible = e.target.checked;
           localStorage.setItem("bg-visible", isBgVisible ? "true" : "false");
           applyBgVisibility();
+        });
+
+
+        // --- 4.透明效果控制 ---
+        const settingsTransparencyToggle = document.getElementById("settings-transparency-toggle");
+        let isTransparencyEnabled = localStorage.getItem("transparency-enabled") !== "false";
+
+        function applyTransparency() {
+          settingsTransparencyToggle.checked = isTransparencyEnabled;
+          if (isTransparencyEnabled) {
+            htmlElement.classList.remove("no-transparency");
+          } else {
+            htmlElement.classList.add("no-transparency");
+          }
+          // 开启面板时同步更新背景高斯模糊
+          if (!isMinimalMode && bgImage) {
+            bgImage.style.filter = isTransparencyEnabled ? "blur(2px)" : "blur(0px)";
+          }
+        }
+        applyTransparency();
+
+        settingsTransparencyToggle.addEventListener("change", (e) => {
+          isTransparencyEnabled = e.target.checked;
+          localStorage.setItem("transparency-enabled", isTransparencyEnabled ? "true" : "false");
+          applyTransparency();
         });
 
 
@@ -1110,10 +1422,54 @@
             },
           });
         }
+
+        // --- Material Design 涟漪效果实现---
+        function createRipple(e, target) {
+          const rect = target.getBoundingClientRect();
+          
+          // 兼容鼠标点击与触屏的坐标获取
+          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+          
+          const x = clientX - rect.left;
+          const y = clientY - rect.top;
+          const size = Math.max(rect.width, rect.height);
+
+          const ripple = document.createElement("span");
+          ripple.className = "md-ripple-effect";
+          ripple.style.width = ripple.style.height = `${size}px`;
+          ripple.style.left = `${x - size / 2}px`;
+          ripple.style.top = `${y - size / 2}px`;
+
+          // 中断并放弃旧的动画
+          const oldRipple = target.querySelector(".md-ripple-effect");
+          if (oldRipple) oldRipple.remove();
+
+          target.appendChild(ripple);
+
+          ripple.addEventListener("animationend", () => {
+            ripple.remove();
+          });
+        }
+
+        // 监听鼠标按下
+        document.body.addEventListener("mousedown", function (e) {
+          // 如果是鼠标右键或中键按下，则不触发动画的规则 if (e.button !== 0) return;
+           
+          const target = e.target.closest(".md-ripple-container");
+          if (target) createRipple(e, target);
+        });
+
+        // 监听触控设备按下
+        document.body.addEventListener("touchstart", function (e) {
+          const target = e.target.closest(".md-ripple-container");
+          if (target) createRipple(e, target);
+        }, { passive: true });
+
       });
 
       function applyChartTheme(chart, isDark) {
-        const gridColor = isDark ? "rgba(255, 255, 255, 0.12)" : "rgba(0, 0, 0, 0.06)";
+        const gridColor = isDark ? "rgba(255, 255, 255, 0.12)" : "rgba(0, 0, 0, 0.06)" ;
         const tickColor = isDark ? "#9CA3AF" : "#4B5563";
         chart.options.scales.y.grid.color = gridColor;
         chart.options.scales.y.ticks.color = tickColor;

@@ -541,6 +541,68 @@
       .no-transparency .bg-image {
         filter: none !important; /* 禁用高斯模糊以提升性能 */
       }
+
+      /* Win11 点状加载动画样式 */
+      .win11-loader {
+        position: relative;
+        width: 40px;
+        height: 40px;
+      }
+      .win11-loader .dot {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background-color: #035df8;
+        border-radius: 50%;
+        animation: win11-loop 1.6s infinite ease-in-out;
+        opacity: 0;
+        transform: rotate(225deg);
+      }
+      .dark .win11-loader .dot {
+        background-color: #60a5fa;
+      }
+      .win11-loader .dot:nth-child(1) { animation-delay: 0.15s; }
+      .win11-loader .dot:nth-child(2) { animation-delay: 0.30s; }
+      .win11-loader .dot:nth-child(3) { animation-delay: 0.45s; }
+      .win11-loader .dot:nth-child(4) { animation-delay: 0.60s; }
+      .win11-loader .dot:nth-child(5) { animation-delay: 0.75s; }
+
+      @keyframes win11-loop {
+        0% {
+          transform: rotate(225deg);
+          opacity: 1;
+          animation-timing-function: ease-out;
+        }
+        7% {
+          transform: rotate(345deg);
+          animation-timing-function: linear;
+        }
+        30% {
+          transform: rotate(455deg);
+          animation-timing-function: ease-in-out;
+        }
+        39% {
+          transform: rotate(570deg);
+          animation-timing-function: linear;
+        }
+        70% {
+          transform: rotate(815deg);
+          opacity: 1;
+          animation-timing-function: ease-out;
+        }
+        75% {
+          transform: rotate(945deg);
+          animation-timing-function: ease-out;
+        }
+        76% {
+          transform: rotate(945deg);
+          opacity: 0;
+        }
+        100% {
+          transform: rotate(945deg);
+          opacity: 0;
+        }
+      }
     </style>
   </head>
   <body class="text-neutral-800 dark:text-neutral-200 min-h-screen">
@@ -990,15 +1052,37 @@
           <i class="text-primary dark:text-primary-dark mr-2"></i>
           星月Fox的主页
         </h3>
-        <span class="px-3 py-2 rounded-[8px] text-sm flex items-center text-blue-800 dark:text-blue-300 bg-blue-500/10 border border-blue-500/10">
-        <i class="fa-solid fa-arrows-rotate"></i>最近更新：2026/07/11
-        </span><br>
-
-        <span class="px-3 py-2 rounded-[8px] text-sm flex items-center text-neutral-800 dark:text-neutral-200 bg-neutral-500/10 border border-neutral-500/10">
-        版本：26.0.4700<br>代号：26.6<br>此版本采用了更加激进的交互动画<br>重新整合设置面板<br>深色模式现在可以跟随设备变更<br>重新设计游戏库板块<br>现在你可以选择关闭透明效果来缓解卡顿！
         
-        </span><br>
-        <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-5 leading-relaxed">
+        <div class="space-y-3">
+          <div class="px-3 py-2 rounded-[8px] text-sm flex items-center text-blue-800 dark:text-blue-300 bg-blue-500/10 border border-blue-500/10">
+            <i class="fa-solid fa-arrows-rotate mr-2"></i>最近更新：2026/07/11
+          </div>
+
+          <div class="px-3 py-2 rounded-[8px] text-sm text-neutral-800 dark:text-neutral-200 bg-neutral-500/10 border border-neutral-500/10 leading-relaxed">
+            版本：26.1.4701<br>代号：26.1<br>此版本采用了更加激进的交互动画<br>重新整合设置面板<br>深色模式现在可以跟随设备变更<br>重新设计游戏库板块<br>现在你可以选择关闭透明效果来缓解卡顿！
+          </div>
+
+          <!-- 新增：预览版本可用窗格 -->
+          <div class="px-3 py-2.5 rounded-[8px] text-sm flex items-center justify-between text-amber-800 dark:text-amber-300 bg-amber-500/10 border border-amber-500/15">
+            <div class="flex items-start space-x-2">
+              <i class="fa-solid fa-triangle-exclamation mt-0.5 mr-1 flex-shrink-0 animate-pulse"></i>
+              <div>
+                <span class="font-bold block">新的预览版本可用</span>
+                <span class="text-xs opacity-90 block mt-0.5">版本: 26.2.5100</span>
+                <span class="text-xs opacity-70 block">更新时间: 2026/07/08</span>
+              </div>
+            </div>
+            <a
+              href="javascript:void(0);"
+              id="beta-link"
+              class="px-2.5 py-1 text-xs font-semibold bg-amber-500/25 hover:bg-amber-500/40 text-amber-900 dark:text-amber-100 rounded border border-amber-500/30 transition-all shrink-0 ml-3"
+            >
+              预览网页
+            </a>
+          </div>
+        </div>
+
+        <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-5 leading-relaxed">
          由星月为您呈现<br>@2026 星月。
         </p>
          <div class="mt-3 space-x-4">
@@ -1057,6 +1141,56 @@
           >
             好
           </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 预览提示警告弹窗 -->
+    <div
+      id="beta-modal"
+      class="fixed inset-0 z-[110] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300"
+    >
+      <div id="beta-modal-overlay" class="absolute inset-0 bg-black/70 transition-opacity"></div>
+      <div
+        id="beta-modal-content"
+        class="relative z-10 w-11/12 max-w-sm p-6 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-2xl transform scale-95 transition-transform duration-300"
+      >
+        <div id="beta-prompt-view" class="space-y-4">
+          <h3 class="text-lg font-bold text-red-600 dark:text-red-400 flex items-center">
+            <i class="fa-solid fa-circle-exclamation mr-2 animate-bounce"></i>
+            警告
+          </h3>
+          <p class="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+            该版本非正式版本，可能存在一些不可言喻的问题！
+          </p>
+          <div class="flex justify-end space-x-3 pt-2">
+            <!-- 继续 按钮 (灰色样式) -->
+            <button
+              id="beta-continue-btn"
+              class="md-ripple-container px-5 py-2 bg-neutral-300 dark:bg-neutral-800 hover:bg-neutral-400/50 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 rounded-[8px] font-medium text-xs transition-colors"
+            >
+              继续
+            </button>
+            <!-- 返回 按钮 (蓝色样式) -->
+            <button
+              id="beta-cancel-btn"
+              class="md-ripple-container px-5 py-2 bg-gradient-custom text-white hover:opacity-90 rounded-[8px] font-medium text-xs transition-all shadow-md"
+            >
+              返回
+            </button>
+          </div>
+        </div>
+
+        <!-- 类似 Windows 11 风格的圆形进度点加载视图 -->
+        <div id="beta-loading-view" class="hidden flex-col items-center justify-center py-6 space-y-4">
+          <div class="win11-loader">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+          <p class="text-xs text-neutral-500 dark:text-neutral-400 font-medium">正在跳转到预览版页面...</p>
         </div>
       </div>
     </div>
@@ -1451,8 +1585,6 @@
           ripple.style.top = `${y - size / 2}px`;
 
           // 中断并放弃旧的动画
-          const oldRipple = target.querySelector(".md-ripple-effect");
-          if (oldRipple) oldRipple.remove();
 
           target.appendChild(ripple);
 
@@ -1474,6 +1606,65 @@
           const target = e.target.closest(".md-ripple-container");
           if (target) createRipple(e, target);
         }, { passive: true });
+
+
+        // --- 预览网页警告弹窗控制逻辑 ---
+        const betaLink = document.getElementById("beta-link");
+        const betaModal = document.getElementById("beta-modal");
+        const betaModalOverlay = document.getElementById("beta-modal-overlay");
+        const betaModalContent = document.getElementById("beta-modal-content");
+        const betaContinueBtn = document.getElementById("beta-continue-btn");
+        const betaCancelBtn = document.getElementById("beta-cancel-btn");
+        
+        const betaPromptView = document.getElementById("beta-prompt-view");
+        const betaLoadingView = document.getElementById("beta-loading-view");
+
+        betaLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          // 临时隐藏“关于”弹窗以防止视觉混乱
+          hideAboutModal();
+
+          // 恢复预览模态框的初始状态视图
+          betaPromptView.classList.remove("hidden");
+          betaLoadingView.classList.add("hidden");
+
+          // 呼出警告提示弹窗
+          betaModal.classList.remove("opacity-0", "pointer-events-none");
+          betaModalContent.classList.remove("scale-95");
+          betaModalContent.classList.add("scale-100");
+        });
+
+        function hideBetaModal() {
+          betaModal.classList.add("opacity-0", "pointer-events-none");
+          betaModalContent.classList.remove("scale-100");
+          betaModalContent.classList.add("scale-95");
+        }
+
+        betaCancelBtn.addEventListener("click", () => {
+          hideBetaModal();
+          // 返回时重新呼出“关于”弹窗，提供友好的闭环交互
+          aboutModal.classList.remove("opacity-0", "pointer-events-none");
+          aboutModalContent.classList.remove("scale-95");
+          aboutModalContent.classList.add("scale-100");
+        });
+
+        betaModalOverlay.addEventListener("click", () => {
+          hideBetaModal();
+        });
+
+        // 点击“继续”执行跳转和动画加载逻辑
+        betaContinueBtn.addEventListener("click", () => {
+          // 切换到类似 Win11 检查更新风格的加载条界面
+          betaPromptView.classList.add("hidden");
+          betaLoadingView.classList.remove("hidden");
+
+          // 跳转至 beta.html
+          setTimeout(() => {
+            window.location.href = "beta.html";
+          }, 900);
+        });
 
       });
 

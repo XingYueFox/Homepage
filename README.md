@@ -1,7 +1,7 @@
 # 星月_Fox的个人主页
 
 这是一个基于 [SRInternet 开发的 Home_Page](https://github.com/SRInternet/Home_Page/tree/master)的二次创作版本
-
+<img width="1653" height="930" alt="image" src="https://github.com/user-attachments/assets/4af70378-e50f-40b6-98e0-8dfb59019de8" />
 
 ## 🔄 新增功能
 
@@ -24,12 +24,14 @@
 - **部署选项**：Clouldflare Pages，GitHub Pages, Vercel, Netlify等
 
 ## ❔ 为什么会有这个
-对于一些 Github 上啥都没有的人，Home_Page 完美诠释了何为一穷二白。并且，Home_Page 的模板本身较为基础，为此我想制作一个更好的 Home_Page 版本:Homepage 旨在为更多更多用户提供更低的入手门槛。现在，你不会再被这些数据束缚，你可以更方便的在这上面写上你的各种信息。
+对于一些 Github 上啥都没有的人，Home_Page 完美诠释了何为一穷二白。并且，Home_Page 的模板本身较为基础，为此我想制作一个更好的 Home_Page 版本:Homepage 旨在为更多更多用户提供更低的入手门槛。<br>
+现在，你不会再被这些数据束缚，你可以更方便的在这上面写上你的各种信息。<br>
+
 更多请参考[我的网站](https://xingyuefox.pages.dev)
 
 ## 🚀 开始
 唯一的缺点是，由于改动过大，原Homepage模板已不能使用（这也是为什么不用PR的原因btw）
-所以
+所以<br>
 现在我正在制作模板，如果能提供帮助就更好了（
 
 ## 📝 License

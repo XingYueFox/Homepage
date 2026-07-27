@@ -203,15 +203,15 @@
           extend: {
             colors: {
               primary: {
-                DEFAULT: "#2575fc",
-                dark: "#60a5fa",
+                DEFAULT: "#00639B",
+                dark: "#97CBFF",
               },
               secondary: {
-                DEFAULT: "#2575fc",
-                dark: "#60a5fa",
+                DEFAULT: "#00639B",
+                dark: "#97CBFF",
               },
-              "primary-dark": "#2575fc",
-              "secondary-dark": "#60a5fa",
+              "primary-dark": "#97CBFF",
+              "secondary-dark": "#97CBFF",
             },
             fontFamily: {
               sans: ["Segoe UI Variable", "Segoe UI", "Inter", "system-ui", "sans-serif"],
@@ -241,7 +241,10 @@
           -webkit-text-fill-color: transparent;
         }
         .bg-gradient-custom {
-          background: linear-gradient(135deg, #035df8);/*头像框下按钮颜色*/
+          background: linear-gradient(135deg, #00639B);/*头像框下按钮颜色*/
+        }
+        .dark .bg-gradient-custom {
+          background: linear-gradient(135deg, #97CBFF);/*头像框下按钮颜色*/
         }
         .card-hover {
           transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -254,7 +257,7 @@
         }
         /* 云母模糊效果底色 */
         .glass-panel {
-          background: rgba(255, 255, 255, 0.6);
+          background: rgb(249, 249, 249, 0.6);
           backdrop-filter: blur(25px);
           -webkit-backdrop-filter: blur(25px);
           border: 1px solid rgba(255, 255, 255, 0.2);
@@ -298,7 +301,7 @@
           background: linear-gradient(90deg, transparent, #ffffff1f, transparent);
         }
         .dark .glass-panel {
-          background: rgba(0, 0, 0, 0.5);
+          background: rgba(0, 0, 0, 0.4);
           border: 1px solid rgba(179, 179, 179, 0.1);
           box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
@@ -517,34 +520,41 @@
         box-shadow: 0 1px 3px rgba(0,0,0,0.2);
       }
       input:checked + .switch-slider {
-        background: linear-gradient(135deg, #035df8, #2575fc); /* 使用主页图标按钮渐变色 */
+        background: linear-gradient(135deg, #00639B, #00639B); /* 选项开关颜色 */
+        
       }
       input:checked + .switch-slider:before {
         transform: translateX(22px);
       }
 
+      .dark input:checked + .switch-slider {
+        background: linear-gradient(135deg, #97CBFF, #97CBFF); /* 选项开关颜色 */
+      }
+      .dark input:checked + .switch-slider:before {
+        transform: translateX(22px);background-color:#003757
+      }
       /* 禁用透明效果时的覆盖样式 */
       .no-transparency .glass-panel {
-        background: rgb(255, 255, 255) ;
+        background: #F9F9F9 ;
         backdrop-filter: none ;
         -webkit-backdrop-filter: none ;
-        border-color: rgba(0, 0, 0, 0.15) ;
+        border-color: rgba(0, 0, 0, 0) ;
       }
       .no-transparency.dark .glass-panel,
       .dark .no-transparency .glass-panel {
         background: rgb(23, 23, 23) ;
         backdrop-filter: none ;
         -webkit-backdrop-filter: none ;
-        border-color: rgba(255, 255, 255, 0.1) ;
+        border-color: rgba(0, 0, 0, 0) ;
       }
       .no-transparency nav {
-        background: rgb(255, 255, 255) ;
+        background: #EEEEEE ;
         backdrop-filter: none ;
         -webkit-backdrop-filter: none ;
       }
       .no-transparency.dark nav,
       .dark .no-transparency nav {
-        background: rgb(23, 23, 23) ;
+        background: #1F1F1F ;
         backdrop-filter: none ;
         -webkit-backdrop-filter: none ;
       }
@@ -780,9 +790,9 @@
                   type="text" 
                   id="smart-search-input"
                   placeholder="搜索动态、联系方式和库" 
-                  class="w-full pl-9 pr-9 py-2 rounded-lg bg-neutral-200/50 dark:bg-black/30 border border-transparent focus:border-primary/50 dark:focus:border-primary-dark/50 focus:outline-none text-sm text-neutral-800 dark:text-white transition-all shadow-inner"
+                  class="w-full pl-9 pr-9 py-2 rounded-lg bg-neutral-200/50 dark:bg-black/30 border-2 border-transparent focus:border-primary/50 dark:focus:border-primary-dark/50 focus:outline-none text-sm text-neutral-800 dark:text-white transition-all shadow-inner"
                 />
-                <button id="search-clear-btn" class="absolute right-3.5 top-3 text-neutral-400 dark:text-neutral-500 hover:text-neutral-600 transition-colors hidden">
+                <button id="search-clear-btn" class="absolute right-3.5 top-2 text-neutral-400 dark:text-neutral-500 hover:text-neutral-600 transition-colors hidden">
                   <i class="fa-solid fa-circle-xmark text-sm"></i>
                 </button>
               </div>
@@ -792,8 +802,8 @@
                 <h4 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 tracking-wider uppercase px-1">常用检索</h4>
                 <div class="flex flex-wrap gap-1.5">
                   <button onclick="triggerQuickSearch('Minecraft')" class="text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Minecraft</button>
-                  <button onclick="triggerQuickSearch('鸣潮')" class="text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">鸣潮</button>
-                  <button onclick="triggerQuickSearch('动态')" class="text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">最新动态</button>
+                  <button onclick="triggerQuickSearch('邮箱')" class="text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">我的邮箱</button>
+                  <button onclick="triggerQuickSearch('动态')" class="text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">试试手气</button>
                 </div>
               </div>
 
@@ -861,7 +871,7 @@
         
         <!-- 左侧库导航窗格 -->
         <div class="lg:col-span-1 animate-fade-in">
-          <div class="glass-panel bg-white/30 dark:bg-black/40 rounded-xl shadow-xl p-6">
+          <div class="glass-panel rounded-xl shadow-xl p-6">
             <div class="flex items-center space-x-3 mb-6 border-b border-neutral-200/50 dark:border-neutral-800/50 pb-4">
               <div class="p-2.5 bg-primary/10 dark:bg-primary-dark/10 rounded-xl text-primary dark:text-primary-dark">
                 <i class="fa-solid fa-boxes-stacked text-xl"></i>
@@ -905,7 +915,7 @@
             <div class="mt-8 pt-6 border-t border-neutral-200/50 dark:border-neutral-800/50">
               <a 
                 href="index.html"
-                class="md-ripple-container w-full py-2.5 px-4 rounded-lg border border-neutral-300 dark:border-neutral-700 hover:bg-black/5 dark:hover:bg-white/5 transition-colors flex items-center justify-center text-xs font-bold space-x-2"
+                class="md-ripple-container w-full py-2.5 px-4 rounded-lg border border-neutral-300 dark:border-neutral-700 hover:bg-black/10 dark:hover:bg-white/10 transition-colors flex items-center justify-center text-xs font-bold space-x-2"
               >
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>返回个人主页</span>
@@ -1760,7 +1770,7 @@
           }, 50);
         };
 
-        // 加载二级：个性化设置界面 (补回丢失的透明度开关)
+        // 加载二级：个性化设置界面
         menuToSettingsBtn.addEventListener("click", () => {
           const settingsHtml = `
             <div class="space-y-4">
@@ -1815,7 +1825,7 @@
                   <div class="relative grid grid-cols-3 gap-1 bg-neutral-200/50 dark:bg-black/40 p-1 rounded-lg">
                     <div
                       id="header-theme-active-indicator"
-                      class="absolute top-1 bottom-1 rounded-md bg-white dark:bg-neutral-800 shadow-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none"
+                      class="absolute top-1 bottom-1 rounded-md bg-[#97CBFF80] dark:bg-[#004A7680] shadow-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none"
                     ></div>
                     <button
                       id="header-theme-light-btn"
@@ -1862,16 +1872,16 @@
               <div class="space-y-4 bg-neutral-200/10 dark:bg-white/5 p-4 rounded-xl border border-neutral-200/30 dark:border-neutral-800/30 max-w-sm text-xs leading-relaxed">
                 <div class="flex items-start justify-between">
                   <div>
-                    <div class="text-lg font-bold text-neutral-900 dark:text-white">星月Fox的收藏库</div>
-                    <div class="text-[12px] text-neutral-500 dark:text-neutral-400 mt-0.5">版本: 26.2.7000 | 正式版</div>
+                    <div class="text-lg font-bold text-neutral-900 dark:text-white">星月Fox的主页</div>
+                    <div class="text-[12px] text-neutral-500 dark:text-neutral-400 mt-0.5">版本: 26.2.7100 | 正式版</div>
                   </div>
-                  <span class="text-[12px] font-semibold px-2 py-0.5 rounded-full text-blue-800 dark:text-blue-300 bg-blue-500/10 border border-blue-500/10 flex items-center">
-                    最近更新: 2026/07/22
+                  <span class="text-[12px] font-semibold px-2 py-0.5 rounded-full text-primary dark:text-primary-dark bg-primary/10 border border-primary/10 flex items-center">
+                    最近更新: 2026/07/27
                   </span>
                 </div>
 
                 <p class="text-[12px] text-neutral-600 dark:text-neutral-300">
-                  为移动端重新设计界面<br>此版本加入了全新的顶部导航栏.<br>加入的搜索功能.<br>加入新的库界面.<br>更新了签名随机切换的功能<br>优化了在低性能设备上的表现.
+                  为移动端重新设计界面<br>优化界面配色方案<br>修复搜索索引问题<br>修复在低性能设备上的卡顿问题.
                 </p>
 
                 <div class="pt-3 border-t border-neutral-200/30 dark:border-neutral-800/30 flex justify-between items-center text-[12px]">

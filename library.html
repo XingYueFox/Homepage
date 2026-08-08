@@ -3,33 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>星月Fox的收藏库</title>
-
-    <!-- 防止深色模式下初始化闪白 -->
-    <script>
-      (function() {
-        const savedTheme = localStorage.getItem("theme");
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        if (savedTheme === "dark" || (savedTheme !== "light" && prefersDark)) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-        // 防止透明度效果初始化闪烁
-        const savedTransparency = localStorage.getItem("transparency-enabled");
-        if (savedTransparency === "false") {
-          document.documentElement.classList.add("no-transparency");
-        } else {
-          document.documentElement.classList.remove("no-transparency");
-        }
-      })();
-    </script>
-
-    <link
-      rel="icon"
-      href="img/profile/profile_xingyue_fox.jpg"
-      type="image/png"
-    />
+    <title>星月_Fox | 收藏库</title>
+    <meta name="description" content="Nothing there Nya~🍥" />
+      <link rel="icon" type="image/png" href="img/profile/profile_xingyue_fox.jpg"/>
+      <link rel="canonical" href="https://xingyuefox.pages.dev"/>
     <svg width="0" height="0" style="position: absolute">
       <filter id="roundAvatar">
         <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur" />
@@ -1317,6 +1294,24 @@
     <div id="options-menu" class="hidden pointer-events-none absolute w-0 h-0 opacity-0 overflow-hidden"><button id="settings-modal-btn"></button><button id="about-btn"></button></div>
 
     <script>
+      <!-- 防止深色模式下初始化闪白 -->
+      (function() {
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (savedTheme === "dark" || (savedTheme !== "light" && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+        // 防止透明度效果初始化闪烁
+        const savedTransparency = localStorage.getItem("transparency-enabled");
+        if (savedTransparency === "false") {
+          document.documentElement.classList.add("no-transparency");
+        } else {
+          document.documentElement.classList.remove("no-transparency");
+        }
+      })();
+      
       document.addEventListener("DOMContentLoaded", function () {
         const htmlElement = document.documentElement;
 

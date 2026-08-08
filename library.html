@@ -607,7 +607,7 @@
               alt="星月Fox"
               class="w-6 h-6 rounded-full border border-white dark:border-neutral-700 shadow-sm"
             />
-            <span class="font-bold text-base tracking-wide">星月Fox的主页</span>
+            <span class=" font-bold text-base tracking-wide">星月Fox的主页</span>
             <i class="fa-solid fa-chevron-down text-[9px] opacity-40 transition-transform duration-300" id="nav-logo-arrow"></i>
           </div>
 
@@ -754,9 +754,13 @@
             <div class="grid grid-cols-1 md:grid-cols-1 gap-1 max-w-xl">
               <a href="https://github.com/XingYueFox/Homepage" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold block text-neutral-800 dark:text-neutral-200">
                 <div class="font-bold text-neutral-900 dark:text-white">Homepage</div>
-                <div class="text-xs text-neutral-400 font-normal mt-0.5">星月的个人主页</div>
+                <div class="text-xs text-neutral-400 font-normal mt-0.5">星月Fox的个人主页</div>
               </a>
-              <a href="" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold block text-neutral-800 dark:text-neutral-200">
+              <a href="https://github.com/XingYueFox/Litestart" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold block text-neutral-800 dark:text-neutral-200">
+                <div class="font-bold text-neutral-900 dark:text-white">Litestart</div>
+                <div class="text-xs text-neutral-400 font-normal mt-0.5">专注于简洁美观、速度与效率的轻量级起始页</div>
+              </a>
+              <a href="about:blank" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold block text-neutral-800 dark:text-neutral-200">
                 <div class="font-bold text-neutral-900 dark:text-white">换算工具（开发中）</div>
                 <div class="text-xs text-neutral-400 font-normal mt-0.5">您算什么？</div>
               </a>
@@ -803,7 +807,7 @@
                 <div class="flex flex-wrap gap-1.5">
                   <button onclick="triggerQuickSearch('Minecraft')" class="text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Minecraft</button>
                   <button onclick="triggerQuickSearch('邮箱')" class="text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">我的邮箱</button>
-                  <button onclick="triggerQuickSearch('动态')" class="text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">试试手气</button>
+                  <button onclick="triggerQuickSearch('我的项目')" class="text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">试试手气</button>
                 </div>
               </div>
 
@@ -1873,20 +1877,20 @@
                 <div class="flex items-start justify-between">
                   <div>
                     <div class="text-lg font-bold text-neutral-900 dark:text-white">星月Fox的主页</div>
-                    <div class="text-[12px] text-neutral-500 dark:text-neutral-400 mt-0.5">版本: 26.2.7100 | 正式版</div>
+                    <div class="text-[12px] text-neutral-500 dark:text-neutral-400 mt-0.5">版本: 26.2.7200 | 正式版</div>
                   </div>
                   <span class="text-[12px] font-semibold px-2 py-0.5 rounded-full text-primary dark:text-primary-dark bg-primary/10 border border-primary/10 flex items-center">
-                    最近更新: 2026/07/27
+                    最近更新: 2026/08/08
                   </span>
                 </div>
 
                 <p class="text-[12px] text-neutral-600 dark:text-neutral-300">
-                  为移动端重新设计界面<br>优化界面配色方案<br>修复搜索索引问题<br>修复在低性能设备上的卡顿问题.
+                  改进搜索索引的准确性<br>修复部分设备GPU异常占用过高
                 </p>
 
-                <div class="pt-3 border-t border-neutral-200/30 dark:border-neutral-800/30 flex justify-between items-center text-[12px]">
-                  <span class="text-neutral-400 dark:text-neutral-500">由星月为您呈现 © 2026 星月Fox.</span>
-                  <div class="flex space-x-2.5 text-sm text-neutral-600 dark:text-neutral-400">
+                <div class="pt-3 border-t border-neutral-300/70 dark:border-neutral-600/70 flex justify-between items-center text-[12px]">
+                  <span class="text-neutral-500 dark:text-neutral-300">由星月为您呈现 © 2026 星月Fox.</span>
+                  <div class="flex space-x-2.5 text-sm text-neutral-700 dark:text-neutral-300">
                     <a href="https://space.bilibili.com/3493117999188634" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-bilibili"></i></a>
                     <a href="https://github.com/XingYueFox" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
                     <a href="mailto:xingyue_fox@outlook.com" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-envelope"></i></a>
@@ -1997,28 +2001,36 @@
         const searchResultsList = document.getElementById("search-results-list");
 
         const searchDatabase = [
-          { name: "游戏：Minecraft (我的世界)", type: "game", tab: "game", preview: "最喜欢的游戏？" },
-          { name: "游戏：赛博朋克2077", type: "game", tab: "game", preview: "赛博朋克风开放世界，夜之城故事" },
-          { name: "游戏：地平线", type: "game", tab: "game", preview: "极限竞速：地平线 探索与赛车" },
-          { name: "游戏：鸣潮", type: "game", tab: "game", preview: "开放世界，二次元动作巨作" },
-          { name: "游戏：蔚蓝档案", type: "game", tab: "game", preview: "青春、科技与奇迹的RPG。" },
-          { name: "游戏：千恋＊万花", type: "game", tab: "game", preview: "柚子社经典美少女恋爱视觉小说。" },
-          { name: "联系方式：Outlook 电子邮箱", type: "contact", targetId: "intro-panel", preview: "xingyue_fox@outlook.com" },
-          { name: "联系方式：Gmail 电子邮箱", type: "contact", targetId: "intro-panel", preview: "xingyuefox@gmail.com" },
-          { name: "联系方式：Bilibili 个人空间", type: "contact", targetId: "readme-panel", preview: "3493117999188634" },
-          { name: "联系方式：Steam 玩家资料", type: "contact", targetId: "readme-panel", preview: "https://steamcommunity.com/profiles/76561198761960812/" },
-          { name: "联系方式：Github 仓库主页", type: "contact", targetId: "intro-panel", preview: "https://github.com/XingYueFox" },
-          { name: "联系方式：Telegram 电报", type: "contact", targetId: "readme-panel", preview: "https://t.me/xingyuefox" },
-          { name: "网站：GitHub", type: "web", tab: "website", preview: "全球领先的开源代码托管平台。" },
-          { name: "网站：Cloudflare", type: "web", tab: "website", preview: "全球领先的 CDN 和 Web 安全服务提供商。" },
-          { name: "网站：ChatGPT", type: "web", tab: "website", preview: "强大的 AI 对话模型，支持多语言交互。" },
-          { name: "网站：Claude", type: "web", tab: "website", preview: "由 Anthropic 开发的 AI 助手。" },
-          { name: "网站：Bilibili 哔哩哔哩", type: "web", tab: "website", preview: "知名的弹幕视频网站。" },
-          { name: "网站：抖音", type: "web", tab: "website", preview: "是字节跳动旗下的短视频分享平台。" },
-          { name: "网站：Steam", type: "web", tab: "website", preview: "全球最大的综合性数字发行平台之一。" },
-          { name: "网站：Xbox", type: "web", tab: "website", preview: "微软开发的跨平台游戏与娱乐应用程序。" },
-          { name: "网站：Littleskin", type: "web", tab: "website", preview: "一个为 Minecraft 玩家提供皮肤定制服务的平台。" },
-          { name: "网站：NCM解密工具", type: "web", tab: "website", preview: "用于解密网易云音乐加密音频文件的工具。" },
+
+
+          { name: "网站：GitHub", type: "web", tab: "website", preview: "全球领先的开源代码托管平台。", url:"https://github.com/" },
+          { name: "网站：Cloudflare", type: "web", tab: "website", preview: "全球领先的 CDN 和 Web 安全服务提供商。", url:"https://www.cloudflare.com/" },
+          { name: "网站：ChatGPT", type: "web", tab: "website", preview: "强大的 AI 对话模型，支持多语言交互。", url:"https://chat.openai.com/" },
+          { name: "网站：Claude", type: "web", tab: "website", preview: "由 Anthropic 开发的 AI 助手。", url:"https://claude.ai/" },
+          { name: "网站：Bilibili 哔哩哔哩", type: "web", tab: "website", preview: "知名的弹幕视频网站。", url:"https://bilibili.com/" },
+          { name: "网站：抖音", type: "web", tab: "website", preview: "是字节跳动旗下的短视频分享平台。", url:"https://douyin.com/" },
+          { name: "网站：Steam", type: "web", tab: "website", preview: "全球最大的综合性数字发行平台之一。", url:"https://store.steampowered.com/" },
+          { name: "网站：Xbox", type: "web", tab: "website", preview: "微软开发的跨平台游戏与娱乐应用程序。", url:"https://www.xbox.com/" },
+          { name: "网站：Littleskin", type: "web", tab: "website", preview: "一个为 Minecraft 玩家提供皮肤定制服务的平台。", url:"https://littleskin.cn/" },
+          { name: "网站：NCM解密工具", type: "web", tab: "website", preview: "用于解密网易云音乐加密音频文件的工具。", url:"https://tools.athbe.cn/ncm/" },
+          { name: "游戏：蔚蓝档案", type: "game", tab: "game", preview: "青春、科技与奇迹的RPG。", url:"https://bluearchive.jp/" },
+          { name: "游戏：千恋＊万花", type: "game", tab: "game", preview: "柚子社经典美少女恋爱视觉小说。", url:"https://store.steampowered.com/app/1144400" },
+          { name: "项目：Homepage", type: "project", targetId: "readme-panel", preview: "星月Fox的个人主页", url: "https://github.com/XingYueFox/Homepage" },
+          { name: "项目：Litestart", type: "project", targetId: "readme-panel", preview: "为浏览器设计的轻量级起始页", url: "about:blank" },
+          { name: "项目：Converter", type: "project", targetId: "readme-panel", preview: "您要算什么？", url: "about:blank" },
+          { name: "游戏：Minecraft (我的世界)", type: "game", targetId: "readme-panel", preview: "最喜欢的游戏？", url: "https://www.minecraft.net/" },
+          { name: "游戏：赛博朋克2077", type: "game", targetId: "readme-panel", preview: "赛博朋克风开放世界，夜之城的故事", url: "https://www.cyberpunk.net/" },
+          { name: "游戏：地平线", type: "game", targetId: "readme-panel", preview: "极限竞速：地平线 探索与赛车", url: "https://forza.net/" },
+          { name: "游戏：鸣潮", type: "game", targetId: "readme-panel", preview: "开放世界，二次元动作巨作", url: "https://mc.kurogames.com/main" },
+          { name: "动态：星月在Minecraft中 (Drive)", type: "news", targetId: "news-panel", preview: "点击跳转托管的外置图片包", url: "https://drive.google.com/drive/folders/15v32ha1JSSh7SUVVIhJyqWlZYyvI0mOw" },
+          { name: "动态：鸣潮壁纸资源 (Drive)", type: "news", targetId: "news-panel", preview: "包含剧情CG图，版本活动图及版本动态封面", url: "https://drive.google.com/drive/folders/1GwBykGeMJ3pF_mcbdA9TX9RgzC_3dyzQ" },
+          { name: "动态：BlueArchive Cafe", type: "news", targetId: "news-panel", preview: "蔚蓝档案咖啡厅汉化组", url: "https://bluearchive.cafe" },
+          { name: "联系方式：Outlook 电子邮箱", type: "contact", targetId: "intro-panel", preview: "xingyue_fox@outlook.com", url: "mailto:xingyue_fox@outlook.com" },
+          { name: "联系方式：Gmail 电子邮箱", type: "contact", targetId: "intro-panel", preview: "xingyuefox@gmail.com", url: "mailto:xingyuefox@gmail.com" },
+          { name: "联系方式：Bilibili 个人空间", type: "contact", targetId: "readme-panel", preview: "星月_Fox", url: "https://space.bilibili.com/3493117999188634" },
+          { name: "联系方式：Steam 玩家资料", type: "contact", targetId: "readme-panel", preview: "星月_Fox", url: "https://steamcommunity.com/profiles/76561198761960812/" },
+          { name: "联系方式：Github 仓库主页", type: "contact", targetId: "intro-panel", preview: "XingYue_Fox", url: "https://github.com/XingYueFox" },
+          { name: "联系方式：Telegram 电报", type: "contact", targetId: "readme-panel", preview: "星月_Fox", url: "https://t.me/xingyuefox" }
         ];
 
         smartSearchInput.addEventListener("input", (e) => {
@@ -2059,6 +2071,7 @@
               let typeBadge = "";
               if (item.type === "game") typeBadge = '<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">游戏库</span>';
               else if (item.type === "web") typeBadge = '<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-sky-500/10 text-sky-600 dark:text-sky-400">网站库</span>';
+              else if (item.type === "contact") typeBadge = '<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400">联系</span>';
 
               row.innerHTML = `
                 <div class="flex items-center justify-between w-full">
@@ -2068,9 +2081,25 @@
                 <span class="text-[11px] text-neutral-500 dark:text-neutral-400 font-normal">${item.preview}</span>
               `;
 
+              //新增：点击跳转（实验性）
               row.addEventListener("click", () => {
                 closeMenuPanel();
-                switchTab(item.tab);
+                if (item.url) {
+                  if (item.url.startsWith("http://") || item.url.startsWith("https://") || item.url.startsWith("mailto:")) {
+                    window.open(item.url, "_blank");
+                  } else {
+                    window.location.href = item.url;
+                  }
+                } else if (item.targetId) {
+                  const targetEl = document.getElementById(item.targetId);
+                  if (targetEl) {
+                    targetEl.scrollIntoView({ behavior: "smooth", block: "center" });
+                    targetEl.classList.add("ring-2", "ring-primary", "dark:ring-primary-dark");
+                    setTimeout(() => {
+                      targetEl.classList.remove("ring-2", "ring-primary", "dark:ring-primary-dark");
+                    }, 2000);
+                  }
+                }
               });
 
               searchResultsList.appendChild(row);

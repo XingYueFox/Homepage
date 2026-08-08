@@ -698,7 +698,6 @@
               </button>
               <button onclick="openMenuPanel('test3', true)" class="w-full text-left py-3 px-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-all flex items-center justify-between text-sm font-semibold">
                 <span>友情链接</span>
-                <i class="fa-solid fa-chevron-right text-xs opacity-40"></i>
               </button>
             </div>
           </div>
@@ -761,9 +760,13 @@
             <div class="grid grid-cols-1 md:grid-cols-1 gap-1 max-w-xl">
               <a href="https://github.com/XingYueFox/Homepage" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold block text-neutral-800 dark:text-neutral-200">
                 <div class="font-bold text-neutral-900 dark:text-white">Homepage</div>
-                <div class="text-xs text-neutral-400 font-normal mt-0.5">星月的个人主页</div>
+                <div class="text-xs text-neutral-400 font-normal mt-0.5">星月Fox的个人主页</div>
               </a>
-              <a href="" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold block text-neutral-800 dark:text-neutral-200">
+              <a href="https://github.com/XingYueFox/Litestart" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold block text-neutral-800 dark:text-neutral-200">
+                <div class="font-bold text-neutral-900 dark:text-white">Litestart</div>
+                <div class="text-xs text-neutral-400 font-normal mt-0.5">专注于简洁美观、速度与效率的轻量级起始页</div>
+              </a>
+              <a href="about:blank" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold block text-neutral-800 dark:text-neutral-200">
                 <div class="font-bold text-neutral-900 dark:text-white">换算工具（开发中）</div>
                 <div class="text-xs text-neutral-400 font-normal mt-0.5">您算什么？</div>
               </a>
@@ -810,7 +813,7 @@
                 <div class="flex flex-wrap gap-1.5">
                   <button onclick="triggerQuickSearch('Minecraft')" class="text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Minecraft</button>
                   <button onclick="triggerQuickSearch('邮箱')" class="text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">我的邮箱</button>
-                  <button onclick="triggerQuickSearch('动态')" class="text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">试试手气</button>
+                  <button onclick="triggerQuickSearch('Converter')" class="text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">试试手气</button>
                 </div>
               </div>
 
@@ -961,7 +964,7 @@
                 <span>或者使用其他联系方式？请见页尾</span>
               </p>
               
-              <h3 class="text-2xl font-bold mt-8 mb-3 text-neutral-900 dark:text-white">📖我的项目</h3>
+              <h3 class="text-2xl font-bold mt-8 mb-3 text-neutral-900 dark:text-white">📈当前进度</h3>
               <p class="text-neutral-700 dark:text-neutral-300">我的个人主页：当前网页</p>
               <p class="text-neutral-700 dark:text-neutral-300 mt-1">
                 <span>目前正在使用</span>
@@ -969,73 +972,58 @@
                 <span>改进此页面</span>
               </p>
 
-              <h3 class="text-2xl font-bold mt-8 mb-3 text-neutral-900 dark:text-white">🎮游戏标签</h3>
+              <h3 class="text-2xl font-bold mt-8 mb-3 text-neutral-900 dark:text-white">📓我的项目</h3>
               <p class="mb-2 text-neutral-700 dark:text-neutral-300"></p>
               
-              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 my-4">
-                <!-- Minecraft 卡片 -->
-                <div class="game-card md-ripple-container md-ripple-dark relative group overflow-hidden rounded-xl h-32 w-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/40 dark:hover:shadow-emerald-400/10">
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-4 my-4">
+                <!-- 个人主页 卡片 -->
+                <div class="game-card md-ripple-container md-ripple-dark relative group overflow-hidden rounded-xl h-32 w-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-sky-400/30 dark:hover:shadow-sky-400/10">
                   <div class="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden bg-neutral-200 dark:bg-neutral-800">
-                    <img src="img/games/minecraft_bg.jpg" alt="Minecraft" class="absolute w-full h-full object-cover m-0 p-0 block transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none';">
+                    <img src="img/card/homepage.jpg" alt="Homepage" class="absolute w-full h-full object-cover m-0 p-0 block transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none';">
                   </div>
-                  <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-black/40 to-transparent pointer-events-none"></div>
-                  <a href="https://Minecraft.net" target="_blank" class="absolute left-0 right-0 bottom-0 top-0 p-3 flex flex-col justify-end text-white hover:text-white hover:no-underline z-10">
-                    <div class="flex items-center space-x-2">
-                      <span class="inline-flex items-center justify-center w-5 h-5 overflow-hidden rounded-md flex-shrink-0 bg-black/30">
-                        <img src="img/icon/minecraft_logo.jpg" alt="Minecraft Icon" class="w-full h-full object-cover m-0 p-0 block" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'white\'><path d=\'M3 3h18v18H3z\'/></svg>'">
-                      </span>
-                      <span class="font-bold text-sm tracking-wide text-white drop-shadow-md">Minecraft</span>
+                  <div class="absolute inset-0 bg-gradient-to-t from-sky-700/40 via-black/40 to-transparent pointer-events-none"></div>
+                  <a href="https://github.com/XingYueFox/Homepage" target="_blank" class="absolute inset-0 p-3 flex flex-col justify-between text-white hover:text-white hover:no-underline z-10">
+                    <div class="flex-1 flex items-center justify-center">
+                      <i class="fa-solid fa-address-card text-4xl text-neutral-200/80 transition-transform duration-300 group-hover:scale-110"></i>
+                    </div>
+                    <div class="flex items-center">
+                      <span class="font-bold text-base tracking-wide text-white ">Homepage</span>
                     </div>
                   </a>
                 </div>
 
-                <!-- 赛博朋克2077 卡片 -->
+                <!-- Litestart 卡片 -->
+                <div class="game-card md-ripple-container md-ripple-dark relative group overflow-hidden rounded-xl h-32 w-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-green-500/40 dark:hover:shadow-green-400/10">
+                  <div class="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden bg-neutral-200 dark:bg-neutral-800">
+                    <img src="img/card/litestart.jpg" alt="Litestart" class="absolute w-full h-full object-cover m-0 p-0 block transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none';">
+                  </div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-green-700/40 via-black/40 to-transparent pointer-events-none"></div>
+                  <a href="https://www.litestart.net/" target="_blank" class="absolute inset-0 p-3 flex flex-col justify-between text-white hover:text-white hover:no-underline z-10">
+                    <div class="flex-1 flex items-center justify-center">
+                      <i class="fa-solid fa-magnifying-glass text-4xl text-neutral-200/80 transition-transform duration-300 group-hover:scale-110"></i>
+                    </div>
+                    <div class="flex items-center">
+                      <span class="font-bold text-base tracking-wide text-white">Litestart</span>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- 换算工具 卡片 -->
                 <div class="game-card md-ripple-container md-ripple-dark relative group overflow-hidden rounded-xl h-32 w-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-yellow-500/40 dark:hover:shadow-yellow-400/10">
                   <div class="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden bg-neutral-200 dark:bg-neutral-800">
-                    <img src="img/games/cyberpunk_2077_bg.jpg" alt="赛博朋克2077" class="absolute w-full h-full object-cover m-0 p-0 block transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none';">
+                    <img src="img/card/converter.jpg" alt="换算工具" class="absolute w-full h-full object-cover m-0 p-0 block transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none';">
                   </div>
-                  <div class="absolute inset-0 bg-gradient-to-t from-yellow-950/90 via-black/40 to-transparent pointer-events-none"></div>
-                  <a href="https://www.cyberpunk.net/" target="_blank" class="absolute left-0 right-0 bottom-0 top-0 p-3 flex flex-col justify-end text-white hover:text-white hover:no-underline z-10">
-                    <div class="flex items-center space-x-2">
-                      <span class="inline-flex items-center justify-center w-5 h-5 overflow-hidden rounded-md flex-shrink-0 bg-black/30">
-                        <img src="img/icon/cyberpunk_2077_icon.jpg" alt="赛博朋克2077 Icon" class="w-full h-full object-cover m-0 p-0 block" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'white\'><path d=\'M3 3h18v18H3z\'/></svg>'">
-                      </span>
-                      <span class="font-bold text-sm tracking-wide text-white drop-shadow-md">赛博朋克2077</span>
+                  <div class="absolute inset-0 bg-gradient-to-t from-yellow-700/40 via-black/40 to-transparent pointer-events-none"></div>
+                  <a href="https://forza.net/" target="_blank" class="absolute inset-0 p-3 flex flex-col justify-between text-white hover:text-white hover:no-underline z-10">
+                    <div class="flex-1 flex items-center justify-center">
+                      <i class="fa-solid fa-arrow-right-arrow-left text-4xl text-neutral-200/80 transition-transform duration-300 group-hover:scale-110"></i>
+                    </div>
+                    <div class="flex items-center">
+                      <span class="font-bold text-base tracking-wide text-white">换算工具</span>
                     </div>
                   </a>
                 </div>
 
-                <!-- 地平线 卡片 -->
-                <div class="game-card md-ripple-container md-ripple-dark relative group overflow-hidden rounded-xl h-32 w-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-pink-500/40 dark:hover:shadow-pink-700/20">
-                  <div class="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden bg-neutral-200 dark:bg-neutral-800">
-                    <img src="img/games/forza_horizon_6_bg.jpg" alt="地平线" class="absolute w-full h-full object-cover m-0 p-0 block transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none';">
-                  </div>
-                  <div class="absolute inset-0 bg-gradient-to-t from-pink-950/90 via-black/40 to-transparent pointer-events-none"></div>
-                  <a href="https://forza.net/" target="_blank" class="absolute left-0 right-0 bottom-0 top-0 p-3 flex flex-col justify-end text-white hover:text-white hover:no-underline z-10">
-                    <div class="flex items-center space-x-2">
-                      <span class="inline-flex items-center justify-center w-5 h-5 overflow-hidden rounded-md flex-shrink-0 bg-black/30">
-                        <img src="img/icon/forza_horizon_6_logo.jpg" alt="地平线 Icon" class="w-full h-full object-cover m-0 p-0 block" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'white\'><path d=\'M3 3h18v18H3z\'/></svg>'">
-                      </span>
-                      <span class="font-bold text-sm tracking-wide text-white drop-shadow-md">地平线</span>
-                    </div>
-                  </a>
-                </div>
-
-                <!-- 鸣潮 卡片 -->
-                <div class="game-card md-ripple-container md-ripple-dark relative group overflow-hidden rounded-xl h-32 w-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-sky-500/40 dark:hover:shadow-sky-400/10">
-                  <div class="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden bg-neutral-200 dark:bg-neutral-800">
-                    <img src="img/games/wuthering_waves_bg.jpg" alt="鸣潮" class="absolute w-full h-full object-cover m-0 p-0 block transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none';">
-                  </div>
-                  <div class="absolute inset-0 bg-gradient-to-t from-sky-950/90 via-black/40 to-transparent pointer-events-none"></div>
-                  <a href="https://mc.kurogames.com" target="_blank" class="absolute left-0 right-0 bottom-0 top-0 p-3 flex flex-col justify-end text-white hover:text-white hover:no-underline z-10">
-                    <div class="flex items-center space-x-2">
-                      <span class="inline-flex items-center justify-center w-5 h-5 overflow-hidden rounded-md flex-shrink-0 bg-black/30">
-                        <img src="img/icon/wuthering_waves_logo.jpg" alt="鸣潮 Icon" class="w-full h-full object-cover m-0 p-0 block" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'white\'><path d=\'M3 3h18v18H3z\'/></svg>'">
-                      </span>
-                      <span class="font-bold text-sm tracking-wide text-white drop-shadow-md">鸣潮</span>
-                    </div>
-                  </a>
-                </div>
               </div>
 
               <h3 class="text-2xl font-bold mt-8 mb-3 text-neutral-900 dark:text-white">🌐在互联网上找到我</h3>
@@ -1044,12 +1032,12 @@
                 <li><a href="https://github.com/XingYueFox" target="_blank" class="hover:underline">Github</a></li>
                 <li><a href="https://namemc.com/XingYue_Fox" target="_blank" class="hover:underline">NameMC</a></li>
                 <li><a href="https://t.me/xingyuefox" target="_blank" class="hover:underline">Telegram</a></li>
-                <li><a href="mailto:xingyue_fox@outlook.com" target="_blank" class="hover:underline">联系我的邮箱></a></li>
+                <li><a href="mailto:xingyue_fox@outlook.com" target="_blank" class="hover:underline">我的Outlook邮箱></a></li>
               </ul>
 
               <h3 class="text-2xl font-bold mt-8 mb-2 text-neutral-900 dark:text-white">🚧维护概览</h3>
-              <p class="text-neutral-600 dark:text-neutral-400">最后维护于 2026/07/27</p>
-              <p class="text-neutral-600 dark:text-neutral-400 mt-0.5">8月更新预览，详细请见关于界面</p>
+              <p class="text-neutral-600 dark:text-neutral-400">最后维护于 2026/08/08</p>
+              <p class="text-neutral-600 dark:text-neutral-400 mt-0.5">8月累积更新，详细请见关于界面</p>
             </div>
           </div>
 
@@ -1709,20 +1697,20 @@
                 <div class="flex items-start justify-between">
                   <div>
                     <div class="text-lg font-bold text-neutral-900 dark:text-white">星月Fox的主页</div>
-                    <div class="text-[12px] text-neutral-500 dark:text-neutral-400 mt-0.5">版本: 26.2.7100 | 正式版</div>
+                    <div class="text-[12px] text-neutral-500 dark:text-neutral-400 mt-0.5">版本: 26.2.7200 | 正式版</div>
                   </div>
                   <span class="text-[12px] font-semibold px-2 py-0.5 rounded-full text-primary dark:text-primary-dark bg-primary/10 border border-primary/10 flex items-center">
-                    最近更新: 2026/07/27
+                    最近更新: 2026/08/08
                   </span>
                 </div>
 
                 <p class="text-[12px] text-neutral-600 dark:text-neutral-300">
-                  为移动端重新设计界面<br>优化界面配色方案<br>修复搜索索引问题<br>修复在低性能设备上的卡顿问题.
+                  改进搜索索引的准确性<br>修复部分设备GPU异常占用过高
                 </p>
 
-                <div class="pt-3 border-t border-neutral-200/30 dark:border-neutral-800/30 flex justify-between items-center text-[12px]">
-                  <span class="text-neutral-400 dark:text-neutral-500">由星月为您呈现 © 2026 星月Fox.</span>
-                  <div class="flex space-x-2.5 text-sm text-neutral-600 dark:text-neutral-400">
+                <div class="pt-3 border-t border-neutral-300/70 dark:border-neutral-600/70 flex justify-between items-center text-[12px]">
+                  <span class="text-neutral-500 dark:text-neutral-300">由星月为您呈现 © 2026 星月Fox.</span>
+                  <div class="flex space-x-2.5 text-sm text-neutral-700 dark:text-neutral-300">
                     <a href="https://space.bilibili.com/3493117999188634" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-bilibili"></i></a>
                     <a href="https://github.com/XingYueFox" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
                     <a href="mailto:xingyue_fox@outlook.com" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-envelope"></i></a>
@@ -1837,19 +1825,22 @@
         const searchResultsList = document.getElementById("search-results-list");
 
         const searchDatabase = [
-          { name: "游戏：Minecraft (我的世界)", type: "game", targetId: "readme-panel", preview: "最喜欢的游戏？" },
-          { name: "游戏：赛博朋克2077", type: "game", targetId: "readme-panel", preview: "赛博朋克风开放世界，夜之城的故事" },
-          { name: "游戏：地平线", type: "game", targetId: "readme-panel", preview: "极限竞速：地平线 探索与赛车" },
-          { name: "游戏：鸣潮", type: "game", targetId: "readme-panel", preview: "开放世界，二次元动作巨作" },
-          { name: "动态：星月在Minecraft中 (Drive)", type: "news", targetId: "news-panel", preview: "点击跳转托管的外置图片包" },
-          { name: "动态：鸣潮精美壁纸资源 (Drive)", type: "news", targetId: "news-panel", preview: "包含剧情CG图，版本活动图及版本动态封面" },
-          { name: "动态：BlueArchive Cafe", type: "news", targetId: "news-panel", preview: "碧蓝档案主题咖啡厅入口" },
-          { name: "联系方式：Outlook 电子邮箱", type: "contact", targetId: "intro-panel", preview: "xingyue_fox@outlook.com" },
-          { name: "联系方式：Gmail 电子邮箱", type: "contact", targetId: "intro-panel", preview: "xingyuefox@gmail.com" },
-          { name: "联系方式：Bilibili 个人空间", type: "contact", targetId: "readme-panel", preview: "3493117999188634" },
-          { name: "联系方式：Steam 玩家资料", type: "contact", targetId: "readme-panel", preview: "https://steamcommunity.com/profiles/76561198761960812/" },
-          { name: "联系方式：Github 仓库主页", type: "contact", targetId: "intro-panel", preview: "https://github.com/XingYueFox" },
-          { name: "联系方式：Telegram 电报", type: "contact", targetId: "readme-panel", preview: "https://t.me/xingyuefox" }
+          { name: "项目：Homepage", type: "project", targetId: "readme-panel", preview: "星月Fox的个人主页", url: "https://github.com/XingYueFox/Homepage" },
+          { name: "项目：Litestart", type: "project", targetId: "readme-panel", preview: "为浏览器设计的轻量级起始页", url: "about:blank" },
+          { name: "项目：Converter", type: "project", targetId: "readme-panel", preview: "您要算什么？", url: "about:blank" },
+          { name: "游戏：Minecraft (我的世界)", type: "game", targetId: "readme-panel", preview: "最喜欢的游戏？", url: "https://www.minecraft.net/" },
+          { name: "游戏：赛博朋克2077", type: "game", targetId: "readme-panel", preview: "赛博朋克风开放世界，夜之城的故事", url: "https://www.cyberpunk.net/" },
+          { name: "游戏：地平线", type: "game", targetId: "readme-panel", preview: "极限竞速：地平线 探索与赛车", url: "https://forza.net/" },
+          { name: "游戏：鸣潮", type: "game", targetId: "readme-panel", preview: "开放世界，二次元动作巨作", url: "https://mc.kurogames.com/main" },
+          { name: "动态：星月在Minecraft中 (Drive)", type: "news", targetId: "news-panel", preview: "点击跳转托管的外置图片包", url: "https://drive.google.com/drive/folders/15v32ha1JSSh7SUVVIhJyqWlZYyvI0mOw" },
+          { name: "动态：鸣潮壁纸资源 (Drive)", type: "news", targetId: "news-panel", preview: "包含剧情CG图，版本活动图及版本动态封面", url: "https://drive.google.com/drive/folders/1GwBykGeMJ3pF_mcbdA9TX9RgzC_3dyzQ" },
+          { name: "动态：BlueArchive Cafe", type: "news", targetId: "news-panel", preview: "蔚蓝档案咖啡厅汉化组", url: "https://bluearchive.cafe" },
+          { name: "联系方式：Outlook 电子邮箱", type: "contact", targetId: "intro-panel", preview: "xingyue_fox@outlook.com", url: "mailto:xingyue_fox@outlook.com" },
+          { name: "联系方式：Gmail 电子邮箱", type: "contact", targetId: "intro-panel", preview: "xingyuefox@gmail.com", url: "mailto:xingyuefox@gmail.com" },
+          { name: "联系方式：Bilibili 个人空间", type: "contact", targetId: "readme-panel", preview: "星月_Fox", url: "https://space.bilibili.com/3493117999188634" },
+          { name: "联系方式：Steam 玩家资料", type: "contact", targetId: "readme-panel", preview: "星月_Fox", url: "https://steamcommunity.com/profiles/76561198761960812/" },
+          { name: "联系方式：Github 仓库主页", type: "contact", targetId: "intro-panel", preview: "XingYue_Fox", url: "https://github.com/XingYueFox" },
+          { name: "联系方式：Telegram 电报", type: "contact", targetId: "readme-panel", preview: "星月_Fox", url: "https://t.me/xingyuefox" }
         ];
 
         smartSearchInput.addEventListener("input", (e) => {
@@ -1885,7 +1876,7 @@
           } else {
             filtered.forEach(item => {
               const row = document.createElement("button");
-              row.className = "w-full text-left p-2.5 rounded-lg bg-neutral-200/20 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors flex flex-col space-y-0.5";
+              row.className = "w-full text-left p-2.5 rounded-lg bg-neutral-200/20 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors flex flex-col space-y-0.5 cursor-pointer";
               
               let typeBadge = "";
               if (item.type === "game") typeBadge = '<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">游戏库</span>';
@@ -1900,15 +1891,24 @@
                 <span class="text-[11px] text-neutral-500 dark:text-neutral-400 font-normal">${item.preview}</span>
               `;
 
+              //新增：点击跳转（实验性）
               row.addEventListener("click", () => {
                 closeMenuPanel();
-                const targetEl = document.getElementById(item.targetId);
-                if (targetEl) {
-                  targetEl.scrollIntoView({ behavior: "smooth", block: "center" });
-                  targetEl.classList.add("ring-2", "ring-primary", "dark:ring-primary-dark");
-                  setTimeout(() => {
-                    targetEl.classList.remove("ring-2", "ring-primary", "dark:ring-primary-dark");
-                  }, 2000);
+                if (item.url) {
+                  if (item.url.startsWith("http://") || item.url.startsWith("https://") || item.url.startsWith("mailto:")) {
+                    window.open(item.url, "_blank");
+                  } else {
+                    window.location.href = item.url;
+                  }
+                } else if (item.targetId) {
+                  const targetEl = document.getElementById(item.targetId);
+                  if (targetEl) {
+                    targetEl.scrollIntoView({ behavior: "smooth", block: "center" });
+                    targetEl.classList.add("ring-2", "ring-primary", "dark:ring-primary-dark");
+                    setTimeout(() => {
+                      targetEl.classList.remove("ring-2", "ring-primary", "dark:ring-primary-dark");
+                    }, 2000);
+                  }
                 }
               });
 

@@ -2,10 +2,21 @@
 
 这是一个基于 [SRInternet 开发的 Home_Page](https://github.com/SRInternet/Home_Page/tree/master)的二次创作版本。
 
-<img width="1690" height="951" alt="image" src="https://github.com/user-attachments/assets/f2cb7e43-af97-4c67-85d1-74eaea0f2cf5" />
+<img width="2534" height="1599" alt="image" src="https://github.com/user-attachments/assets/2832b2ad-e931-4c49-9b3b-d5dca82a99e8" />
+
+访问[我的网站](https://xingyuefox.pages.dev)
+
+## 🔁 更新内容
+
+此次更新与v26.2.7200相比<br>
+1.新增的上半部分标题界面<br>
+2.重写导航栏以及交互逻辑<br>
+3.重新设计主界面面板<br>
+4.优化界面配色方案<br>
+5.大版本号由26.2（4700）更新至26.3（8000）
 
 
-## 🔄 新增功能
+## 📄 相比之下
 
 - ✨ **设计风格**：在大体上与 Home_Page 设计相似
 - 🪟 **自适应布局**：重新设计了在移动端上的界面表现效果
@@ -28,8 +39,6 @@
 ## ❔ 为什么会有这个
 对于一些 Github 上啥都没有的人，Home_Page 完美诠释了何为一穷二白。并且，Home_Page 的模板本身较为基础，为此我想制作一个更好的 Home_Page 版本:Homepage 旨在为更多更多用户提供更低的入手门槛。<br>
 现在，你不会再被这些数据束缚，你可以更方便的在这上面写上你的各种信息。<br>
-
-更多请参考[我的网站](https://xingyuefox.pages.dev)
 
 ## 🚀 开始
 唯一的缺点是，由于改动过大，原Homepage模板已不能使用（这也是为什么不用PR的原因btw）

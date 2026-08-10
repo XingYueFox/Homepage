@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>星月_Fox | 收藏库</title>
+    <title>星月_Fox | 库</title>
     <meta name="description" content="Nothing there Nya~🍥" />
       <link rel="icon" type="image/png" href="img/profile/profile_xingyue_fox.jpg"/>
       <link rel="canonical" href="https://xingyuefox.pages.dev"/>
@@ -26,11 +26,8 @@
     </style>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="lib/fa/css/all.min.css"
-      rel="stylesheet"
-    />
-    <!-- 引入 CDN FontAwesome 图标，保证本地加载 -->
+    <link href="lib/fa/css/all.min.css" rel="stylesheet" />
+    <!-- 引入 CDN FontAwesome 图标 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" rel="stylesheet" />
     <script>
       // 应用 Markdown 样式的函数
@@ -49,51 +46,43 @@
           const preElements = readmeContent.querySelectorAll("pre");
           const aElements = readmeContent.querySelectorAll("a");
           const imgElements = readmeContent.querySelectorAll("img");
-          const blockquoteElements =
-            readmeContent.querySelectorAll("blockquote");
+          const blockquoteElements = readmeContent.querySelectorAll("blockquote");
           const hrElements = readmeContent.querySelectorAll("hr");
           const tableElements = readmeContent.querySelectorAll("table");
 
           h1Elements.forEach((el) => {
             if (!el.className.includes("font-bold")) {
-              el.className =
-                "text-4xl font-bold mt-8 mb-4 text-neutral-900 dark:text-white border-b pb-3 border-neutral-300 dark:border-neutral-700";
+              el.className = "text-4xl font-bold mt-8 mb-4 text-neutral-900 dark:text-white border-b pb-3 border-neutral-300 dark:border-neutral-700";
             }
           });
           h2Elements.forEach((el) => {
             if (!el.className.includes("font-bold")) {
-              el.className =
-                "text-3xl font-bold mt-6 mb-3 text-neutral-900 dark:text-white border-b pb-2 border-neutral-300 dark:border-neutral-700";
+              el.className = "text-3xl font-bold mt-6 mb-3 text-neutral-900 dark:text-white border-b pb-2 border-neutral-300 dark:border-neutral-700";
             }
           });
           h3Elements.forEach((el) => {
             if (!el.className.includes("font-bold")) {
-              el.className =
-                "text-2xl font-bold mt-5 mb-2 text-neutral-900 dark:text-white";
+              el.className = "text-2xl font-bold mt-5 mb-2 text-neutral-900 dark:text-white";
             }
           });
           h4Elements.forEach((el) => {
             if (!el.className.includes("font-bold")) {
-              el.className =
-                "text-xl font-bold mt-4 mb-2 text-neutral-900 dark:text-white";
+              el.className = "text-xl font-bold mt-4 mb-2 text-neutral-900 dark:text-white";
             }
           });
           pElements.forEach((el) => {
             if (!el.className.includes("text-neutral")) {
-              el.className =
-                "mb-4 text-neutral-700 dark:text-neutral-300 leading-relaxed text-base";
+              el.className = "mb-4 text-neutral-700 dark:text-neutral-300 leading-relaxed text-base";
             }
           });
           ulElements.forEach((el) => {
             if (!el.className.includes("list-disc")) {
-              el.className =
-                "list-disc list-inside mb-4 ml-4 text-neutral-700 dark:text-neutral-300 space-y-1 text-base";
+              el.className = "list-disc list-inside mb-4 ml-4 text-neutral-700 dark:text-neutral-300 space-y-1 text-base";
             }
           });
           olElements.forEach((el) => {
             if (!el.className.includes("list-decimal")) {
-              el.className =
-                "list-decimal list-inside mb-4 ml-4 text-neutral-700 dark:text-neutral-300 space-y-1 text-base";
+              el.className = "list-decimal list-inside mb-4 ml-4 text-neutral-700 dark:text-neutral-300 space-y-1 text-base";
             }
           });
           liElements.forEach((el) => {
@@ -102,25 +91,19 @@
             }
           });
           codeElements.forEach((el) => {
-            if (
-              el.parentElement.tagName !== "PRE" &&
-              !el.className.includes("bg-neutral")
-            ) {
-              el.className =
-                "bg-neutral-200 dark:bg-neutral-700 px-2 py-1 rounded text-red-600 dark:text-red-400 font-mono text-sm break-words";
+            if (el.parentElement.tagName !== "PRE" && !el.className.includes("bg-neutral")) {
+              el.className = "bg-neutral-200 dark:bg-neutral-700 px-2 py-1 rounded text-red-600 dark:text-red-400 font-mono text-sm break-words";
             }
           });
           preElements.forEach((el) => {
             if (!el.className.includes("bg-neutral-900")) {
-              el.className =
-                "bg-neutral-900 dark:bg-neutral-950 text-neutral-100 p-4 rounded-xl overflow-x-auto mb-4 text-sm";
+              el.className = "bg-neutral-900 dark:bg-neutral-950 text-neutral-100 p-4 rounded-xl overflow-x-auto mb-4 text-sm";
             }
           });
           aElements.forEach((el) => {
             if (el.closest('.game-card')) return;
             if (!el.className.includes("text-blue")) {
-              el.className =
-                "text-blue-950 dark:text-blue-100 hover:underline font-semibold";
+              el.className = "text-primary dark:text-primary-dark hover:underline font-semibold";
             }
           });
           imgElements.forEach((el) => {
@@ -131,20 +114,17 @@
           });
           blockquoteElements.forEach((el) => {
             if (!el.className.includes("border-l")) {
-              el.className =
-                "border-l-4 border-neutral-400 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-800 pl-4 py-2 my-4 text-neutral-700 dark:text-neutral-300 italic";
+              el.className = "border-l-4 border-neutral-400 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-800 pl-4 py-2 my-4 text-neutral-700 dark:text-neutral-300 italic";
             }
           });
           hrElements.forEach((el) => {
             if (!el.className.includes("border")) {
-              el.className =
-                "my-6 border-t border-neutral-300 dark:border-neutral-700";
+              el.className = "my-6 border-t border-neutral-300 dark:border-neutral-700";
             }
           });
           tableElements.forEach((el) => {
             if (!el.className.includes("min-w-full")) {
-              el.className =
-                "min-w-full border-collapse border border-neutral-300 dark:border-neutral-700 my-4";
+              el.className = "min-w-full border-collapse border border-neutral-300 dark:border-neutral-700 my-4";
             }
           });
 
@@ -153,15 +133,13 @@
 
           thElements.forEach((el) => {
             if (!el.className.includes("bg")) {
-              el.className =
-                "bg-neutral-200 dark:bg-neutral-700 border border-neutral-300 dark:border-neutral-600 px-4 py-2 font-semibold text-neutral-900 dark:text-white text-left";
+              el.className = "bg-neutral-200 dark:bg-neutral-700 border border-neutral-300 dark:border-neutral-600 px-4 py-2 font-semibold text-neutral-900 dark:text-white text-left";
             }
           });
 
           tdElements.forEach((el) => {
             if (!el.className.includes("border")) {
-              el.className =
-                "border border-neutral-300 dark:border-neutral-700 dark:bg-black/40-4 py-2 text-neutral-700 dark:text-neutral-300";
+              el.className = "border border-neutral-300 dark:border-neutral-700 dark:bg-black/40-4 py-2 text-neutral-700 dark:text-neutral-300";
             }
           });
         }
@@ -180,15 +158,15 @@
           extend: {
             colors: {
               primary: {
-                DEFAULT: "#00639B",
-                dark: "#97CBFF",
+                DEFAULT: "#004E5D",
+                dark: "#AFEBFE",
               },
               secondary: {
-                DEFAULT: "#00639B",
-                dark: "#97CBFF",
+                DEFAULT: "#004E5D",
+                dark: "#AFEBFE",
               },
-              "primary-dark": "#97CBFF",
-              "secondary-dark": "#97CBFF",
+              "primary-dark": "#AFEBFE",
+              "secondary-dark": "#AFEBFE",
             },
             fontFamily: {
               sans: ["Segoe UI Variable", "Segoe UI", "Inter", "system-ui", "sans-serif"],
@@ -218,10 +196,10 @@
           -webkit-text-fill-color: transparent;
         }
         .bg-gradient-custom {
-          background: linear-gradient(135deg, #00639B);/*头像框下按钮颜色*/
+          background: linear-gradient(135deg, #004E5D);
         }
         .dark .bg-gradient-custom {
-          background: linear-gradient(135deg, #97CBFF);/*头像框下按钮颜色*/
+          background: linear-gradient(135deg, #AFEBFE);
         }
         .card-hover {
           transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -232,17 +210,17 @@
             0 20px 25px -5px rgba(0, 0, 0, 0.08),
             0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        /* 云母模糊效果底色 */
         .glass-panel {
-          background: rgb(249, 249, 249, 0.6);
+          background: rgba(249, 249, 249, 0.65);
           backdrop-filter: blur(25px);
           -webkit-backdrop-filter: blur(25px);
           border: 1px solid rgba(255, 255, 255, 0.2);
           box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
           position: relative;
           overflow: hidden;
+          transform: translateZ(0);
+          isolation: isolate;
         }
-        /* 移动端界面 */
         @media (max-width: 639px) {
           .glass-panel {
             border-left: none !important;
@@ -270,7 +248,6 @@
           background: linear-gradient(90deg, transparent, #ffffffc4, transparent);
           animation: border-glow 5s ease-in-out infinite reverse;
         }
-        /* 深色模式下的边框光效 */
         .dark .glass-panel::after {
           background: linear-gradient(90deg, transparent, #ffffff1f, transparent);
         }
@@ -278,17 +255,14 @@
           background: linear-gradient(90deg, transparent, #ffffff1f, transparent);
         }
         .dark .glass-panel {
-          background: rgba(0, 0, 0, 0.4);
+          background: rgba(18, 18, 18, 0.55);
           border: 1px solid rgba(179, 179, 179, 0.1);
           box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
         @keyframes border-glow {
-          0%,
-          100% { opacity: 0.3; }
+          0%, 100% { opacity: 0.3; }
           50% { opacity: 1; }
         }
-
-        /* 涟漪动画 */
         .md-ripple-container {
           position: relative ;
           overflow: hidden ;
@@ -305,31 +279,19 @@
           background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.2) 45%, transparent 70%);
         }
         @keyframes md-ripple-anim {
-          0% {
-            transform: scale(0);
-            opacity: 1;
-          }
-          100% {
-            transform: scale(4.5);
-            opacity: 0;
-          }
+          0% { transform: scale(0); opacity: 1; }
+          100% { transform: scale(4.5); opacity: 0; }
         }
       }
     </style>
     <style>
       body {
         transition: background-color 0.4s ease, color 0.4s ease;
+        background-color: #EEEEEE;
       }
-      /* 无背景时底色 */
-      body {
-        background-color: #ffffff;
-      }
-
       .dark body {
-        background-color: #171717;
+        background-color: #1F1F1F;
       }
-
-      /* 背景图片容器 */
       .bg-container {
         position: fixed;
         top: 0;
@@ -339,7 +301,6 @@
         z-index: -1;
         overflow: hidden;
       }
-
       .bg-image {
         position: absolute;
         top: 0;
@@ -350,30 +311,25 @@
         background-size: cover;
         background-position: center;
         filter: blur(2px);
-        transform: scale(1.05);
-        transform: scale(1.1); /* 略微放大以避免边缘出现空白 */
+        transform: scale(1.1);
       }
-
       .dark .bg-image {
         background-image: url("img/bg/background_dark.jpg");
       }
-
       .bg-overlay {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #ffffffd6;
+        background-color: #EEEEEE;
         opacity: 0.15;
         transition: opacity 0.5s ease, background-color 0.5s ease;
       }
-
       .dark .bg-overlay {
-        background-color: #171717d6;
-        opacity: 0.65; /* 加载背景时底色 */
+        background-color: #1F1F1F;
+        opacity: 0.65;
       }
-
       .avatar-glow {
         animation: glow 3s ease-in-out infinite alternate;
       }
@@ -381,81 +337,85 @@
         from { box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); }
         to { box-shadow: 0 0 15px rgba(255, 255, 255, 0.25); }
       }
+
+      /* 统一主面板上浮加载动画系统 */
       .animate-fade-in {
-        animation: fadeIn 0.8s ease-in;
+        animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
       }
       @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
       }
-      
-      /* 顶部导航动效 */
+
+      /* 半屏模式无加载动画；全屏模式上浮加载 */
+      .mode-title-only .animate-fade-in {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+      .mode-full-panel .animate-fade-in {
+        animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
       .animate-fade-down {
         animation: fadeDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       }
       @keyframes fadeDown {
-        from {
-          opacity: 0;
-          transform: translateY(-15px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(-15px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
-      .readme-content {
-        animation: slideIn 0.8s ease-out;
+      /* 主面板位置模式动画支持 */
+      #main-content-container {
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), margin-top 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
       }
-      @keyframes slideIn {
-        from {
-          opacity: 0;
-          transform: translateX(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);}
+      .mode-title-only {
+        margin-top: 52vh !important;
+        transform: translateY(0) !important;
+        opacity: 1 !important;
       }
-      .repo-item {
-        transition: all 0.3s ease;
+      .mode-full-panel {
+        margin-top: 0 !important;
+        transform: translateY(0) !important;
+        opacity: 1 !important;
       }
-      .repo-item:hover {
-        transform: translateX(4px);
-      }
-      .tech-icon {
-        filter: drop-shadow(0 0 5px #60a5fa);
+      .mode-wallpaper-only {
+        transform: translateY(100vh) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
       }
 
-      /* 选项菜单：动效 */
-      #options-menu {
-        transform: scale(0.96) translateY(-8px);
-        opacity: 0;
-        pointer-events: none;
-        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+      /* 顶部打字 Banner 动画与状态管理 */
+      #hero-typewriter-container {
+        position: absolute;
+        top: 22vh;
+        left: 0;
+        right: 0;
+        transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       }
-      #options-menu.show {
-        transform: scale(1) translateY(0);
+      #hero-typewriter-container.hero-visible {
         opacity: 1;
+        transform: translateY(0);
         pointer-events: auto;
       }
-
-      /* 弹出式仿二级菜单核心样式 */
-      #lang-sub-panel {
-        transform: scale(0.95) translateX(6px);
+      #hero-typewriter-container.hero-hidden {
         opacity: 0;
+        transform: translateY(-20px);
         pointer-events: none;
-        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
       }
-      #lang-sub-panel.show {
-        transform: scale(1) translateX(0);
-        opacity: 1;
-        pointer-events: auto;
+
+      /* 打字机光标闪烁动画 */
+      .typewriter-cursor {
+        display: inline-block;
+        width: 2px;
+        height: 1.1em;
+        vertical-align: middle;
+        margin-left: 2px;
+        animation: blink 0.8s infinite;
+      }
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
       }
 
       /* 自定义开关样式 */
@@ -497,20 +457,18 @@
         box-shadow: 0 1px 3px rgba(0,0,0,0.2);
       }
       input:checked + .switch-slider {
-        background: linear-gradient(135deg, #00639B, #00639B); /* 选项开关颜色 */
-        
+        background: linear-gradient(135deg, #004E5D, #004E5D);
       }
       input:checked + .switch-slider:before {
         transform: translateX(22px);
       }
-
       .dark input:checked + .switch-slider {
-        background: linear-gradient(135deg, #97CBFF, #97CBFF); /* 选项开关颜色 */
+        background: linear-gradient(135deg, #AFEBFE, #AFEBFE);
       }
       .dark input:checked + .switch-slider:before {
-        transform: translateX(22px);background-color:#003757
+        transform: translateX(22px); background-color:#003757;
       }
-      /* 禁用透明效果时的覆盖样式 */
+
       .no-transparency .glass-panel {
         background: #F9F9F9 ;
         backdrop-filter: none ;
@@ -535,19 +493,17 @@
         backdrop-filter: none ;
         -webkit-backdrop-filter: none ;
       }
-      .no-transparency #options-menu {
-        background: rgb(245, 245, 245) ;
-        backdrop-filter: none ;
-        -webkit-backdrop-filter: none ;
-      }
-      .no-transparency.dark #options-menu,
-      .dark .no-transparency #options-menu {
-        background: rgb(23, 23, 23) ;
-        backdrop-filter: none ;
-        -webkit-backdrop-filter: none ;
-      }
       .no-transparency .bg-image {
-        filter: none ; /* 禁用高斯模糊 */
+        filter: none ;
+      }
+      .repo-item {
+        transition: all 0.3s ease;
+      }
+      .repo-item:hover {
+        transform: translateX(4px);
+      }
+      .tech-icon {
+        filter: drop-shadow(0 0 5px #AFEBFE);
       }
     </style>
   </head>
@@ -557,24 +513,21 @@
       <div id="main-bg-overlay" class="bg-overlay"></div>
     </div>
 
-    <!-- 顶部栏展开时下方遮罩 -->
+    <!-- 顶部栏展开时遮罩 -->
     <div 
       id="backdrop-1" 
       class="fixed inset-0 z-40 bg-black/10 dark:bg-black/30 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
     ></div>
 
-    <!-- 顶部导航栏 (完全保留 index.html 顶栏，原汁原味) -->
+    <!-- 顶部导航栏 -->
     <nav
       id="main-navbar"
       class="fixed w-full top-0 z-50 bg-white/45 dark:bg-black/45 backdrop-blur-md transition-all duration-300 border-b border-transparent"
     >
-      <!-- 容器 -->
       <div class="container mx-auto px-4 py-2 flex justify-between items-center relative z-50">
         
         <!-- 左侧菜单组 -->
         <div class="flex items-center space-x-1 md:space-x-2">
-          
-          <!-- 星月Fox的主页展开栏 -->
           <div 
             id="nav-logo"
             class="flex items-center space-x-1.5 cursor-pointer py-1.5 px-3 rounded-lg hover:text-primary dark:hover:text-primary-dark transition-colors"
@@ -584,37 +537,51 @@
               alt="星月Fox"
               class="w-6 h-6 rounded-full border border-white dark:border-neutral-700 shadow-sm"
             />
-            <span class=" font-bold text-base tracking-wide">星月Fox的主页</span>
+            <a href="index.html" class="font-bold text-base tracking-wide">星月Fox的主页</a>
             <i class="fa-solid fa-chevron-down text-[9px] opacity-40 transition-transform duration-300" id="nav-logo-arrow"></i>
           </div>
 
           <!-- 横向导航组 -->
           <div class="hidden md:flex items-center space-x-0.5 md:space-x-1">
-            <button 
-              id="nav-test1-btn" 
-              class="nav-tab-btn flex items-center space-x-1 py-1.5 px-2.5 rounded-lg text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-primary dark:hover:text-primary-dark transition-colors"
+            <a 
+              id="nav-blog-btn"
+              href="blog.html"
+              class="nav-tab-btn flex items-center space-x-1 py-2 px-3 rounded-lg font-bold text-base text-neutral-800 dark:text-neutral-200 hover:text-primary dark:hover:text-primary-dark transition-colors"
             >
-              <span>收藏库</span>
+              <span>博客</span>
+            </a>
+            <a
+              id="nav-project-btn" 
+              href="https://github.com/XingYueFox?tab=repositories"
+              class="nav-tab-btn flex items-center space-x-1 py-2 px-3 rounded-lg font-bold text-base text-neutral-800 dark:text-neutral-200 hover:text-primary dark:hover:text-primary-dark transition-colors"
+            >
+              <span>项目</span>
+            </a>
+            <a 
+              id="nav-mine-btn" 
+              href="library.html"
+              class="nav-tab-btn flex items-center space-x-1 py-2 px-3 rounded-lg font-bold text-base text-neutral-800 dark:text-neutral-200 hover:text-primary dark:hover:text-primary-dark transition-colors"
+            >
+              <span>我的</span>
+            </a>
+            <button 
+              id="nav-links-btn" 
+              class="nav-tab-btn flex items-center space-x-1 py-2 px-3 rounded-lg font-bold text-base text-neutral-800 dark:text-neutral-200 hover:text-primary dark:hover:text-primary-dark transition-colors"
+            >
+              <span>链接</span>
             </button>
             <button 
-              id="nav-test2-btn" 
-              class="nav-tab-btn flex items-center space-x-1 py-1.5 px-2.5 rounded-lg text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-primary dark:hover:text-primary-dark transition-colors"
+              id="nav-about-btn" 
+              class="nav-tab-btn flex items-center space-x-1 py-2 px-3 rounded-lg font-bold text-base text-neutral-800 dark:text-neutral-200 hover:text-primary dark:hover:text-primary-dark transition-colors"
             >
-              <span>我的项目</span>
-            </button>
-            <button 
-              id="nav-test3-btn" 
-              class="nav-tab-btn flex items-center space-x-1 py-1.5 px-2.5 rounded-lg text-sm font-semibold text-neutral-700 dark:text-neutral-300 hover:text-primary dark:hover:text-primary-dark transition-colors"
-            >
-              <span>友情链接</span>
+              <span>关于</span>
             </button>
           </div>
-
         </div>
-
+        
         <!-- 右侧按钮 -->
         <div class="flex items-center space-x-2">
-          <!-- 收纳按钮 -->
+          <!-- 收纳按钮（移动端） -->
           <button
             id="nav-narrow-collapse-btn"
             aria-label="展开模块"
@@ -629,18 +596,18 @@
             aria-label="搜索"
             class="w-9 h-9 rounded-full text-neutral-800 dark:text-neutral-200 hover:text-primary dark:hover:text-primary-dark transition-all flex items-center justify-center"
           >
-            <i class="fa-solid fa-magnifying-glass text-xs"></i>
+            <i class="fa-solid fa-magnifying-glass text-sm"></i>
           </button>
           
-          <!-- 汉堡菜单 -->
+          <!-- 设置菜单（最右侧按钮） -->
           <button
             id="nav-hamburger-btn"
-            aria-label="菜单"
+            aria-label="设置菜单"
             class="w-9 h-9 rounded-full text-neutral-800 dark:text-neutral-200 hover:text-primary dark:hover:text-primary-dark transition-all flex items-center justify-center relative"
           >
             <div class="w-3.5 h-3 flex flex-col justify-between items-center transition-transform duration-300">
               <span id="hamburger-line-1" class="w-full h-0.5 bg-current rounded-full transition-all duration-300 origin-left"></span>
-              <span id="hamburger-line-2" class="w-full h-0.5 bg-current rounded-full transition-all duration-300 "></span>
+              <span id="hamburger-line-2" class="w-full h-0.5 bg-current rounded-full transition-all duration-300"></span>
               <span id="hamburger-line-3" class="w-full h-0.5 bg-current rounded-full transition-all duration-300 origin-left"></span>
             </div>
           </button>
@@ -648,7 +615,7 @@
 
       </div>
 
-      <!-- 顶部拉伸主面板 -->
+      <!-- 顶部下拉展开容器 -->
       <div 
         id="dropdown" 
         class="w-full overflow-hidden transition-[height] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] h-0 bg-white/95 dark:bg-neutral-900/95 backdrop-blur-2xl"
@@ -659,112 +626,179 @@
           <div id="panel-narrow-box" class="hidden animate-fade-down text-left">
             <h4 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 tracking-wider uppercase mb-3 px-1">板块导航</h4>
             <div class="flex flex-col space-y-1 max-w-sm">
-              <button onclick="openMenuPanel('test1', true)" class="w-full text-left py-3 px-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-all flex items-center justify-between text-sm font-semibold">
-                <span>收藏库</span>
+              <button onclick="openMenuPanel('blog', true)" class="md-ripple-container w-full text-left py-3 px-4 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-all flex items-center justify-between text-base font-bold">
+                <span>博客</span>
                 <i class="fa-solid fa-chevron-right text-xs opacity-40"></i>
               </button>
-              <button onclick="openMenuPanel('test2', true)" class="w-full text-left py-3 px-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-all flex items-center justify-between text-sm font-semibold">
-                <span>我的项目</span>
+              <button onclick="openMenuPanel('project', true)" class="md-ripple-container w-full text-left py-3 px-4 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-all flex items-center justify-between text-base font-bold">
+                <span>项目</span>
                 <i class="fa-solid fa-chevron-right text-xs opacity-40"></i>
               </button>
-              <button onclick="openMenuPanel('test3', true)" class="w-full text-left py-3 px-4 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-all flex items-center justify-between text-sm font-semibold">
-                <span>友情链接</span>
+              <button onclick="openMenuPanel('mine', true)" class="md-ripple-container w-full text-left py-3 px-4 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-all flex items-center justify-between text-base font-bold">
+                <span>我的</span>
+                <i class="fa-solid fa-chevron-right text-xs opacity-40"></i>
+              </button>
+              <button onclick="openMenuPanel('links', true)" class="md-ripple-container w-full text-left py-3 px-4 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-all flex items-center justify-between text-base font-bold">
+                <span>链接</span>
+                <i class="fa-solid fa-chevron-right text-xs opacity-40"></i>
+              </button>
+              <button onclick="openMenuPanel('about', true)" class="md-ripple-container w-full text-left py-3 px-4 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-all flex items-center justify-between text-base font-bold">
+                <span>关于</span>
                 <i class="fa-solid fa-chevron-right text-xs opacity-40"></i>
               </button>
             </div>
           </div>
 
-          <!-- 联系方式列表 -->
+          <!-- 联系方式列表（点击 Logo 打开） -->
           <div id="panel-contacts" class="hidden animate-fade-down text-left">
             <h4 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 tracking-wider uppercase mb-3 px-1">星月Fox的联系方式</h4>
             <div class="flex flex-col space-y-0.5 max-w-lg">
-              <a href="https://space.bilibili.com/3493117999188634" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors flex items-center text-sm font-semibold text-neutral-800 dark:text-neutral-200">
+              <a href="https://space.bilibili.com/3493117999188634" target="_blank" rel="noopener noreferrer" class="md-ripple-container py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors flex items-center text-sm font-semibold text-neutral-800 dark:text-neutral-200">
                 <i class="fa-brands fa-bilibili w-5 text-center text-pink-500 mr-3 text-base"></i>Bilibili
               </a>
-              <a href="https://github.com/XingYueFox" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors flex items-center text-sm font-semibold text-neutral-800 dark:text-neutral-200">
+              <a href="https://github.com/XingYueFox" target="_blank" rel="noopener noreferrer" class="md-ripple-container py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors flex items-center text-sm font-semibold text-neutral-800 dark:text-neutral-200">
                 <i class="fa-brands fa-github w-5 text-center text-neutral-900 dark:text-white mr-3 text-base"></i>Github
               </a>
-              <a href="" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors flex items-center text-sm font-semibold text-neutral-800 dark:text-neutral-200">
+              <a href="" target="_blank" rel="noopener noreferrer" class="md-ripple-container py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors flex items-center text-sm font-semibold text-neutral-800 dark:text-neutral-200">
                 <i class="fa-brands fa-qq w-5 text-center text-sky-500 mr-3 text-base"></i>QQ
               </a>
-              <a href="https://steamcommunity.com/profiles/76561198761960812/" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors flex items-center text-sm font-semibold text-neutral-800 dark:text-neutral-200">
+              <a href="https://steamcommunity.com/profiles/76561198761960812/" target="_blank" rel="noopener noreferrer" class="md-ripple-container py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors flex items-center text-sm font-semibold text-neutral-800 dark:text-neutral-200">
                 <i class="fa-brands fa-steam w-5 text-center text-blue-800 mr-3 text-base"></i>Steam
               </a>
-              <a href="mailto:xingyue_fox@outlook.com" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors flex items-center text-sm font-semibold text-neutral-800 dark:text-neutral-200">
+              <a href="mailto:xingyue_fox@outlook.com" target="_blank" rel="noopener noreferrer" class="md-ripple-container py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors flex items-center text-sm font-semibold text-neutral-800 dark:text-neutral-200">
                 <i class="fa-regular fa-envelope w-5 text-center text-blue-500 mr-3 text-base"></i>我的邮箱
               </a>
             </div>
           </div>
 
-          <!-- 板块1收藏库 下拉栏 -->
-          <div id="panel-section1" class="hidden animate-fade-down text-left">
-            <!-- 收纳菜单返回菜单按钮 -->
+          <!-- 板块 1：博客 -->
+          <div id="panel-blog" class="hidden animate-fade-down text-left">
             <div class="flex items-center mb-3 md:hidden">
-              <button onclick="openMenuPanel('narrow', true)" class="flex items-center space-x-1.5 py-1.5 px-3 rounded-lg text-xs font-bold text-primary dark:text-primary-dark hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+              <button onclick="openMenuPanel('narrow', true)" class="md-ripple-container flex items-center space-x-1.5 py-1.5 px-3 rounded-lg text-xs font-bold text-primary dark:text-primary-dark hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
                 <i class="fa-solid fa-chevron-left text-[9px] opacity-70"></i>
                 <span>返回菜单</span>
               </button>
             </div>
-            <h4 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 tracking-wider uppercase mb-3 px-1">收藏库</h4>
+            <h4 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 tracking-wider uppercase mb-3 px-1">博客文章与动态</h4>
             <div class="flex flex-col space-y-1 max-w-md">
-              <button onclick="closeMenuPanel(); switchTab('game');" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 text-left transition-colors text-sm font-semibold text-neutral-800 dark:text-neutral-200 flex justify-between items-center">
-                <span>游戏库</span>
-              </button>
-              <button onclick="closeMenuPanel(); switchTab('anime');" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 text-left transition-colors text-sm font-semibold text-neutral-800 dark:text-neutral-200 flex justify-between items-center">
-                <span>动漫库</span>
-              </button>
-              <button onclick="closeMenuPanel(); switchTab('website');" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 text-left transition-colors text-sm font-semibold text-neutral-800 dark:text-neutral-200 flex justify-between items-center">
-                <span>网站库</span>
-              </button>
+              <a href="#" class="md-ripple-container py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold text-neutral-800 dark:text-neutral-200 flex justify-between items-center">
+                <span>浏览全部博客文章</span>
+                <i class="fa-solid fa-arrow-right text-xs opacity-50"></i>
+              </a>
+              <a href="index.html#news-panel" class="md-ripple-container py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold text-neutral-800 dark:text-neutral-200 flex justify-between items-center">
+                <span>快速链接</span>
+              </a>
             </div>
           </div>
 
-          <!-- 板块2我的项目 下拉栏 -->
-          <div id="panel-section2" class="hidden animate-fade-down text-left">
+          <!-- 板块 2：项目 -->
+          <div id="panel-project" class="hidden animate-fade-down text-left">
             <div class="flex items-center mb-3 md:hidden">
-              <button onclick="openMenuPanel('narrow', true)" class="flex items-center space-x-1.5 py-1.5 px-3 rounded-lg text-xs font-bold text-primary dark:text-primary-dark hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+              <button onclick="openMenuPanel('narrow', true)" class="md-ripple-container flex items-center space-x-1.5 py-1.5 px-3 rounded-lg text-xs font-bold text-primary dark:text-primary-dark hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
                 <i class="fa-solid fa-chevron-left text-[9px] opacity-70"></i>
                 <span>返回菜单</span>
               </button>
             </div>
-            <h4 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 tracking-wider uppercase mb-3 px-1">我的项目</h4>
+            <h4 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 tracking-wider uppercase mb-3 px-1">项目展示</h4>
             <div class="grid grid-cols-1 md:grid-cols-1 gap-1 max-w-xl">
-              <a href="https://github.com/XingYueFox/Homepage" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold block text-neutral-800 dark:text-neutral-200">
+              <a href="https://github.com/XingYueFox/Homepage" target="_blank" class="md-ripple-container py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold block text-neutral-800 dark:text-neutral-200">
                 <div class="font-bold text-neutral-900 dark:text-white">Homepage</div>
                 <div class="text-xs text-neutral-400 font-normal mt-0.5">星月Fox的个人主页</div>
               </a>
-              <a href="https://github.com/XingYueFox/Litestart" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold block text-neutral-800 dark:text-neutral-200">
-                <div class="font-bold text-neutral-900 dark:text-white">Litestart</div>
-                <div class="text-xs text-neutral-400 font-normal mt-0.5">专注于简洁美观、速度与效率的轻量级起始页</div>
+              <a href="https://github.com/XingYueFox/Neostart" target="_blank" class="md-ripple-container py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold block text-neutral-800 dark:text-neutral-200">
+                <div class="font-bold text-neutral-900 dark:text-white">Neostart</div>
+                <div class="text-xs text-neutral-400 font-normal mt-0.5">可定制的浏览器类原生起始页</div>
               </a>
-              <a href="about:blank" class="py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold block text-neutral-800 dark:text-neutral-200">
+              <a href="about:blank" class="md-ripple-container py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold block text-neutral-800 dark:text-neutral-200">
                 <div class="font-bold text-neutral-900 dark:text-white">换算工具（开发中）</div>
                 <div class="text-xs text-neutral-400 font-normal mt-0.5">您算什么？</div>
               </a>
             </div>
           </div>
 
-          <!-- 板块3友情链接 下拉栏 -->
-          <div id="panel-section3" class="hidden animate-fade-down text-left">
+          <!-- 板块 3：我的 -->
+          <div id="panel-mine" class="hidden animate-fade-down text-left">
             <div class="flex items-center mb-3 md:hidden">
-              <button onclick="openMenuPanel('narrow', true)" class="flex items-center space-x-1.5 py-1.5 px-3 rounded-lg text-xs font-bold text-primary dark:text-primary-dark hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+              <button onclick="openMenuPanel('narrow', true)" class="md-ripple-container flex items-center space-x-1.5 py-1.5 px-3 rounded-lg text-xs font-bold text-primary dark:text-primary-dark hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+                <i class="fa-solid fa-chevron-left text-[9px] opacity-70"></i>
+                <span>返回菜单</span>
+              </button>
+            </div>
+            <h4 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 tracking-wider uppercase mb-3 px-1">我的收藏库</h4>
+            <div class="flex flex-col space-y-1 max-w-md">
+              <a href="library.html#games" onclick="closeMenuPanel()" class="md-ripple-container py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold text-neutral-800 dark:text-neutral-200 flex justify-between items-center">
+                <span>游戏库</span>
+              </a>
+              <a href="library.html#animes" onclick="closeMenuPanel()" class="md-ripple-container py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold text-neutral-800 dark:text-neutral-200 flex justify-between items-center">
+                <span>动漫库</span>
+              </a>
+              <a href="library.html#websites" onclick="closeMenuPanel()" class="md-ripple-container py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold text-neutral-800 dark:text-neutral-200 flex justify-between items-center">
+                <span>网站库</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- 板块 4：链接 -->
+          <div id="panel-links" class="hidden animate-fade-down text-left">
+            <div class="flex items-center mb-3 md:hidden">
+              <button onclick="openMenuPanel('narrow', true)" class="md-ripple-container flex items-center space-x-1.5 py-1.5 px-3 rounded-lg text-xs font-bold text-primary dark:text-primary-dark hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
                 <i class="fa-solid fa-chevron-left text-[9px] opacity-70"></i>
                 <span>返回菜单</span>
               </button>
             </div>
             <h4 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 tracking-wider uppercase mb-3 px-1">友情链接</h4>
-            <div class="grid grid-cols-1 md:grid-cols-1 gap-1 max-w-xl">
-
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-1 max-w-xl mb-3"></div>
             <h4 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 tracking-wider uppercase mb-3 px-1">快速链接</h4>
             <div class="grid grid-cols-1 md:grid-cols-1 gap-1 max-w-xl">
-              <a href="mailto:xingyue_fox@outlook.com" class="py-2 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold text-neutral-800 dark:text-neutral-200 block">申请交换友链</a>
+              <a href="mailto:xingyue_fox@outlook.com" class="md-ripple-container py-2 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm font-semibold text-neutral-800 dark:text-neutral-200 block">申请交换友链</a>
             </div>
           </div>
 
-          <!-- 搜索界面 -->
-          <div id="panel-search" class="hidden animate-fade-down text-left">
-            <div class="max-w-xl">
+          <!-- 板块 5：关于界面 -->
+          <div id="panel-about" class="hidden animate-fade-down text-left">
+            <div class="flex items-center mb-3 md:hidden">
+              <button onclick="openMenuPanel('narrow', true)" class="md-ripple-container flex items-center space-x-1.5 py-1.5 px-3 rounded-lg text-xs font-bold text-primary dark:text-primary-dark hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+                <i class="fa-solid fa-chevron-left text-[9px] opacity-70"></i>
+                <span>返回菜单</span>
+              </button>
+            </div>
+            <h4 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 tracking-wider uppercase mb-3 px-1">关于此页面</h4>
+            <div class="p-5 max-w-lg space-y-4 shadow-sm backdrop-blur-md">
+              <div class="flex items-center justify-between pb-3 dark:border-neutral-700/60">
+                <div class="flex items-center space-x-3">
+                  
+                  <div>
+                    <div class="text-xl font-bold text-neutral-900 dark:text-white">星月Fox的主页</div>
+                    <div class="text-xs text-neutral-500 dark:text-neutral-400">v26.3.8000 | 正式版</div>
+                  </div>
+                </div>
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-lg
+                 text-primary dark:text-primary-dark bg-primary/10 border border-primary/20">
+                  最近更新: 2026/08/10
+                </span>
+              </div>
+
+              <div class="text-[13px] leading-relaxed text-neutral-600 dark:text-neutral-300 space-y-1">
+                <p class="font-medium text-neutral-800 dark:text-neutral-200 mb-1">更新日志：</p>
+                <p>• 更新顶部菜单与功能</p>
+                <p>• 新增半屏标题模式</p>
+                <p>• 优化界面MD配色方案</p>
+              </div>
+
+              <div class="pt-3 border-t border-neutral-200/60 dark:border-neutral-700/60 flex items-center justify-between text-sm">
+                <span class="text-neutral-500 dark:text-neutral-400">由星月为您呈现 © 2026 星月Fox.</span>
+                <div class="flex items-center space-x-3 text-lg text-neutral-600 dark:text-neutral-300">
+                  <a href="https://space.bilibili.com/3493117999188634" target="_blank" rel="noopener noreferrer" class="hover:text-primary dark:hover:text-primary-dark transition-colors"><i class="fa-brands fa-bilibili"></i></a>
+                  <a href="https://github.com/XingYueFox" target="_blank" rel="noopener noreferrer" class="hover:text-primary dark:hover:text-primary-dark transition-colors"><i class="fa-brands fa-github"></i></a>
+                  <a href="mailto:xingyue_fox@outlook.com" target="_blank" rel="noopener noreferrer" class="hover:text-primary dark:hover:text-primary-dark transition-colors"><i class="fa-regular fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 搜索界面（控件靠右） -->
+          <div id="panel-search" class="hidden animate-fade-down text-left ml-auto max-w-xl">
+            <div>
               <div class="relative w-full mb-4">
                 <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-neutral-400 dark:text-neutral-500 text-sm"></i>
                 <input 
@@ -778,17 +812,15 @@
                 </button>
               </div>
 
-              <!-- 搜索建议 -->
               <div id="search-placeholder-tips" class="space-y-3">
                 <h4 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 tracking-wider uppercase px-1">常用检索</h4>
                 <div class="flex flex-wrap gap-1.5">
-                  <button onclick="triggerQuickSearch('Minecraft')" class="text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Minecraft</button>
-                  <button onclick="triggerQuickSearch('邮箱')" class="text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">我的邮箱</button>
-                  <button onclick="triggerQuickSearch('我的项目')" class="text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">试试手气</button>
+                  <button onclick="triggerQuickSearch('Minecraft')" class="md-ripple-container text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">Minecraft</button>
+                  <button onclick="triggerQuickSearch('邮箱')" class="md-ripple-container text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">我的邮箱</button>
+                  <button onclick="triggerQuickSearch('项目')" class="md-ripple-container text-xs font-semibold px-3 py-2 rounded-lg bg-neutral-200/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">试试手气</button>
                 </div>
               </div>
 
-              <!-- 搜索结果 -->
               <div id="search-results-wrapper" class="hidden space-y-3">
                 <h4 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 tracking-wider uppercase px-1" id="search-results-title">检索结果 (0)</h4>
                 <div id="search-results-list" class="flex flex-col space-y-1 max-h-56 overflow-y-auto pr-1"></div>
@@ -796,46 +828,76 @@
             </div>
           </div>
 
-          <!-- 右侧菜单 -->
-          <div id="panel-menu" class="hidden animate-fade-down text-left">
-            <div class="relative overflow-hidden w-full" id="menu-slide-box">
-              <div class="flex transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] w-[200%] " id="menu-slide-track">
+          <!-- 右侧最右按钮直接打开的【个性化设置菜单】（控件靠右） -->
+          <div id="panel-menu" class="hidden animate-fade-down text-left ml-auto max-w-md">
+            <div>
+              <h4 class="text-base font-bold text-neutral-800 dark:text-neutral-100 mb-4">个性化设置</h4>
+              
+              <div class="space-y-5 text-sm">
                 
-                <!-- 菜单主界面 -->
-                <div class="w-1/2 flex-shrink-0 pr-4">
-                  <h4 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 tracking-wider uppercase mb-3 px-1">选项菜单</h4>
-                  <div class="flex flex-col space-y-1 max-w-sm">
-                    <!--返回选项卡-->
-                    <a 
-                      href="index.html"
-                      class="w-full text-left py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors flex items-center justify-between text-sm font-semibold text-primary dark:text-primary-dark"
-                    >
-                      <span class="flex items-center"><i class="fa-solid fa-arrow-left w-5 mr-3"></i>返回</span>
-                      <i class="fa-solid fa-chevron-right text-xs opacity-50"></i>
-                    </a>
-
-                    <div class="h-[1px] bg-neutral-200 dark:bg-neutral-800 my-1"></div>
-
-                    <button 
-                      id="menu-to-settings-btn"
-                      class="w-full text-left py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors flex items-center justify-between text-sm font-semibold text-neutral-800 dark:text-neutral-200"
-                    >
-                      <span class="flex items-center"><i class="fa-solid fa-gear w-5 opacity-70 mr-3"></i>个性化设置</span>
-                      <i class="fa-solid fa-chevron-right text-xs opacity-50"></i>
-                    </button>
-                    <button 
-                      id="menu-to-about-btn"
-                      class="w-full text-left py-2.5 px-3 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors flex items-center justify-between text-sm font-semibold text-neutral-800 dark:text-neutral-200"
-                    >
-                      <span class="flex items-center"><i class="fa-solid fa-circle-info w-5 opacity-70 mr-3"></i>关于此页面</span>
-                      <i class="fa-solid fa-chevron-right text-xs opacity-50"></i>
-                    </button>
+                <!-- 选项全屏面板开关 (控件靠右) -->
+                <div class="flex items-center justify-between">
+                  <div class="pr-4">
+                    <div class="font-semibold text-neutral-800 dark:text-neutral-100">选项全屏面板</div>
+                    <div class="text-xs text-neutral-500 dark:text-neutral-400">开启时为全屏面板模式，关闭时为显示标题模式</div>
                   </div>
+                  <label class="switch-toggle shrink-0">
+                    <input type="checkbox" id="panel-full-toggle" />
+                    <span class="switch-slider"></span>
+                  </label>
                 </div>
 
-                <!-- 菜单二级层界面 -->
-                <div class="w-1/2 flex-shrink-0 pl-4 pr-1 text-left" id="menu-secondary-container">
-                  <!-- 动态插入具体二级设置 -->
+                <!-- 显示背景图片开关 (控件靠右) -->
+                <div class="flex items-center justify-between">
+                  <div class="pr-4">
+                    <div class="font-semibold text-neutral-800 dark:text-neutral-100">显示背景图</div>
+                    <div class="text-xs text-neutral-500 dark:text-neutral-400">启用或停用主页背景图</div>
+                  </div>
+                  <label class="switch-toggle shrink-0">
+                    <input type="checkbox" id="header-bg-toggle" checked />
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <!-- 透明效果开关 (控件靠右) -->
+                <div class="flex items-center justify-between">
+                  <div class="pr-4">
+                    <div class="font-semibold text-neutral-800 dark:text-neutral-100">透明效果</div>
+                    <div class="text-xs text-neutral-500 dark:text-neutral-400">使面板拥有透明效果，如遇卡顿请关闭此项</div>
+                  </div>
+                  <label class="switch-toggle shrink-0">
+                    <input type="checkbox" id="header-transparency-toggle" checked />
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <!-- 深色模式 -->
+                <div class="pt-3">
+                  <div class="font-semibold text-neutral-800 dark:text-neutral-100 mb-2">深色模式选项</div>
+                  <div class="relative grid grid-cols-3 gap-1 bg-neutral-200/50 dark:bg-black/40 p-1 rounded-lg">
+                    <div
+                      id="header-theme-active-indicator"
+                      class="absolute top-1 bottom-1 rounded-md bg-[#AFEBFE80] dark:bg-[#004A7680] shadow-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none"
+                    ></div>
+                    <button
+                      id="header-theme-light-btn"
+                      class="relative z-10 py-1 px-1.5 rounded-md text-[11px] font-semibold text-neutral-700 dark:text-neutral-300 transition-colors"
+                    >
+                      浅色
+                    </button>
+                    <button
+                      id="header-theme-dark-btn"
+                      class="relative z-10 py-1 px-1.5 rounded-md text-[11px] font-semibold text-neutral-700 dark:text-neutral-300 transition-colors"
+                    >
+                      深色
+                    </button>
+                    <button
+                      id="header-theme-auto-btn"
+                      class="relative z-10 py-1 px-1.5 rounded-md text-[11px] font-semibold text-neutral-700 dark:text-neutral-300 transition-colors"
+                    >
+                      跟随系统
+                    </button>
+                  </div>
                 </div>
 
               </div>
@@ -846,8 +908,19 @@
       </div>
     </nav>
 
+    <!-- 半屏模式显示的Banner -->
+    <div id="hero-typewriter-container" class="w-full text-center px-4 pointer-events-none z-10 hero-visible">
+      <h1 class="text-5xl lg:text-6xl 2xl:text-7xl font-semibold tracking-tight text-neutral-100/80 dark:text-neutral-100/80 drop-shadow-md mb-2">
+        This is XingYue_Fox!
+      </h1>
+      <div class="text-lg sm:text-2xl font-medium text-neutral-100/80 dark:text-neutral-100/80 drop-shadow flex items-center justify-center min-h-[2rem]">
+        <span id="typewriter-text" class="tracking-wide"></span>
+        <span class="typewriter-cursor bg-primary dark:bg-primary-dark"></span>
+      </div>
+    </div>
+
     <!-- 库展示主面板 -->
-    <main class="container mx-auto px-0 sm:px-4 pt-20 sm:pt-24 pb-16 flex-grow">
+    <main id="main-content-container" class="container mx-auto px-0 sm:px-4 pt-20 sm:pt-24 pb-16 flex-grow mode-title-only">
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 sm:gap-8">
         
         <!-- 左侧库导航窗格 -->
@@ -908,14 +981,14 @@
         <!-- 右侧显示当前选项卡内容 -->
         <div class="lg:col-span-3 flex flex-col min-h-[580px] justify-start">
           
-          <!-- ================= 游戏标签页 (高度优化为 h-44 黄金尺寸) ================= -->
+          <!-- ================= 游戏标签页 ================= -->
           <div class="library-tab-content transition-all duration-300 animate-fade-in" id="tab-content-game">
             <div class="glass-panel rounded-xl p-6">
               <h2 class="text-2xl font-bold mb-2 flex items-center">
                 <i class="fa-solid fa-gamepad text-primary dark:text-primary-dark mr-2.5"></i>
                 <span>游戏库</span>
               </h2>
-              <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-6">这些是我经常游玩的游戏。</p>
+              <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-6">我的游戏库（或者说是推荐去试试的游戏🤔</p>
               
               <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
                 <!-- Minecraft 卡片 -->
@@ -1025,13 +1098,11 @@
                 <i class="fa-solid fa-screwdriver-wrench text-3xl text-neutral-400 dark:text-neutral-500"></i>
               </div>
               <h2 class="text-xl font-bold mb-2">动漫库正在施工中...</h2>
-              <p class="text-sm text-neutral-500 dark:text-neutral-400 max-w-sm mx-auto">
-                
-              </p>
+              <p class="text-sm text-neutral-500 dark:text-neutral-400 max-w-sm mx-auto"></p>
             </div>
           </div>
 
-          <!-- ================= 网站标签页 (四大分类卡片展示，已全部添加选中浮动动画与无彩色常规阴影) ================= -->
+          <!-- ================= 网站标签页 ================= -->
           <div class="library-tab-content transition-all duration-300 animate-fade-in hidden" id="tab-content-website">
             <div class="glass-panel rounded-xl p-6">
               <h2 class="text-2xl font-bold mb-2 flex items-center">
@@ -1045,10 +1116,10 @@
                 
                 <!-- 1 -->
                 <div>
-                  <h3 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 border-l-4 border-blue-500 pl-2 mb-4 uppercase tracking-wider">
+                  <h3 class="text-sm font-bold text-primary dark:text-primary-dark pl-2 mb-4 uppercase tracking-wider">
                     网站与开发
                   </h3>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
                     <a 
                       href="https://github.com" 
                       target="_blank" 
@@ -1058,7 +1129,7 @@
                         <i class="fa-brands fa-github text-lg"></i>
                       </span>
                       <div>
-                        <h4 class="font-bold text-sm text-neutral-950 dark:text-white">GitHub</h4>
+                        <h4 class="font-bold text-base text-neutral-950 dark:text-white">GitHub</h4>
                         <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">全球领先的软件开发及开源代码托管平台。</p>
                       </div>
                     </a>
@@ -1072,7 +1143,7 @@
                         <i class="fa-brands fa-cloudflare"></i>
                       </span>
                       <div>
-                        <h4 class="font-bold text-sm text-neutral-950 dark:text-white">Cloudflare</h4>
+                        <h4 class="font-bold text-base text-neutral-950 dark:text-white">Cloudflare</h4>
                         <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">全球领先的 CDN 和 Web 安全服务提供商。</p>
                       </div>
                     </a>
@@ -1081,10 +1152,10 @@
 
                 <!-- 2 -->
                 <div>
-                  <h3 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 border-l-4 border-emerald-500 pl-2 mb-4 uppercase tracking-wider">
+                  <h3 class="text-sm font-bold text-primary dark:text-primary-dark pl-2 mb-4 uppercase tracking-wider">
                     AI工具
                   </h3>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
                     <a 
                       href="https://chat.openai.com" 
                       target="_blank" 
@@ -1094,7 +1165,7 @@
                         <i class="fa-brands fa-openai"></i>
                       </span>
                       <div>
-                        <h4 class="font-bold text-sm text-neutral-950 dark:text-white">ChatGPT</h4>
+                        <h4 class="font-bold text-base text-neutral-950 dark:text-white">ChatGPT</h4>
                         <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">强大的 AI 对话模型，支持多语言交互。</p>
                       </div>
                     </a>
@@ -1108,20 +1179,19 @@
                         <i class="fa-brands fa-claude"></i>
                       </span>
                       <div>
-                        <h4 class="font-bold text-sm text-neutral-950 dark:text-white">Claude</h4>
+                        <h4 class="font-bold text-base text-neutral-950 dark:text-white">Claude</h4>
                         <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">由 Anthropic 开发的 AI 助手，专注于安全和有益的对话。</p>
                       </div>
                     </a>
                   </div>
                 </div>
 
-
                 <!-- 3 -->
                 <div>
-                  <h3 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 border-l-4 border-pink-400 pl-2 mb-4 uppercase tracking-wider">
+                  <h3 class="text-sm font-bold text-primary dark:text-primary-dark pl-2 mb-4 uppercase tracking-wider">
                     娱乐
                   </h3>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
                     <a 
                       href="https://space.bilibili.com" 
                       target="_blank" 
@@ -1131,7 +1201,7 @@
                         <i class="fa-brands fa-bilibili text-lg"></i>
                       </span>
                       <div>
-                        <h4 class="font-bold text-sm text-neutral-950 dark:text-white">Bilibili 哔哩哔哩</h4>
+                        <h4 class="font-bold text-base text-neutral-950 dark:text-white">Bilibili 哔哩哔哩</h4>
                         <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">知名的弹幕视频网站。</p>
                       </div>
                     </a>
@@ -1145,7 +1215,7 @@
                         <i class="fa-brands fa-tiktok"></i>
                       </span>
                       <div>
-                        <h4 class="font-bold text-sm text-neutral-950 dark:text-white">抖音</h4>
+                        <h4 class="font-bold text-base text-neutral-950 dark:text-white">抖音</h4>
                         <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">是字节跳动旗下的短视频分享平台。</p>
                       </div>
                     </a>
@@ -1159,7 +1229,7 @@
                         <i class="fa-brands fa-steam text-lg"></i>
                       </span>
                       <div>
-                        <h4 class="font-bold text-sm text-neutral-950 dark:text-white">Steam</h4>
+                        <h4 class="font-bold text-base text-neutral-950 dark:text-white">Steam</h4>
                         <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">全球最大的综合性数字发行平台之一</p>
                       </div>
                     </a>
@@ -1173,7 +1243,7 @@
                         <i class="fa-brands fa-xbox text-lg"></i>
                       </span>
                       <div>
-                        <h4 class="font-bold text-sm text-neutral-950 dark:text-white">Xbox</h4>
+                        <h4 class="font-bold text-base text-neutral-950 dark:text-white">Xbox</h4>
                         <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">微软开发的跨平台游戏与娱乐应用程序及游戏平台</p>
                       </div>
                     </a>
@@ -1182,10 +1252,10 @@
 
                 <!-- 4 -->
                 <div>
-                  <h3 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 border-l-4 border-purple-500 pl-2 mb-4 uppercase tracking-wider">
+                  <h3 class="text-sm font-bold text-primary dark:text-primary-dark pl-2 mb-4 uppercase tracking-wider">
                     百宝箱
                   </h3>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
                     <a 
                       href="https://littleskin.com" 
                       target="_blank" 
@@ -1195,7 +1265,7 @@
                         <i class="fa-solid fa-cube text-lg"></i>
                       </span>
                       <div>
-                        <h4 class="font-bold text-sm text-neutral-950 dark:text-white">Littleskin</h4>
+                        <h4 class="font-bold text-base text-neutral-950 dark:text-white">Littleskin</h4>
                         <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">一个为 Minecraft 玩家提供皮肤定制服务的平台。</p>
                       </div>
                     </a>
@@ -1209,7 +1279,7 @@
                         <i class="fa-regular fa-snowflake text-lg"></i>
                       </span>
                       <div>
-                        <h4 class="font-bold text-sm text-neutral-950 dark:text-white">NCM解密工具</h4>
+                        <h4 class="font-bold text-base text-neutral-950 dark:text-white">NCM解密工具</h4>
                         <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">用于解密网易云音乐加密音频文件的工具。</p>
                       </div>
                     </a>
@@ -1225,76 +1295,21 @@
     </main>
 
     <!-- 页脚 -->
-    <footer
-      class="fixed bottom-0 left-0 right-0 z-50 glass-panel bg-white/20 dark:bg-black/20 shadow-inner py-6"
-    >
-      <div
-        class="container mx-auto px-4 text-center text-neutral-600 dark:text-neutral-400"
-      >
+    <footer class="glass-panel bg-white/20 dark:bg-black/20 shadow-inner py-6 rounded-none border-x-0">
+      <div class="container mx-auto px-4 text-center text-neutral-600 dark:text-neutral-400">
         <p>© 2026 星月Fox.</p>
         <div class="mt-3 space-x-4">
-           <a
-            href="https://space.bilibili.com/3493117999188634"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:text-primary dark:hover:text-primary-dark transition-colors"
-          >
-            <i class="fa-brands fa-bilibili"></i>
-          </a>
-          <a
-            href="https://steamcommunity.com/profiles/76561198761960812/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:text-primary dark:hover:text-primary-dark transition-colors"
-          >
-            <i class="fa-brands fa-steam"></i>
-          </a>
-          <a
-            href="https://github.com/XingYueFox"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:text-primary dark:hover:text-primary-dark transition-colors"
-          >
-            <i class="fa-brands fa-github"></i>
-          </a>
-          <a
-            href="https://t.me/xingyuefox"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:text-primary dark:hover:text-primary-dark transition-colors"
-          >
-            <i class="fa-brands fa-telegram"></i>
-          </a>
-          <a
-            href="mailto:xingyue_fox@outlook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:text-primary dark:hover:text-primary-dark transition-colors"
-          >
-            <i class="fa-regular fa-envelope"></i>
-          </a>
+          <a href="https://space.bilibili.com/3493117999188634" target="_blank" rel="noopener noreferrer" class="hover:text-primary dark:hover:text-primary-dark transition-colors"><i class="fa-brands fa-bilibili"></i></a>
+          <a href="https://steamcommunity.com/profiles/76561198761960812/" target="_blank" rel="noopener noreferrer" class="hover:text-primary dark:hover:text-primary-dark transition-colors"><i class="fa-brands fa-steam"></i></a>
+          <a href="https://github.com/XingYueFox" target="_blank" rel="noopener noreferrer" class="hover:text-primary dark:hover:text-primary-dark transition-colors"><i class="fa-brands fa-github"></i></a>
+          <a href="https://t.me/xingyuefox" target="_blank" rel="noopener noreferrer" class="hover:text-primary dark:hover:text-primary-dark transition-colors"><i class="fa-brands fa-telegram"></i></a>
+          <a href="mailto:xingyue_fox@outlook.com" target="_blank" rel="noopener noreferrer" class="hover:text-primary dark:hover:text-primary-dark transition-colors"><i class="fa-regular fa-envelope"></i></a>
         </div>
       </div>
     </footer>
 
-    <!-- 原有设置/关于弹窗兼容所需的基础隐藏结构，防外部JS意外引用 -->
-    <div id="settings-modal" class="hidden pointer-events-none absolute w-0 h-0 opacity-0 overflow-hidden">
-      <input type="checkbox" id="settings-minimal-toggle" />
-      <input type="checkbox" id="settings-bg-toggle" checked />
-      <input type="checkbox" id="settings-transparency-toggle" checked />
-      <button id="theme-light-btn"></button>
-      <button id="theme-dark-btn"></button>
-      <button id="theme-auto-btn"></button>
-      <div id="theme-active-indicator"></div>
-      <button id="close-settings-btn"></button>
-      <div id="settings-modal-overlay"></div>
-      <div id="settings-modal-content"></div>
-    </div>
-    <div id="about-modal" class="hidden pointer-events-none absolute w-0 h-0 opacity-0 overflow-hidden"><button id="close-about-btn"></button><div id="about-modal-overlay"></div><div id="about-modal-content"></div></div>
-    <div id="options-menu" class="hidden pointer-events-none absolute w-0 h-0 opacity-0 overflow-hidden"><button id="settings-modal-btn"></button><button id="about-btn"></button></div>
-
+    <!-- JavaScript 交互驱动逻辑 -->
     <script>
-      <!-- 防止深色模式下初始化闪白 -->
       (function() {
         const savedTheme = localStorage.getItem("theme");
         const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -1303,7 +1318,6 @@
         } else {
           document.documentElement.classList.remove("dark");
         }
-        // 防止透明度效果初始化闪烁
         const savedTransparency = localStorage.getItem("transparency-enabled");
         if (savedTransparency === "false") {
           document.documentElement.classList.add("no-transparency");
@@ -1311,51 +1325,98 @@
           document.documentElement.classList.remove("no-transparency");
         }
       })();
-      
+
       document.addEventListener("DOMContentLoaded", function () {
         const htmlElement = document.documentElement;
 
-        // --- 全局状态管理与初始值加载 ---
-        let isMinimalMode = false;
+        // 顶部大标题下的打字机字幕列表
+        const typewriterPhrases = [
+          "该吃午饭啦 (,,>᎑<,,)",
+          "张雪峰老师，我还记得你~",
+          "一句一句把我拉出迷雾里",
+          "我们在下个时代再会",
+          "对党忠诚，服务人民",
+          "我想留在大家身边，从过去一同迈向明天",
+          "有问题吗？请提交你的issue或PR！",
+          "愿世界在你眼前展开！",
+          "密码下周就能想起来",
+        ];
+
+        // --- 顶部 Banner 打字效果引擎 ---
+        const typewriterEl = document.getElementById("typewriter-text");
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+
+        function typeLoop() {
+          const currentPhrase = typewriterPhrases[phraseIndex];
+          
+          if (isDeleting) {
+            typewriterEl.textContent = currentPhrase.substring(0, charIndex - 1);
+            charIndex--;
+            typeSpeed = 40; // 退格速度加快
+          } else {
+            typewriterEl.textContent = currentPhrase.substring(0, charIndex + 1);
+            charIndex++;
+            typeSpeed = 100; // 打字速度
+          }
+
+          if (!isDeleting && charIndex === currentPhrase.length) {
+            typeSpeed = 2000; // 文本打完后停留展示时间
+            isDeleting = true;
+          } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % typewriterPhrases.length;
+            typeSpeed = 400; // 换下一个文本前的准备等待时间
+          }
+
+          setTimeout(typeLoop, typeSpeed);
+        }
+
+        if (typewriterEl) {
+          typeLoop();
+        }
+
+        // 全局设置状态变量（默认：title-only 显示标题模式）
+        let currentDisplayMode = localStorage.getItem("panel-display-mode") || "title-only";
         let isBgVisible = localStorage.getItem("bg-visible") !== "false";
         let isTransparencyEnabled = localStorage.getItem("transparency-enabled") !== "false";
 
         const bgImage = document.getElementById("main-bg-image");
         const bgOverlay = document.getElementById("main-bg-overlay");
-        const contentSections = document.querySelectorAll("main .grid > div");
+        const mainContentContainer = document.getElementById("main-content-container");
+        const heroTypewriterContainer = document.getElementById("hero-typewriter-container");
 
-        // 隐藏的原生兼容性DOM同步引用 (防止底层逻辑异常)
-        const originalMinimalToggle = document.getElementById("settings-minimal-toggle");
-        const originalBgToggle = document.getElementById("settings-bg-toggle");
-        const originalTransparencyToggle = document.getElementById("settings-transparency-toggle");
+        // --- 全局状态应用函数 ---
+        window.applyPanelDisplayModeMode = function(mode) {
+          currentDisplayMode = mode;
+          localStorage.setItem("panel-display-mode", mode);
 
-        // --- 统一全局响应设置状态机函数 ---
-        window.applyMinimalModeUnified = function(enable) {
-          isMinimalMode = enable;
-          const hMinimalToggle = document.getElementById("header-minimal-toggle");
-          if (hMinimalToggle) hMinimalToggle.checked = enable;
-          if (originalMinimalToggle) originalMinimalToggle.checked = enable;
+          mainContentContainer.classList.remove("mode-title-only", "mode-full-panel", "mode-wallpaper-only");
+          mainContentContainer.classList.add(`mode-${mode}`);
 
-          if (enable) {
-            contentSections.forEach((section) => {
-              section.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-              section.style.opacity = "0";
-              section.style.transform = "translateY(20px)";
-              section.style.pointerEvents = "none";
-            });
-            if (bgImage) {
-              bgImage.style.transition = "filter 0.5s ease";
-              bgImage.style.filter = "blur(0px)";
+          // 控制打字机 Banner 的显示/隐藏
+          if (heroTypewriterContainer) {
+            if (mode === "title-only") {
+              heroTypewriterContainer.classList.remove("hero-hidden");
+              heroTypewriterContainer.classList.add("hero-visible");
+            } else {
+              heroTypewriterContainer.classList.remove("hero-visible");
+              heroTypewriterContainer.classList.add("hero-hidden");
             }
-          } else {
-            contentSections.forEach((section) => {
-              section.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-              section.style.opacity = "1";
-              section.style.transform = "translateY(0)";
-              section.style.pointerEvents = "auto";
-            });
-            if (bgImage) {
-              bgImage.style.transition = "filter 0.5s ease";
+          }
+
+          const fullPanelToggle = document.getElementById("panel-full-toggle");
+          if (fullPanelToggle) {
+            fullPanelToggle.checked = (mode === "full-panel");
+          }
+
+          if (bgImage) {
+            bgImage.style.transition = "filter 0.5s ease";
+            if (mode === "wallpaper-only") {
+              bgImage.style.filter = "blur(0px)";
+            } else {
               bgImage.style.filter = isTransparencyEnabled ? "blur(2px)" : "blur(0px)";
             }
           }
@@ -1363,9 +1424,9 @@
 
         window.applyBgVisibilityUnified = function(visible) {
           isBgVisible = visible;
+          localStorage.setItem("bg-visible", visible ? "true" : "false");
           const hBgToggle = document.getElementById("header-bg-toggle");
           if (hBgToggle) hBgToggle.checked = visible;
-          if (originalBgToggle) originalBgToggle.checked = visible;
 
           if (visible) {
             if (bgImage) bgImage.style.opacity = "1";
@@ -1378,33 +1439,50 @@
 
         window.applyTransparencyUnified = function(enable) {
           isTransparencyEnabled = enable;
+          localStorage.setItem("transparency-enabled", enable ? "true" : "false");
           const hTransparencyToggle = document.getElementById("header-transparency-toggle");
           if (hTransparencyToggle) hTransparencyToggle.checked = enable;
-          if (originalTransparencyToggle) originalTransparencyToggle.checked = enable;
 
           if (enable) {
             htmlElement.classList.remove("no-transparency");
           } else {
             htmlElement.classList.add("no-transparency");
           }
-          if (!isMinimalMode && bgImage) {
+          if (currentDisplayMode !== "wallpaper-only" && bgImage) {
             bgImage.style.filter = enable ? "blur(2px)" : "blur(0px)";
           }
         };
 
-        // 一键应用并激活初始值
-        applyMinimalModeUnified(isMinimalMode);
+        // 统一初始化应用
+        applyPanelDisplayModeMode(currentDisplayMode);
         applyBgVisibilityUnified(isBgVisible);
         applyTransparencyUnified(isTransparencyEnabled);
 
+        // 开关绑定：选项全屏面板（开启：full-panel，关闭：title-only）
+        const fullPanelToggle = document.getElementById("panel-full-toggle");
+        if (fullPanelToggle) {
+          fullPanelToggle.checked = (currentDisplayMode === "full-panel");
+          fullPanelToggle.addEventListener("change", (e) => {
+            applyPanelDisplayModeMode(e.target.checked ? "full-panel" : "title-only");
+          });
+        }
+
+        // 开关绑定：显示背景图 & 透明效果
+        const hBgToggle = document.getElementById("header-bg-toggle");
+        if (hBgToggle) {
+          hBgToggle.addEventListener("change", (e) => applyBgVisibilityUnified(e.target.checked));
+        }
+
+        const hTransparencyToggle = document.getElementById("header-transparency-toggle");
+        if (hTransparencyToggle) {
+          hTransparencyToggle.addEventListener("change", (e) => applyTransparencyUnified(e.target.checked));
+        }
 
         // --- 1. 选项卡切换交互 ---
         window.switchTab = function(tabId) {
-          // 获取所有相关DOM
           const tabButtons = document.querySelectorAll(".sidebar-tab-btn");
           const tabContents = document.querySelectorAll(".library-tab-content");
 
-          // 重置样式与可见度
           tabButtons.forEach(btn => {
             btn.classList.remove(
               "text-primary", "dark:text-primary-dark", 
@@ -1422,7 +1500,6 @@
             content.classList.add("hidden");
           });
 
-          // 激活对应的选项
           const activeBtn = document.getElementById(`sidebar-tab-btn-${tabId}`);
           const activeContent = document.getElementById(`tab-content-${tabId}`);
 
@@ -1441,7 +1518,7 @@
           }
         };
 
-        // --- 新增：URL Hash 自动导航检测逻辑 ---
+        // --- URL Hash 自动导航检测逻辑 ---
         function checkUrlHashAndNavigate() {
           const hash = window.location.hash.toLowerCase();
           if (hash === "#game" || hash === "#games") {
@@ -1453,124 +1530,98 @@
           }
         }
 
-        // 页面初始化时执行一次
         checkUrlHashAndNavigate();
-        // 监听 URL Hash 的变化（以便即时切换）
         window.addEventListener("hashchange", checkUrlHashAndNavigate);
 
-
-        // --- 2. 顶部折叠面板交互 ---
+        // --- 2. 顶部导航组点击交互响应 ---
         const navLogo = document.getElementById("nav-logo");
         const navLogoArrow = document.getElementById("nav-logo-arrow");
-        const navTest1Btn = document.getElementById("nav-test1-btn");
-        const navTest2Btn = document.getElementById("nav-test2-btn");
-        const navTest3Btn = document.getElementById("nav-test3-btn");
+
+        const navBlogBtn = document.getElementById("nav-blog-btn");
+        const navProjectBtn = document.getElementById("nav-project-btn");
+        const navMineBtn = document.getElementById("nav-mine-btn");
+        const navLinksBtn = document.getElementById("nav-links-btn");
+        const navAboutBtn = document.getElementById("nav-about-btn");
+
         const navSearchBtn = document.getElementById("nav-search-btn");
         const navHamburgerBtn = document.getElementById("nav-hamburger-btn");
-        
-        // 窄屏自适应展开控制按钮
         const navNarrowCollapseBtn = document.getElementById("nav-narrow-collapse-btn");
         const narrowArrowIcon = document.getElementById("narrow-arrow-icon");
-        
+
         const Dropdown = document.getElementById("dropdown");
         const dropdownInner = document.getElementById("dropdown-inner-container");
         const MenuBackdrop = document.getElementById("backdrop-1");
         const mainNavbar = document.getElementById("main-navbar");
 
-        // 汉堡折叠线
         const hLine1 = document.getElementById("hamburger-line-1");
         const hLine2 = document.getElementById("hamburger-line-2");
         const hLine3 = document.getElementById("hamburger-line-3");
 
-        // 独立的横向下拉内容板块
         const panelContacts = document.getElementById("panel-contacts");
-        const panelTest1 = document.getElementById("panel-section1");
-        const panelTest2 = document.getElementById("panel-section2");
-        const panelTest3 = document.getElementById("panel-section3");
+        const panelBlog = document.getElementById("panel-blog");
+        const panelProject = document.getElementById("panel-project");
+        const panelMine = document.getElementById("panel-mine");
+        const panelLinks = document.getElementById("panel-links");
+        const panelAbout = document.getElementById("panel-about");
         const panelSearch = document.getElementById("panel-search");
         const panelMenu = document.getElementById("panel-menu");
-        
-        // 窄屏专属收纳板块
         const panelNarrowBox = document.getElementById("panel-narrow-box");
 
-        // 一级、二级双面板折叠滑动容器关联DOM
-        const menuSlideTrack = document.getElementById("menu-slide-track");
-        const menuSecondaryContainer = document.getElementById("menu-secondary-container");
-
-        // 当前激活状态的主板名称
         let activePanelType = null;
         let isHoverLocked = false; 
 
-        // 计算下一级自适应变化面板高度
         window.openMenuPanel = function(type, forceLock = false) {
-          if (forceLock) {
-            isHoverLocked = true;
-          }
+          if (forceLock) isHoverLocked = true;
 
-          if (type !== "menu") {
-            resetMenuSlide();
-          }
-
-          // 起始高度基准
           const isDropdownOpen = Dropdown.offsetHeight > 0;
           const initialHeight = isDropdownOpen ? Dropdown.offsetHeight : 0;
 
-          // 开启对应子板块的隐藏态，消除其他项
-          panelContacts.classList.add("hidden");
-          if(panelTest1) panelTest1.classList.add("hidden");
-          if(panelTest2) panelTest2.classList.add("hidden");
-          if(panelTest3) panelTest3.classList.add("hidden");
-          panelSearch.classList.add("hidden");
-          panelMenu.classList.add("hidden");
-          panelNarrowBox.classList.add("hidden"); // 隐藏窄屏收纳组
+          const allPanels = [panelContacts, panelBlog, panelProject, panelMine, panelLinks, panelAbout, panelSearch, panelMenu, panelNarrowBox];
+          allPanels.forEach(p => { if(p) p.classList.add("hidden"); });
 
-          // 取消所有横向标签的高亮背景
-          [navLogo, navTest1Btn, navTest2Btn, navTest3Btn, navNarrowCollapseBtn].forEach(el => {
-            if(el) el.classList.remove("bg-black/5", "dark:bg-white/10");
+          [navLogo, navBlogBtn, navProjectBtn, navMineBtn, navLinksBtn, navAboutBtn, navNarrowCollapseBtn].forEach(el => {
+            if(el) el.classList.remove("bg-black/5", "dark:bg-white/10", "text-primary", "dark:text-primary-dark");
           });
 
           if (type === "contacts") {
             panelContacts.classList.remove("hidden");
-            navLogo;
-          } else if (type === "test1") {
-            panelTest1.classList.remove("hidden");
-            if(navTest1Btn) navTest1Btn;
-          } else if (type === "test2") {
-            panelTest2.classList.remove("hidden");
-            if(navTest2Btn) navTest2Btn;
-          } else if (type === "test3") {
-            panelTest3.classList.remove("hidden");
-            if(navTest3Btn) navTest3Btn;
+            navLogo.classList.add("text-primary", "dark:text-primary-dark");
+          } else if (type === "blog") {
+            panelBlog.classList.remove("hidden");
+            if(navBlogBtn) navBlogBtn.classList.add("bg-black/0", "dark:bg-white/0");
+          } else if (type === "project") {
+            panelProject.classList.remove("hidden");
+            if(navProjectBtn) navProjectBtn.classList.add("bg-black/0", "dark:bg-white/0");
+          } else if (type === "mine") {
+            panelMine.classList.remove("hidden");
+            if(navMineBtn) navMineBtn.classList.add("bg-black/0", "dark:bg-white/0");
+          } else if (type === "links") {
+            panelLinks.classList.remove("hidden");
+            if(navLinksBtn) navLinksBtn.classList.add("bg-black/0", "dark:bg-white/0");
+          } else if (type === "about") {
+            panelAbout.classList.remove("hidden");
+            if(navAboutBtn) navAboutBtn.classList.add("bg-black/0", "dark:bg-white/0");
           } else if (type === "search") {
             panelSearch.classList.remove("hidden");
-            setTimeout(() => {
-              document.getElementById("smart-search-input").focus();
-            }, 100);
+            setTimeout(() => { document.getElementById("smart-search-input").focus(); }, 100);
           } else if (type === "menu") {
             panelMenu.classList.remove("hidden");
           } else if (type === "narrow") {
             panelNarrowBox.classList.remove("hidden");
-            navNarrowCollapseBtn;
           }
 
           activePanelType = type;
 
-          // 箭头转角动效
           navLogoArrow.style.transform = (type === "contacts") ? "rotate(180deg)" : "rotate(0deg)";
-          narrowArrowIcon.style.transform = (type === "narrow") ? "rotate(180deg)" : "rotate(0deg)";
+          if(narrowArrowIcon) narrowArrowIcon.style.transform = (type === "narrow") ? "rotate(180deg)" : "rotate(0deg)";
 
-          // 高度动画
           Dropdown.style.height = "auto";
           const targetHeight = dropdownInner.offsetHeight;
 
           if (isDropdownOpen) {
-            // 回滚动画
             Dropdown.style.height = initialHeight + "px";
-            requestAnimationFrame(() => {
-              Dropdown.style.height = targetHeight + "px";
-            });
+            requestAnimationFrame(() => { Dropdown.style.height = targetHeight + "px"; });
           } else {
-            // 首次展开动画
             Dropdown.style.height = "0px";
             Dropdown.offsetHeight;
             Dropdown.style.height = targetHeight + "px";
@@ -1579,11 +1630,9 @@
           mainNavbar.classList.add("bg-white/95", "dark:bg-neutral-900/95", "shadow-md", "border-neutral-200/50", "dark:border-neutral-800/50");
           mainNavbar.classList.remove("bg-white/45", "dark:bg-black/45", "border-transparent");
 
-          // 蒙版半透明背景载入
           MenuBackdrop.classList.remove("opacity-0", "pointer-events-none");
           MenuBackdrop.classList.add("opacity-100");
 
-          // 选项菜单按钮变形控制
           if (type === "menu") {
             hLine1.style.transform = "rotate(45deg) translate(2.5px, -1px)";
             hLine2.style.opacity = "0";
@@ -1593,7 +1642,6 @@
           }
         };
 
-        // 关闭所有下拉面板
         window.closeMenuPanel = function() {
           activePanelType = null;
           isHoverLocked = false;
@@ -1601,23 +1649,19 @@
           Dropdown.style.height = "0px";
           
           navLogoArrow.style.transform = "rotate(0deg)";
-          narrowArrowIcon.style.transform = "rotate(0deg)";
-          [navLogo, navTest1Btn, navTest2Btn, navTest3Btn, navNarrowCollapseBtn].forEach(el => {
-            if(el) el.classList.remove("bg-black/5", "dark:bg-white/10");
+          if(narrowArrowIcon) narrowArrowIcon.style.transform = "rotate(0deg)";
+          [navLogo, navBlogBtn, navProjectBtn, navMineBtn, navLinksBtn, navAboutBtn, navNarrowCollapseBtn].forEach(el => {
+            if(el) el.classList.remove("bg-black/5", "dark:bg-white/10", "text-primary", "dark:text-primary-dark");
           });
 
-          // 回滚导航栏初始透明度
           mainNavbar.classList.remove("bg-white/95", "dark:bg-neutral-900/95", "shadow-md", "border-neutral-200/50", "dark:border-neutral-800/50");
           mainNavbar.classList.add("bg-white/45", "dark:bg-black/45", "border-transparent");
 
-          // 蒙版淡出
           MenuBackdrop.classList.remove("opacity-100");
           MenuBackdrop.classList.add("opacity-0", "pointer-events-none");
 
           resetHamburgerIcon();
-          resetMenuSlide();
 
-          // 还原空搜条件
           document.getElementById("smart-search-input").value = "";
           document.getElementById("search-clear-btn").classList.add("hidden");
           document.getElementById("search-placeholder-tips").classList.remove("hidden");
@@ -1630,50 +1674,59 @@
           hLine3.style.transform = "none";
         }
 
-        // 一键横向还原重置二级选项滑块至一级面板
-        function resetMenuSlide() {
-          if (menuSlideTrack) {
-            menuSlideTrack.style.transform = "translateX(0)";
-          }
-        }
-
-        // 统一点击事件响应，具有状态锁定效果
         navLogo.addEventListener("click", (e) => {
           e.stopPropagation();
           if (activePanelType === "contacts") closeMenuPanel();
           else openMenuPanel("contacts", true);
         });
 
-        if(navTest1Btn) {
-          navTest1Btn.addEventListener("click", (e) => {
+        if (navBlogBtn) {
+          navBlogBtn.addEventListener("click", (e) => {
             e.stopPropagation();
-            if (activePanelType === "test1") closeMenuPanel();
-            else openMenuPanel("test1", true);
+            if (activePanelType === "blog") closeMenuPanel();
+            else openMenuPanel("blog", true);
           });
         }
 
-        if(navTest2Btn) {
-          navTest2Btn.addEventListener("click", (e) => {
+        if (navProjectBtn) {
+          navProjectBtn.addEventListener("click", (e) => {
             e.stopPropagation();
-            if (activePanelType === "test2") closeMenuPanel();
-            else openMenuPanel("test2", true);
+            if (activePanelType === "project") closeMenuPanel();
+            else openMenuPanel("project", true);
           });
         }
 
-        if(navTest3Btn) {
-          navTest3Btn.addEventListener("click", (e) => {
+        if (navMineBtn) {
+          navMineBtn.addEventListener("click", (e) => {
             e.stopPropagation();
-            if (activePanelType === "test3") closeMenuPanel();
-            else openMenuPanel("test3", true);
+            if (activePanelType === "mine") closeMenuPanel();
+            else openMenuPanel("mine", true);
           });
         }
 
-        // 窄屏专属下拉收纳按钮触发器
-        navNarrowCollapseBtn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          if (activePanelType === "narrow") closeMenuPanel();
-          else openMenuPanel("narrow", true);
-        });
+        if (navLinksBtn) {
+          navLinksBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (activePanelType === "links") closeMenuPanel();
+            else openMenuPanel("links", true);
+          });
+        }
+
+        if (navAboutBtn) {
+          navAboutBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (activePanelType === "about") closeMenuPanel();
+            else openMenuPanel("about", true);
+          });
+        }
+
+        if (navNarrowCollapseBtn) {
+          navNarrowCollapseBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (activePanelType === "narrow") closeMenuPanel();
+            else openMenuPanel("narrow", true);
+          });
+        }
 
         navSearchBtn.addEventListener("click", (e) => {
           e.stopPropagation();
@@ -1687,28 +1740,25 @@
           else openMenuPanel("menu", true);
         });
 
-        // PC 悬停切换探针控制（防抖延时）
+        // PC端悬停处理
         let leaveTimeout = null;
-
         function clearLeaveTimeout() {
-          if (leaveTimeout) {
-            clearTimeout(leaveTimeout);
-            leaveTimeout = null;
-          }
+          if (leaveTimeout) { clearTimeout(leaveTimeout); leaveTimeout = null; }
         }
 
-        const hoverElements = [navLogo, navTest1Btn, navTest2Btn, navTest3Btn, navSearchBtn, navHamburgerBtn, Dropdown];
+        const hoverElements = [navLogo, navBlogBtn, navProjectBtn, navMineBtn, navLinksBtn, navAboutBtn, navSearchBtn, navHamburgerBtn, Dropdown];
         hoverElements.forEach(el => {
           if(!el) return;
           el.addEventListener("mouseenter", () => {
             if (window.innerWidth < 768) return; 
             clearLeaveTimeout();
-
             if (!isHoverLocked) {
               if (el === navLogo) openMenuPanel("contacts");
-              else if (el === navTest1Btn) openMenuPanel("test1");
-              else if (el === navTest2Btn) openMenuPanel("test2");
-              else if (el === navTest3Btn) openMenuPanel("test3");
+              else if (el === navBlogBtn) openMenuPanel("blog");
+              else if (el === navProjectBtn) openMenuPanel("project");
+              else if (el === navMineBtn) openMenuPanel("mine");
+              else if (el === navLinksBtn) openMenuPanel("links");
+              else if (el === navAboutBtn) openMenuPanel("about");
               else if (el === navSearchBtn) openMenuPanel("search");
               else if (el === navHamburgerBtn) openMenuPanel("menu");
             }
@@ -1718,9 +1768,7 @@
             if (window.innerWidth < 768) return;
             if (!isHoverLocked) {
               clearLeaveTimeout();
-              leaveTimeout = setTimeout(() => {
-                closeMenuPanel();
-              }, 400); 
+              leaveTimeout = setTimeout(() => { closeMenuPanel(); }, 400); 
             }
           });
         });
@@ -1729,265 +1777,68 @@
           if (window.innerWidth < 768) return;
           if (!isHoverLocked && activePanelType) {
             clearLeaveTimeout();
-            leaveTimeout = setTimeout(() => {
-              closeMenuPanel();
-            }, 400);
+            leaveTimeout = setTimeout(() => { closeMenuPanel(); }, 400);
           }
         });
 
-        mainNavbar.addEventListener("mouseenter", () => {
-          clearLeaveTimeout();
-        });
-
+        mainNavbar.addEventListener("mouseenter", () => clearLeaveTimeout());
         MenuBackdrop.addEventListener("click", closeMenuPanel);
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape") closeMenuPanel();
-        });
+        document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenuPanel(); });
 
+        // --- 主题切换控制 ---
+        const hThemeLightBtn = document.getElementById("header-theme-light-btn");
+        const hThemeDarkBtn = document.getElementById("header-theme-dark-btn");
+        const hThemeAutoBtn = document.getElementById("header-theme-auto-btn");
+        const hThemeIndicator = document.getElementById("header-theme-active-indicator");
 
-        // --- 3. 嵌套二级设置菜单的侧滑交互 ---
-        const menuToSettingsBtn = document.getElementById("menu-to-settings-btn");
-        const menuToAboutBtn = document.getElementById("menu-to-about-btn");
+        function updateHeaderThemeIndicator(mode) {
+          let activeBtn;
+          if (mode === "light") activeBtn = hThemeLightBtn;
+          else if (mode === "dark") activeBtn = hThemeDarkBtn;
+          else activeBtn = hThemeAutoBtn;
 
-        // 平滑侧滑并加载二级面板内容
-        function enterSecondaryPanel(htmlContent) {
-          menuSecondaryContainer.innerHTML = htmlContent;
-          menuSlideTrack.style.transform = "translateX(-50%)";
-
-          // 变换内容时动态计算子项高度并平滑过渡整个下拉面板的包裹高度
-          setTimeout(() => {
-            Dropdown.style.height = dropdownInner.offsetHeight + "px";
-          }, 50);
-        }
-
-        // 统一向外层暴露的返回一级菜单函数
-        window.backToMainMenu = function() {
-          resetMenuSlide();
-          // 由二级回到一级时同样优雅过渡高度大小
-          setTimeout(() => {
-            Dropdown.style.height = dropdownInner.offsetHeight + "px";
-          }, 50);
-        };
-
-        // 加载二级：个性化设置界面
-        menuToSettingsBtn.addEventListener("click", () => {
-          const settingsHtml = `
-            <div class="space-y-4">
-              <button onclick="backToMainMenu()" class="flex items-center space-x-1.5 py-1 px-2.5 -ml-1 rounded-lg text-xs font-bold text-primary dark:text-primary-dark hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
-                <i class="fa-solid fa-chevron-left text-[9px] opacity-70"></i>
-                <span>返回菜单</span>
-              </button>
-              
-              <h4 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 tracking-wider uppercase mb-1">个性化设置</h4>
-              
-              <div class="space-y-4 bg-transparent text-sm max-w-sm">
-                
-                <!-- 隐藏面板 -->
-                <div class="flex items-center justify-between">
-                  <div>
-                    <div class="font-semibold text-neutral-800 dark:text-neutral-100">隐藏主面板</div>
-                    <div class="text-xs text-neutral-500 dark:text-neutral-400">关闭页面上所有面板</div>
-                  </div>
-                  <label class="switch-toggle">
-                    <input type="checkbox" id="header-minimal-toggle" />
-                    <span class="switch-slider"></span>
-                  </label>
-                </div>
-
-                <!-- 显示背景 -->
-                <div class="flex items-center justify-between">
-                  <div>
-                    <div class="font-semibold text-neutral-800 dark:text-neutral-100">显示背景图</div>
-                    <div class="text-xs text-neutral-500 dark:text-neutral-400">启用或停用主页背景图</div>
-                  </div>
-                  <label class="switch-toggle">
-                    <input type="checkbox" id="header-bg-toggle" checked />
-                    <span class="switch-slider"></span>
-                  </label>
-                </div>
-
-                <!-- 透明效果 -->
-                <div class="flex items-center justify-between">
-                  <div>
-                    <div class="font-semibold text-neutral-800 dark:text-neutral-100">透明效果</div>
-                    <div class="text-xs text-neutral-500 dark:text-neutral-400">使面板拥有透明效果，如遇卡顿请关闭此项</div>
-                  </div>
-                  <label class="switch-toggle">
-                    <input type="checkbox" id="header-transparency-toggle" checked />
-                    <span class="switch-slider"></span>
-                  </label>
-                </div>
-
-                <!-- 深色模式 -->
-                <div class="pt-3">
-                  <div class="font-semibold text-neutral-800 dark:text-neutral-100 mb-2">深色模式选项</div>
-                  <div class="relative grid grid-cols-3 gap-1 bg-neutral-200/50 dark:bg-black/40 p-1 rounded-lg">
-                    <div
-                      id="header-theme-active-indicator"
-                      class="absolute top-1 bottom-1 rounded-md bg-[#97CBFF80] dark:bg-[#004A7680] shadow-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none"
-                    ></div>
-                    <button
-                      id="header-theme-light-btn"
-                      class="relative z-10 py-1 px-1.5 rounded-md text-[11px] font-semibold text-neutral-700 dark:text-neutral-300 transition-colors"
-                    >
-                      浅色
-                    </button>
-                    <button
-                      id="header-theme-dark-btn"
-                      class="relative z-10 py-1 px-1.5 rounded-md text-[11px] font-semibold text-neutral-700 dark:text-neutral-300 transition-colors"
-                    >
-                      深色
-                    </button>
-                    <button
-                      id="header-theme-auto-btn"
-                      class="relative z-10 py-1 px-1.5 rounded-md text-[11px] font-semibold text-neutral-700 dark:text-neutral-300 transition-colors"
-                    >
-                      跟随系统
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          `;
-          
-          enterSecondaryPanel(settingsHtml);
-          // 激活二级设置事件监听
-          setTimeout(() => {
-            bindSecondarySettingsEvents();
-          }, 50);
-        });
-
-        // 加载二级：关于星月Fox界面
-        menuToAboutBtn.addEventListener("click", () => {
-          const aboutHtml = `
-            <div class="space-y-4">
-              <button onclick="backToMainMenu()" class="flex items-center space-x-1.5 py-1 px-2.5 -ml-1 rounded-lg text-xs font-bold text-primary dark:text-primary-dark hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
-                <i class="fa-solid fa-chevron-left text-[9px] opacity-70"></i>
-                <span>返回菜单</span>
-              </button>
-              
-              <h4 class="text-xs font-bold text-neutral-400 dark:text-neutral-500 tracking-wider uppercase">关于此页面</h4>
-              
-              <div class="space-y-4 bg-neutral-200/10 dark:bg-white/5 p-4 rounded-xl border border-neutral-200/30 dark:border-neutral-800/30 max-w-sm text-xs leading-relaxed">
-                <div class="flex items-start justify-between">
-                  <div>
-                    <div class="text-lg font-bold text-neutral-900 dark:text-white">星月Fox的主页</div>
-                    <div class="text-[12px] text-neutral-500 dark:text-neutral-400 mt-0.5">版本: 26.2.7200 | 正式版</div>
-                  </div>
-                  <span class="text-[12px] font-semibold px-2 py-0.5 rounded-full text-primary dark:text-primary-dark bg-primary/10 border border-primary/10 flex items-center">
-                    最近更新: 2026/08/08
-                  </span>
-                </div>
-
-                <p class="text-[12px] text-neutral-600 dark:text-neutral-300">
-                  改进搜索索引的准确性<br>修复部分设备GPU异常占用过高
-                </p>
-
-                <div class="pt-3 border-t border-neutral-300/70 dark:border-neutral-600/70 flex justify-between items-center text-[12px]">
-                  <span class="text-neutral-500 dark:text-neutral-300">由星月为您呈现 © 2026 星月Fox.</span>
-                  <div class="flex space-x-2.5 text-sm text-neutral-700 dark:text-neutral-300">
-                    <a href="https://space.bilibili.com/3493117999188634" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-bilibili"></i></a>
-                    <a href="https://github.com/XingYueFox" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
-                    <a href="mailto:xingyue_fox@outlook.com" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-envelope"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          `;
-          
-          enterSecondaryPanel(aboutHtml);
-        });
-
-        // 绑定二级页面专属的事件响应机制
-        function bindSecondarySettingsEvents() {
-          const hMinimalToggle = document.getElementById("header-minimal-toggle");
-          const hBgToggle = document.getElementById("header-bg-toggle");
-          const hTransparencyToggle = document.getElementById("header-transparency-toggle");
-          
-          const hThemeLightBtn = document.getElementById("header-theme-light-btn");
-          const hThemeDarkBtn = document.getElementById("header-theme-dark-btn");
-          const hThemeAutoBtn = document.getElementById("header-theme-auto-btn");
-          const hThemeIndicator = document.getElementById("header-theme-active-indicator");
-
-          // 初始化二级开关的状态
-          if (hMinimalToggle) hMinimalToggle.checked = isMinimalMode;
-          if (hBgToggle) hBgToggle.checked = isBgVisible;
-          if (hTransparencyToggle) hTransparencyToggle.checked = isTransparencyEnabled;
-
-          function updateHeaderThemeIndicator(mode) {
-            let activeBtn;
-            if (mode === "light") activeBtn = hThemeLightBtn;
-            else if (mode === "dark") activeBtn = hThemeDarkBtn;
-            else activeBtn = hThemeAutoBtn;
-
-            if (activeBtn && hThemeIndicator) {
-              hThemeIndicator.style.left = `${activeBtn.offsetLeft}px`;
-              hThemeIndicator.style.width = `${activeBtn.offsetWidth}px`;
-            }
-          }
-
-          function applyThemeModeUnified(mode) {
-            if (!hThemeLightBtn) return;
-            [hThemeLightBtn, hThemeDarkBtn, hThemeAutoBtn].forEach(btn => {
-              btn.className = "relative z-10 py-1 px-1.5 rounded-md text-[11px] font-semibold text-neutral-600 dark:text-neutral-400 transition-colors duration-300";
-            });
-
-            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            let activeBtn;
-
-            if (mode === "light") {
-              htmlElement.classList.remove("dark");
-              localStorage.setItem("theme", "light");
-              activeBtn = hThemeLightBtn;
-            } else if (mode === "dark") {
-              htmlElement.classList.add("dark");
-              localStorage.setItem("theme", "dark");
-              activeBtn = hThemeDarkBtn;
-            } else {
-              if (prefersDark) htmlElement.classList.add("dark");
-              else htmlElement.classList.remove("dark");
-              localStorage.setItem("theme", "auto");
-              activeBtn = hThemeAutoBtn;
-            }
-
-            activeBtn.className = "relative z-10 py-1 px-1.5 rounded-md text-[11px] font-semibold text-neutral-900 dark:text-white transition-colors duration-300";
-            updateHeaderThemeIndicator(mode);
-          }
-
-          hThemeLightBtn.addEventListener("click", () => applyThemeModeUnified("light"));
-          hThemeDarkBtn.addEventListener("click", () => applyThemeModeUnified("dark"));
-          hThemeAutoBtn.addEventListener("click", () => applyThemeModeUnified("auto"));
-
-          // 设置初始 Theme
-          const currentMode = localStorage.getItem("theme") || "auto";
-          applyThemeModeUnified(currentMode);
-
-          // 开关变更时的事件挂载与双向数据同步
-          if (hMinimalToggle) {
-            hMinimalToggle.addEventListener("change", (e) => {
-              applyMinimalModeUnified(e.target.checked);
-            });
-          }
-
-          if (hBgToggle) {
-            hBgToggle.addEventListener("change", (e) => {
-              isBgVisible = e.target.checked;
-              localStorage.setItem("bg-visible", isBgVisible ? "true" : "false");
-              applyBgVisibilityUnified(isBgVisible);
-            });
-          }
-
-          if (hTransparencyToggle) {
-            hTransparencyToggle.addEventListener("change", (e) => {
-              isTransparencyEnabled = e.target.checked;
-              localStorage.setItem("transparency-enabled", isTransparencyEnabled ? "true" : "false");
-              applyTransparencyUnified(isTransparencyEnabled);
-            });
+          if (activeBtn && hThemeIndicator) {
+            hThemeIndicator.style.left = `${activeBtn.offsetLeft}px`;
+            hThemeIndicator.style.width = `${activeBtn.offsetWidth}px`;
           }
         }
 
+        function applyThemeModeUnified(mode) {
+          if (!hThemeLightBtn) return;
+          [hThemeLightBtn, hThemeDarkBtn, hThemeAutoBtn].forEach(btn => {
+            btn.className = "relative z-10 py-1 px-1.5 rounded-md text-[11px] font-semibold text-neutral-600 dark:text-neutral-400 transition-colors duration-300";
+          });
 
-        // --- 4. 搜索面板模糊过滤检索机制 ---
+          const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          let activeBtn;
+
+          if (mode === "light") {
+            htmlElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+            activeBtn = hThemeLightBtn;
+          } else if (mode === "dark") {
+            htmlElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+            activeBtn = hThemeDarkBtn;
+          } else {
+            if (prefersDark) htmlElement.classList.add("dark");
+            else htmlElement.classList.remove("dark");
+            localStorage.setItem("theme", "auto");
+            activeBtn = hThemeAutoBtn;
+          }
+
+          activeBtn.className = "relative z-10 py-1 px-1.5 rounded-md text-[11px] font-semibold text-neutral-900 dark:text-white transition-colors duration-300";
+          updateHeaderThemeIndicator(mode);
+        }
+
+        if (hThemeLightBtn) hThemeLightBtn.addEventListener("click", () => applyThemeModeUnified("light"));
+        if (hThemeDarkBtn) hThemeDarkBtn.addEventListener("click", () => applyThemeModeUnified("dark"));
+        if (hThemeAutoBtn) hThemeAutoBtn.addEventListener("click", () => applyThemeModeUnified("auto"));
+
+        const currentMode = localStorage.getItem("theme") || "auto";
+        applyThemeModeUnified(currentMode);
+
+        // --- 4. 搜索面板检索机制 (保留原 library.html 数据源) ---
         const smartSearchInput = document.getElementById("smart-search-input");
         const searchClearBtn = document.getElementById("search-clear-btn");
         const searchPlaceholderTips = document.getElementById("search-placeholder-tips");
@@ -1996,8 +1847,6 @@
         const searchResultsList = document.getElementById("search-results-list");
 
         const searchDatabase = [
-
-
           { name: "网站：GitHub", type: "web", tab: "website", preview: "全球领先的开源代码托管平台。", url:"https://github.com/" },
           { name: "网站：Cloudflare", type: "web", tab: "website", preview: "全球领先的 CDN 和 Web 安全服务提供商。", url:"https://www.cloudflare.com/" },
           { name: "网站：ChatGPT", type: "web", tab: "website", preview: "强大的 AI 对话模型，支持多语言交互。", url:"https://chat.openai.com/" },
@@ -2017,9 +1866,8 @@
           { name: "游戏：赛博朋克2077", type: "game", targetId: "readme-panel", preview: "赛博朋克风开放世界，夜之城的故事", url: "https://www.cyberpunk.net/" },
           { name: "游戏：地平线", type: "game", targetId: "readme-panel", preview: "极限竞速：地平线 探索与赛车", url: "https://forza.net/" },
           { name: "游戏：鸣潮", type: "game", targetId: "readme-panel", preview: "开放世界，二次元动作巨作", url: "https://mc.kurogames.com/main" },
-          { name: "动态：星月在Minecraft中 (Drive)", type: "news", targetId: "news-panel", preview: "点击跳转托管的外置图片包", url: "https://drive.google.com/drive/folders/15v32ha1JSSh7SUVVIhJyqWlZYyvI0mOw" },
-          { name: "动态：鸣潮壁纸资源 (Drive)", type: "news", targetId: "news-panel", preview: "包含剧情CG图，版本活动图及版本动态封面", url: "https://drive.google.com/drive/folders/1GwBykGeMJ3pF_mcbdA9TX9RgzC_3dyzQ" },
-          { name: "动态：BlueArchive Cafe", type: "news", targetId: "news-panel", preview: "蔚蓝档案咖啡厅汉化组", url: "https://bluearchive.cafe" },
+          { name: "快速链接：星月在Minecraft", type: "news", targetId: "news-panel", preview: "我在Minecraft中的拍下的照片", url: "https://drive.google.com/drive/folders/15v32ha1JSSh7SUVVIhJyqWlZYyvI0mOw" },
+          { name: "快速链接：鸣潮壁纸资源", type: "news", targetId: "news-panel", preview: "包含剧情CG图，版本活动图及版本动态封面", url: "https://drive.google.com/drive/folders/1GwBykGeMJ3pF_mcbdA9TX9RgzC_3dyzQ" },
           { name: "联系方式：Outlook 电子邮箱", type: "contact", targetId: "intro-panel", preview: "xingyue_fox@outlook.com", url: "mailto:xingyue_fox@outlook.com" },
           { name: "联系方式：Gmail 电子邮箱", type: "contact", targetId: "intro-panel", preview: "xingyuefox@gmail.com", url: "mailto:xingyuefox@gmail.com" },
           { name: "联系方式：Bilibili 个人空间", type: "contact", targetId: "readme-panel", preview: "星月_Fox", url: "https://space.bilibili.com/3493117999188634" },
@@ -2034,9 +1882,7 @@
             searchClearBtn.classList.add("hidden");
             searchPlaceholderTips.classList.remove("hidden");
             searchResultsWrapper.classList.add("hidden");
-            setTimeout(() => {
-              Dropdown.style.height = dropdownInner.offsetHeight + "px";
-            }, 50);
+            setTimeout(() => { Dropdown.style.height = dropdownInner.offsetHeight + "px"; }, 50);
             return;
           }
 
@@ -2053,15 +1899,11 @@
           searchResultsList.innerHTML = "";
 
           if (filtered.length === 0) {
-            searchResultsList.innerHTML = `
-              <div class="p-3 text-center text-xs text-neutral-500 dark:text-neutral-400">
-                未检索到符合条件的项，换个关键词试试 
-              </div>
-            `;
+            searchResultsList.innerHTML = `<div class="p-3 text-center text-xs text-neutral-500 dark:text-neutral-400">未检索到符合条件的项，换个关键词试试</div>`;
           } else {
             filtered.forEach(item => {
               const row = document.createElement("button");
-              row.className = "w-full text-left p-2.5 rounded-lg bg-neutral-200/20 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors flex flex-col space-y-0.5";
+              row.className = "w-full text-left p-2.5 rounded-lg bg-neutral-200/20 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 transition-colors flex flex-col space-y-0.5 cursor-pointer";
               
               let typeBadge = "";
               if (item.type === "game") typeBadge = '<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">游戏库</span>';
@@ -2076,23 +1918,15 @@
                 <span class="text-[11px] text-neutral-500 dark:text-neutral-400 font-normal">${item.preview}</span>
               `;
 
-              //新增：点击跳转（实验性）
               row.addEventListener("click", () => {
                 closeMenuPanel();
-                if (item.url) {
+                if (item.tab) {
+                  switchTab(item.tab);
+                } else if (item.url) {
                   if (item.url.startsWith("http://") || item.url.startsWith("https://") || item.url.startsWith("mailto:")) {
                     window.open(item.url, "_blank");
                   } else {
                     window.location.href = item.url;
-                  }
-                } else if (item.targetId) {
-                  const targetEl = document.getElementById(item.targetId);
-                  if (targetEl) {
-                    targetEl.scrollIntoView({ behavior: "smooth", block: "center" });
-                    targetEl.classList.add("ring-2", "ring-primary", "dark:ring-primary-dark");
-                    setTimeout(() => {
-                      targetEl.classList.remove("ring-2", "ring-primary", "dark:ring-primary-dark");
-                    }, 2000);
                   }
                 }
               });
@@ -2101,9 +1935,7 @@
             });
           }
 
-          setTimeout(() => {
-            Dropdown.style.height = dropdownInner.offsetHeight + "px";
-          }, 50);
+          setTimeout(() => { Dropdown.style.height = dropdownInner.offsetHeight + "px"; }, 50);
         });
 
         searchClearBtn.addEventListener("click", () => {
@@ -2117,8 +1949,7 @@
           smartSearchInput.dispatchEvent(new Event("input"));
         };
 
-
-        // --- 5. MD 涟漪效果实现 ---
+        // MD 涟漪效果
         function createRipple(e, target) {
           const rect = target.getBoundingClientRect();
           const clientX = e.touches ? e.touches[0].clientX : e.clientX;
@@ -2135,10 +1966,7 @@
           ripple.style.top = `${y - size / 2}px`;
 
           target.appendChild(ripple);
-
-          ripple.addEventListener("animationend", () => {
-            ripple.remove();
-          });
+          ripple.addEventListener("animationend", () => ripple.remove());
         }
 
         document.body.addEventListener("mousedown", function (e) {
@@ -2155,3 +1983,4 @@
     </script>
   </body>
 </html>
+

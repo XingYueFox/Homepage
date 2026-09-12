@@ -19,6 +19,29 @@
         <feComposite in="SourceGraphic" in2="goo" operator="atop" />
       </filter>
     </svg>
+    <!--深色模式加载修复-->
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem("theme");
+          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var isDark = savedTheme === "dark" || (savedTheme !== "light" && prefersDark);
+          var root = document.documentElement;
+
+          if (isDark) {
+            root.classList.add("dark");
+            root.style.colorScheme = "dark";
+          } else {
+            root.style.colorScheme = "light";
+          }
+
+          if (localStorage.getItem("transparency-enabled") !== "true") {
+            root.classList.add("no-transparency");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <style>
       link[rel="icon"] {
         filter: url(#roundAvatar);
@@ -774,7 +797,7 @@
                   
                   <div>
                     <div class="text-xl font-bold text-neutral-900 dark:text-white">星月Fox的主页</div>
-                    <div class="text-xs text-neutral-500 dark:text-neutral-400">最近更新: 2026/08/10</div>
+                    <div class="text-xs text-neutral-500 dark:text-neutral-400">最近更新: 2026/09/12</div>
                   </div>
                 </div>
               </div>
@@ -860,7 +883,7 @@
                     <div class="text-xs text-neutral-500 dark:text-neutral-400">使面板拥有透明效果，如遇卡顿请关闭此项</div>
                   </div>
                   <label class="switch-toggle shrink-0">
-                    <input type="checkbox" id="header-transparency-toggle" checked />
+                    <input type="checkbox" id="header-transparency-toggle" />
                     <span class="switch-slider"></span>
                   </label>
                 </div>
@@ -906,7 +929,7 @@
     <div id="hero-typewriter-container" class="w-full text-center px-4 pointer-events-none z-10 hero-visible">
       <h1 class="text-5xl lg:text-6xl 2xl:text-7xl font-semibold tracking-tight text-neutral-100/80 dark:text-neutral-100/80 drop-shadow-md mb-2">
         This is XingYue_Fox!
-      </h1>
+      </h1><br>
       <div class="text-lg sm:text-2xl font-medium text-neutral-100/80 dark:text-neutral-100/80 drop-shadow flex items-center justify-center min-h-[2rem]">
         <span id="typewriter-text" class="tracking-wide"></span>
         <span class="typewriter-cursor bg-primary dark:bg-primary-dark"></span>
@@ -1304,26 +1327,10 @@
 
     <!-- JavaScript 交互驱动逻辑 -->
     <script>
-      (function() {
-        const savedTheme = localStorage.getItem("theme");
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        if (savedTheme === "dark" || (savedTheme !== "light" && prefersDark)) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-        const savedTransparency = localStorage.getItem("transparency-enabled");
-        if (savedTransparency === "false") {
-          document.documentElement.classList.add("no-transparency");
-        } else {
-          document.documentElement.classList.remove("no-transparency");
-        }
-      })();
-
       document.addEventListener("DOMContentLoaded", function () {
         const htmlElement = document.documentElement;
 
-        // 顶部大标题下的打字机字幕列表
+        // 顶部大标题下的字幕列表
         const typewriterPhrases = [
           "该吃午饭啦 (,,>᎑<,,)",
           "张雪峰老师，我还记得你~",
@@ -1375,7 +1382,7 @@
         // 全局设置状态变量（默认：title-only 显示标题模式）
         let currentDisplayMode = localStorage.getItem("panel-display-mode") || "title-only";
         let isBgVisible = localStorage.getItem("bg-visible") !== "false";
-        let isTransparencyEnabled = localStorage.getItem("transparency-enabled") !== "false";
+        let isTransparencyEnabled = localStorage.getItem("transparency-enabled") === "true";
 
         const bgImage = document.getElementById("main-bg-image");
         const bgOverlay = document.getElementById("main-bg-overlay");
@@ -1600,6 +1607,10 @@
             setTimeout(() => { document.getElementById("smart-search-input").focus(); }, 100);
           } else if (type === "menu") {
             panelMenu.classList.remove("hidden");
+            requestAnimationFrame(() => {
+              const currentMode = localStorage.getItem("theme") || "auto";
+              updateHeaderThemeIndicator(currentMode);
+            });
           } else if (type === "narrow") {
             panelNarrowBox.classList.remove("hidden");
           }
